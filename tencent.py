@@ -12,7 +12,7 @@ from List_Zentao import ID, mongodb_id, tuple_id
 from PIL import ImageGrab
 from bson import ObjectId
 
-# Connect to the MongoDB server running on localhost at default port 27017
+# # Connect to the MongoDB Local server running on localhost at default port 27017
 client = pymongo.MongoClient("mongodb://localhost:27017")
 # Access Database
 db = client["Thomas"]

@@ -11,10 +11,12 @@ from selenium.webdriver.chrome.options import Options                           
 from List_Zentao import ID, mongodb_id,tuple_id                                                        # 调用 List_Zentao.py，然后使用 ID 变量
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              # 调用 List_Aliyun_DDCaptcha.py, 然后使用 m_X1,m_Y2,d_X1,d_Y2 (主要是用于拉aliyun滑动验证码)
 from PIL import ImageGrab, Image    
-from bson.objectid import ObjectId                                                                     # 这个是用来截图的, 安装：pip install pillow
+from bson.objectid import ObjectId   
+from pymongo import MongoClient                                                                  # 这个是用来截图的, 安装：pip install pillow
 
-# Connect to the MongoDB server running on localhost at default port 27017
+# Connect to the MongoDB Local server running on localhost at default port 27017
 client = pymongo.MongoClient("mongodb://localhost:27017")
+
 # Access Database
 db = client["Thomas"]
 # Access Collection
