@@ -1,27 +1,36 @@
-import pymongo                                                                                         # MongoDB pip install pymongo
-import time                                                                                            # 主要用来延迟时间
-import pyautogui                                                                                       # 这个主要是用来跑自动的东西，比如自动写字，自动按，自动滑动等等
-import re                                                                                              # re 这个东西是用于过滤并更换 （这个我多数问chatgpt给答案的）比如 $221, 我不想要 $, 那我就可以使用re来移除掉 $
-import sys                                                                                             # 主要用在sys.exit(1)， 如果程序出错就会停止了, 不会继续跑
-from selenium import webdriver                                                                         # 用来跑Selenium 和 google 自动化, 安装: pip install selenium
-from selenium.webdriver.common.by import By                                                            # 用来跑Selenium 和 google 自动化 （主要用等匹配到关键字，才继续执行任务）
-from selenium.webdriver.support.wait import WebDriverWait                                              # 用来跑Selenium 和 google 自动化 （主要用等匹配到关键字，才继续执行任务）
-from selenium.webdriver.support import expected_conditions as EC                                       # 用来跑Selenium 和 google 自动化 （主要用等匹配到关键字，才继续执行任务）By, Webdriverwait 和 EC 是一起用的
-from selenium.webdriver.chrome.options import Options                                                  # 用在chrome的东西来的吧 （我也不懂什么来的 xD!!!)                                                      # openpyxl 是用来跑 Excel, 安装：pip install openpyxl
-from List_Zentao import ID, mongodb_id,tuple_id                                                        # 调用 List_Zentao.py，然后使用 ID 变量
-from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              # 调用 List_Aliyun_DDCaptcha.py, 然后使用 m_X1,m_Y2,d_X1,d_Y2 (主要是用于拉aliyun滑动验证码)
+import certifi
+import pymongo                                                                                     
+import time                                                                                            
+import pyautogui                                                                                       
+import re                                                                                              
+import sys                                                                                            
+from selenium import webdriver                                                                        
+from selenium.webdriver.common.by import By                                                            
+from selenium.webdriver.support.wait import WebDriverWait                                              
+from selenium.webdriver.support import expected_conditions as EC                                       
+from selenium.webdriver.chrome.options import Options                                                  
+from List_Zentao import ID, mongodb_id,tuple_id                                                       
+from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab, Image    
 from bson.objectid import ObjectId   
-from pymongo import MongoClient                                                                  # 这个是用来截图的, 安装：pip install pillow
+from pymongo import MongoClient                                                                  
 
-# Connect to the MongoDB Local server running on localhost at default port 27017
-client = pymongo.MongoClient("mongodb://localhost:27017")
+# Local Server
+# # Connect to the MongoDB Local server running on localhost at default port 27017
+# client = pymongo.MongoClient("mongodb://localhost:27017")
+# # Access Database
+# db = client["Thomas"]
+# # Access Collection
+# collection = db["Night_Database"]
 
+# MongoDB Atlas (Server)
+client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
 # Access Database
 db = client["Thomas"]
 # Access Collection
 collection = db["Night_Database"]
-    
+
+
 def main():
     options=Options()
     options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')

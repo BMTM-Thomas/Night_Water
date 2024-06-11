@@ -1,4 +1,5 @@
 import time
+import certifi
 import pyautogui
 import sys
 import pymongo
@@ -10,9 +11,18 @@ from selenium.webdriver.chrome.options import Options
 from List_Zentao import ID, mongodb_id, tuple_id 
 from PIL import ImageGrab
 from bson.objectid import ObjectId  
+from pymongo import MongoClient  
 
+# Local Server
 # # Connect to the MongoDB Local server running on localhost at default port 27017
-client = pymongo.MongoClient("mongodb://localhost:27017")
+# client = pymongo.MongoClient("mongodb://localhost:27017")
+# # Access Database
+# db = client["Thomas"]
+# # Access Collection
+# collection = db["Night_Database"]
+
+# MongoDB Atlas (Server)
+client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
 # Access Database
 db = client["Thomas"]
 # Access Collection
