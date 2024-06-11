@@ -106,7 +106,7 @@ def zentao(driver):
         pyautogui.click(x=600, y=644)
 
         id = 0
-        for y in range(95): #95
+        for y in range(94): #94
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
             documents = collection.find_one(mangos_id)
             ven_machine_value = documents.get('Ven_Machine','N/A')

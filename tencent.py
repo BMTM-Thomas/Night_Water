@@ -79,7 +79,7 @@ def tencent1(driver):
             pyautogui.click(x=1422, y=336)
             time.sleep(1)
         
-        for i in range(6):
+        for i in range(5):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '扫码登录')
             pyautogui.click(x=604, y=232)
             time.sleep(1)     
