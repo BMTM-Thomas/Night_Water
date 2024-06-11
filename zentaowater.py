@@ -110,10 +110,10 @@ def zentao(driver):
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
             documents = collection.find_one(mangos_id)
             ven_machine_value = documents.get('Ven_Machine','N/A')
-            ven_value = documents.get('_id','N/A')
+    
             credit_value = documents.get('Credit', 'N/A') 
             unit_value = documents.get('Unit', 'N/A')
-            merge = ven_value + ven_machine_value + " " + credit_value + " " + unit_value
+            merge = ven_machine_value + " " + credit_value + " " + unit_value
 
             pyperclip.copy(merge)
             pyautogui.hotkey("command", "v")
