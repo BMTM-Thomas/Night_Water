@@ -124,4 +124,5 @@ n_webpage = (
             "http://10.77.1.196/stocks/d0440c05-c1c2-4228-a346-26901f2ebf7f/"          # ven295
             )
 
-print(len(n_webpage))
+if __name__ == "__main__":
+    print(len(n_webpage))
