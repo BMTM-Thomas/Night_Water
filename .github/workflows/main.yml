@@ -18,15 +18,15 @@ jobs:
 
       - name: Log in to LastPass
         env:
-          LPASS_USERNAME: ${malaysia@turret-tech.com}
-          LPASS_PASSWORD: ${ubc7SY7s+ys@e#Z%}
+          LPASS_USERNAME: malaysia@turret-tech.com
+          LPASS_PASSWORD: ubc7SY7s+ys@e#Z%
         run: |
           echo $LPASS_PASSWORD | lpass login $LPASS_USERNAME
           
       - name: Retrieve secret
         id: retrieve-secret
         run: |
-          secret=$(lpass show --notes "NameOfYourSecret")
+          secret=$(lpass show --notes "ubc7SY7s+ys@e#Z%")
           echo "::set-output name=secret::$secret"
           
       - name: Use the secret
