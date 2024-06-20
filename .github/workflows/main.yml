@@ -1,0 +1,34 @@
+name: Use LastPass Secrets on macOS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  retrieve-secrets:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install LastPass CLI
+        run: |
+          brew install lastpass-cli
+
+      - name: Log in to LastPass
+        env:
+          LPASS_USERNAME: ${malaysia@turret-tech.com}
+          LPASS_PASSWORD: ${ubc7SY7s+ys@e#Z%}
+        run: |
+          echo $LPASS_PASSWORD | lpass login $LPASS_USERNAME
+          
+      - name: Retrieve secret
+        id: retrieve-secret
+        run: |
+          secret=$(lpass show --notes "NameOfYourSecret")
+          echo "::set-output name=secret::$secret"
+          
+      - name: Use the secret
+        run: |
+          echo "The secret is ${{ steps.retrieve-secret.outputs.secret }}"
