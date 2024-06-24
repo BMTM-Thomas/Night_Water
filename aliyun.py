@@ -30,7 +30,6 @@ db = client["Thomas"]
 # Access Collection
 collection = db["Night_Database"]
 
-
 def main():
     options=Options()
     options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
