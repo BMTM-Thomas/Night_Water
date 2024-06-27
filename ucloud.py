@@ -65,8 +65,6 @@ def ucloud(driver):
             pyautogui.press('r')
             time.sleep(1)
 
-        # demodemodemodemodemodemo
-
         for i in range(3):
             wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div[1]', '账号登录') 
             time.sleep(1)
