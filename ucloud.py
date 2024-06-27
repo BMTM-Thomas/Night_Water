@@ -66,7 +66,7 @@ def ucloud(driver):
             time.sleep(1)
 
         for i in range(3):
-            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div/span', '账号登录') 
+            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div[1]', '账号登录') 
             time.sleep(1)
             pyautogui.click(x=1416, y=62)
 
