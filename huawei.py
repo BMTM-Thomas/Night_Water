@@ -67,7 +67,7 @@ def huawei1(driver):
     i = 0
     
     try:
-        for i in range(16):
+        for i in range(14):
             # # Go to Webpage
             driver.get(Huawei_Webpage[i])
             with pyautogui.hold('command'):

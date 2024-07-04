@@ -108,7 +108,6 @@ def low_water ():
             collection.update_one(mangos_id, {"$set": {"Report": "Reported"}})
         else:
             collection.update_one(mangos_id, {"$set": {"Report": "Not Yet"}})
-  
         i+=1      
         id+=1
     print("\n\n")

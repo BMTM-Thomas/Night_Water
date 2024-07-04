@@ -325,7 +325,7 @@ def tencent4(driver):
     id = tuple_id[7]
 
     try:
-        for i in range(1,3):
+        for i in range(2):
             driver.get(Tencent_Webpage[i])
 
             time.sleep(3)
@@ -349,9 +349,13 @@ def tencent4(driver):
             time.sleep(1)
             pyautogui.click(x=1118, y=679)
 
-            # Wait Condition   
-            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
-            time.sleep(3)
+            # Wait Condition
+            if i == 0:   
+                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
+                time.sleep(3)
+            else:
+                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
+                time.sleep(3)
 
             # Open 可用额度
             if pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
@@ -360,12 +364,15 @@ def tencent4(driver):
 
             try:
             # Extract Credit (ven327, 328)   
-                credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div/div/div/em').get_attribute('textContent') 
-            except:
                 credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em').get_attribute('textContent') 
+            except:
+                credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div').get_attribute('textContent') 
+            
             # Replace
+            credit = re.sub(r'USD.*', 'USD', credit)
             credit = credit.replace(',', '')
             credit = credit.replace('USD', '')
+            
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
@@ -384,6 +391,7 @@ def tencent4(driver):
                 pyautogui.click(logout)
 
             time.sleep(2)
+            id+=1
 
     except Exception as e:
         print(f"An error occurred: {e}")

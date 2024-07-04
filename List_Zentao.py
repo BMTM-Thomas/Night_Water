@@ -174,8 +174,8 @@ Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421
                   )
 
 # Tencent CAM
-Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200022457909?s_url=https://console.tencentcloud.com/",      # ven366
-                   "https://www.tencentcloud.com/zh/account/login/subAccount/200035895854?s_url=https://console.tencentcloud.com/",      # ven451
+Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200022457909?s_url=https://console.tencentcloud.com/expense",                      # ven366
+                   "https://www.tencentcloud.com/zh/account/login/subAccount/200035895854?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo",      # ven451
                   )
 
 if __name__ == "__main__":
