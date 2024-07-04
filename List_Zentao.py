@@ -139,11 +139,11 @@ mongodb_id = (
 
 tuple_id = (
             0,    # 阿里云【中国站】 #338
-            4,    # ven387 费用 + IP 纯真社区版IP库离线下载 #122
-           37,    # 阿里云【国际站】 #134
-           50,    # 阿里云【国际站】【RAM】 #29
-           55,    # 腾讯云【中国站】#314
-           64,    # 腾讯云【国际站】#327
+            2,    # ven387 费用 + IP 纯真社区版IP库离线下载 #387
+            4,    # 阿里云【国际站】 #122
+           37,    # 阿里云【国际站】【RAM】 #134
+           50,    # 腾讯云【中国站】#29
+           55,    # 腾讯云【国际站】#314
            66,    # 腾讯云【中国站】【子用户】#322
            67,    # 腾讯云 CAM用户登录 #366
            69,    # 华为云【OPSADMIN】【IAM用户登录】#236
@@ -179,7 +179,17 @@ Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200
                   )
 
 if __name__ == "__main__":
-  index1= ID.index("ven295")
+
+  tupl3 = ["ven338", "ven387", "ven122", "ven134", "ven29", "ven314", "ven322", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295"]
+  
+  index1= ID.index("ven387")
   index2= mongodb_id[index1]
   index3 = mongodb_id.index(index2)
-  print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
+  # print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
+
+
+  for item in tupl3:
+    index1= ID.index(item)
+    print(f"Mongodb_ID & Ven_ID Index = {index1}")
+
+
