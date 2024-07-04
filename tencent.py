@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from List_Zentao import ID, mongodb_id, tuple_id
+from List_Zentao import ID, mongodb_id, tuple_id, Tencent_Webpage
 from PIL import ImageGrab
 from bson import ObjectId 
 from pymongo import MongoClient
@@ -325,64 +325,65 @@ def tencent4(driver):
     id = tuple_id[7]
 
     try:
-        driver.get('https://www.tencentcloud.com/zh/account/login/subAccount/200022457909?s_url=https://console.tencentcloud.com/expense')
+        for i in range(1,3):
+            driver.get(Tencent_Webpage[i])
 
-        time.sleep(3)
-        pyautogui.click(x=1416, y=62)
-       
-        # Wait for image Appear
-        image_vault = None
-        while image_vault is None:
-            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
-
-        time.sleep(1)
-        pyautogui.write(ID[id])
-        time.sleep(1)
-        pyautogui.click(x=1260, y=170)
-        time.sleep(1)
-        pyautogui.click(x=314, y=570)
-        time.sleep(1)
-
-         # Wait Condition   
-        wait(driver, '/html/body/div/main/div/div/div/div/div[2]/div[1]/div', '完善关联手机信息') 
-        time.sleep(1)
-        pyautogui.click(x=1118, y=679)
-
-        # Wait Condition   
-        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
-        time.sleep(3)
-
-        # Open 可用额度
-        if pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
-            pyautogui.click(x=1562, y=183)
-            time.sleep(1)
-
-        try:
-        # Extract Credit (ven327, 328)   
-            credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div/div/div/em').get_attribute('textContent') 
-        except:
-            credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em').get_attribute('textContent') 
-        # Replace
-        credit = credit.replace(',', '')
-        credit = credit.replace('USD', '')
+            time.sleep(3)
+            pyautogui.click(x=1416, y=62)
         
-        # MongoDB update Data 
-        mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        collection.update_one(mangos_id, {"$set": {"Credit": credit}})
-        print(f"{ID[id]}= {credit}")
+            # Wait for image Appear
+            image_vault = None
+            while image_vault is None:
+                image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
 
-        time.sleep(1)
-
-        # Screenshot
-        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-        pyautogui.moveTo(x=1555, y=136)
-        time.sleep(2)
-        logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
-        if logout is not None:
             time.sleep(1)
-            pyautogui.click(logout)
+            pyautogui.write(ID[id])
+            time.sleep(1)
+            pyautogui.click(x=1260, y=170)
+            time.sleep(1)
+            pyautogui.click(x=314, y=570)
+            time.sleep(1)
 
-        time.sleep(2)
+            # Wait Condition   
+            wait(driver, '/html/body/div/main/div/div/div/div/div[2]/div[1]/div', '完善关联手机信息') 
+            time.sleep(1)
+            pyautogui.click(x=1118, y=679)
+
+            # Wait Condition   
+            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
+            time.sleep(3)
+
+            # Open 可用额度
+            if pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
+                pyautogui.click(x=1562, y=183)
+                time.sleep(1)
+
+            try:
+            # Extract Credit (ven327, 328)   
+                credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div/div/div/em').get_attribute('textContent') 
+            except:
+                credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em').get_attribute('textContent') 
+            # Replace
+            credit = credit.replace(',', '')
+            credit = credit.replace('USD', '')
+            
+            # MongoDB update Data 
+            mangos_id = {'_id': ObjectId(mongodb_id[id])}
+            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            print(f"{ID[id]}= {credit}")
+
+            time.sleep(1)
+
+            # Screenshot
+            ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+            pyautogui.moveTo(x=1555, y=136)
+            time.sleep(2)
+            logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
+            if logout is not None:
+                time.sleep(1)
+                pyautogui.click(logout)
+
+            time.sleep(2)
 
     except Exception as e:
         print(f"An error occurred: {e}")

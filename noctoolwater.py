@@ -63,7 +63,7 @@ def noctool(driver):
     driver.get('http://10.77.1.196/stocks/')
     time.sleep(1)
     try:
-        for i in range(94): #94
+        for i in range(99): # 99
  
             driver.get(n_webpage[web])
             wait(driver, '/html/body/div/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖') 
@@ -94,7 +94,7 @@ def low_water ():
 
     print("\n\n")
     print("【低于安全水位】\n")
-    for i in range (94): #94
+    for i in range (99): #99
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
         documents = collection.find_one(mangos_id)
         ven = documents['Ven_Machine']

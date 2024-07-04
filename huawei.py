@@ -67,14 +67,13 @@ def huawei1(driver):
     i = 0
     
     try:
-        # Go to Webpage
-        driver.get(Huawei_Webpage[i])
-        with pyautogui.hold('command'):
-            pyautogui.press('r')
-            time.sleep(1)
-
-        for i in range(12):
+        for i in range(16):
+            # # Go to Webpage
             driver.get(Huawei_Webpage[i])
+            with pyautogui.hold('command'):
+                pyautogui.press('r')
+                time.sleep(1)
+
             wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span', 'IAM用户登录') 
             time.sleep(1)
             pyautogui.click(x=1416, y=62)

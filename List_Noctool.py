@@ -34,6 +34,8 @@ n_webpage = (
              "http://10.77.1.196/stocks/8ab7601a-92bd-411f-af71-c250631acbf0/",        # ven413
              "http://10.77.1.196/stocks/4373dfec-f1f5-4946-b143-09f50bf6d4e0/",        # ven416
              "http://10.77.1.196/stocks/d3ca46ad-5dad-437c-9a0a-36efa12139c0/",        # ven419
+             "http://10.77.1.196/stocks/4ad6ba24-b5de-4e82-a07e-1fe529272e55/",        # ven422
+             "http://10.77.1.196/stocks/f58c53de-bdee-449b-a9d3-5f17c52dec32/",        # ven423
              "http://10.77.1.196/stocks/1ff8c48e-019a-4ecc-b40f-bc9080a58fb4/",        # ven429
              "http://10.77.1.196/stocks/32ed73b5-8510-43db-9641-9a3f781c1798/",        # ven430
              "http://10.77.1.196/stocks/3b6dd8d5-25d5-4231-8d15-439ed068e40d/",        # ven438
@@ -78,6 +80,7 @@ n_webpage = (
 
             # 腾讯云 CAM用户登录
             "http://10.77.1.196/stocks/59cc541b-9b86-436b-b8b2-a23bf73b2b6b/",         # ven366
+            "http://10.77.1.196/stocks/b9e9e4e0-6b6c-444e-8a13-57503751e119/",         # ven451
 
             # 华为云 【IAM用户】
             "http://10.77.1.196/stocks/26bd3732-37f5-472a-b288-479e60387c20/",         # ven236
@@ -92,6 +95,8 @@ n_webpage = (
             "http://10.77.1.196/stocks/2a6741fc-eb73-4dbc-9921-ac3edf2b0d68/",         # ven405
             "http://10.77.1.196/stocks/4f61f9a6-0617-4d06-8e39-1cb016adf9d3/",         # ven410
             "http://10.77.1.196/stocks/87a68696-7d1e-4024-a003-01d640e7b574/",         # ven411
+            "http://10.77.1.196/stocks/ac2dee98-67ec-48f3-8ccb-b2df246710a2/",         # ven421
+            "http://10.77.1.196/stocks/ac2dee98-67ec-48f3-8ccb-b2df246710a2/",         # ven452
 
             # 华为云 【华为帐号登录】
             "http://10.77.1.196/stocks/ce9bbbcd-69c0-4aae-a26e-6bbbbb4acdcf/",         # ven303
