@@ -1,7 +1,7 @@
 import subprocess
 
 # Example command to list files in the current directory
-command = "git push origin main"
+command = "git pull origin main"
 
 # Execute the command
 process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
