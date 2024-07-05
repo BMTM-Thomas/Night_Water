@@ -1,64 +1,10 @@
 import time
-import certifi
 import pyautogui
 import sys
-import pymongo 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 from List_Zentao import ID, Huawei_Webpage, mongodb_id, tuple_id
 from PIL import ImageGrab
 from bson.objectid import ObjectId   
-from pymongo import MongoClient  
-  
-# Local Server
-# # Connect to the MongoDB Local server running on localhost at default port 27017
-# client = pymongo.MongoClient("mongodb://localhost:27017")
-# # Access Database
-# db = client["Thomas"]
-# # Access Collection
-# collection = db["Night_Database"]
-
-# MongoDB Atlas (Server)
-client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
-# Access Database
-db = client["Thomas"]
-# Access Collection
-collection = db["Night_Database"]
-
-def main():
-    options=Options()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--no-sandbox')
-    options.add_argument('start-maximized') 
-    options.add_argument('--remote-debugging-port=9222')
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--no-first-run")
-    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
-    options.add_argument("--hide-crash-restore-bubble")
-    options.add_experimental_option('useAutomationExtension', False)
-    driver=webdriver.Chrome(options=options)
-    huawei1(driver)
-    huawei2(driver)
-    driver.quit()
-
-def wait(driver, path, text):
-    try:
-        WebDriverWait(driver, 1000).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
-    except:
-        pass
-
-def wait2(driver, path, text):
-    try:
-        WebDriverWait(driver, 1).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
-    except:
-        pass
+from function import chrome, update_one, wait, find_element_text, find_element_nontext
 
 # 华为云【OPSADMIN】【IAM用户登录】
 def huawei1(driver):
@@ -108,7 +54,7 @@ def huawei1(driver):
                 wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div/cbcsubexpense-partner-budget/div[2]/div[2]/span[1]', '合作伙伴为您设置的一次性预算是:')
 
             # Extract Credit   
-            credit = driver.find_element(By.XPATH, value='/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div/cbcsubexpense-partner-budget/div[2]/div[1]/span').get_attribute('textContent') 
+            credit = find_element_nontext(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div/cbcsubexpense-partner-budget/div[2]/div[1]/span') 
 
             # Replace
             credit = credit.replace(',', '')
@@ -117,7 +63,7 @@ def huawei1(driver):
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             time.sleep(1)
@@ -125,7 +71,7 @@ def huawei1(driver):
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             try:
-                if driver.find_element(By.XPATH, value='/html/body/div[1]/div/div[1]/div/span[2]').get_attribute('textContent') == "您尚未开启敏感操作保护，存在安全风险，请您前往 安全设置>敏感操作>操作保护 开启敏感操作保护。":
+                if find_element_text(driver, '/html/body/div[1]/div/div[1]/div/span[2]', '您尚未开启敏感操作保护，存在安全风险，请您前往 安全设置>敏感操作>操作保护 开启敏感操作保护。'):
                     pyautogui.click(1574, 142)
                 else:
                     pyautogui.moveTo(1540, 138)
@@ -198,7 +144,7 @@ def huawei2(driver):
             time.sleep(1)
 
             # Extract Credit
-            credit = driver.find_element(By.XPATH, value='/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div/cbcsubexpense-partner-budget/div[2]/div[1]/span').get_attribute('textContent')
+            credit = find_element_nontext(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div/cbcsubexpense-partner-budget/div[2]/div[1]/span')
 
             # Replace
             credit = credit.replace(',', '')
@@ -207,7 +153,7 @@ def huawei2(driver):
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             time.sleep(1)
@@ -236,5 +182,6 @@ def huawei2(driver):
         print(f"An error occurred: {e}")
         time.sleep(11111)
 
-if __name__ == "__main__":
-    main()
+driver = chrome()
+huawei1(driver)
+huawei2(driver)
