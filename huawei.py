@@ -185,3 +185,4 @@ def huawei2(driver):
 driver = chrome()
 huawei1(driver)
 huawei2(driver)
+driver.close()

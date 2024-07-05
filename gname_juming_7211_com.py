@@ -339,4 +339,5 @@ jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)
 ven295(driver)
+driver.close()
 

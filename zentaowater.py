@@ -113,3 +113,4 @@ def zentao(driver):
 
 driver = chrome()
 zentao(driver)
+driver.close()

@@ -3,7 +3,7 @@ import pyautogui
 from List_Zentao import ID, mongodb_id
 from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick, find_one, update_one2
+from function import chrome, wait, find_one, update_one2
 
 # noctool
 def noctool(driver):
@@ -67,4 +67,5 @@ def low_water ():
 
 driver = chrome()
 noctool(driver)
+driver.close()
 low_water()
