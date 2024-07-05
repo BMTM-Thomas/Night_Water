@@ -15,25 +15,6 @@ def mongodb_atlas():
     collection = db["Night_Database"]
     return collection
 
-# MongoDB Update one Document / Credit
-def update_one(filter, update):
-    # update one data
-    collection = mongodb_atlas()
-    collection.update_one(filter, {"$set": {"Credit": update}})
-
-# MongoDB Update one Document / Report status
-def update_one2(filter, update):
-    # update one data
-    collection = mongodb_atlas()
-    collection.update_one(filter, {"$set": {"Reported": update}})
-
-# MongoDB Find One Document
-def find_one(find):
-    # Find one data
-    collection = mongodb_atlas()
-    document = collection.find_one(find)
-    return document
-
 # Selenium Chrome
 def chrome():
     options=Options()
@@ -52,6 +33,25 @@ def chrome():
     options.add_experimental_option('useAutomationExtension', False)
     driver=webdriver.Chrome(options=options)
     return driver
+
+# MongoDB Update one Document / Credit
+def update_one(filter, update):
+    # update one data
+    collection = mongodb_atlas()
+    collection.update_one(filter, {"$set": {"Credit": update}})
+
+# MongoDB Update one Document / Report status
+def update_one2(filter, update):
+    # update one data
+    collection = mongodb_atlas()
+    collection.update_one(filter, {"$set": {"Reported": update}})
+
+# MongoDB Find One Document
+def find_one(find):
+    # Find one data
+    collection = mongodb_atlas()
+    document = collection.find_one(find)
+    return document
 
 # wait
 def wait(driver, path, text):
