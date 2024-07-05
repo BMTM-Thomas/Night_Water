@@ -119,7 +119,7 @@ def aliyun1(driver):
 
             while True:
                 try:
-                    if find_element_text(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
@@ -387,7 +387,7 @@ def aliyun2(driver):
 
             while True:
                 try:
-                    if find_element_text(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', '基本资料'):
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', '基本资料'):
                         break
                 except:
                         pyautogui.moveTo(x= 1183, y=192)
@@ -517,7 +517,7 @@ def aliyun3(driver):
 
             while True:
                 try:
-                    if find_element_text(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
