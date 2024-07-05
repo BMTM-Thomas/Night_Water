@@ -4,7 +4,7 @@ import sys
 from List_Zentao import ID, Huawei_Webpage, mongodb_id, tuple_id
 from PIL import ImageGrab
 from bson.objectid import ObjectId   
-from function import chrome, update_one, wait, find_element_text, find_element_nontext
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
 
 # 华为云【OPSADMIN】【IAM用户登录】
 def huawei1(driver):
@@ -71,7 +71,7 @@ def huawei1(driver):
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             try:
-                if find_element_text(driver, '/html/body/div[1]/div/div[1]/div/span[2]', '您尚未开启敏感操作保护，存在安全风险，请您前往 安全设置>敏感操作>操作保护 开启敏感操作保护。'):
+                if find_element_XPATH(driver, '/html/body/div[1]/div/div[1]/div/span[2]', '您尚未开启敏感操作保护，存在安全风险，请您前往 安全设置>敏感操作>操作保护 开启敏感操作保护。'):
                     pyautogui.click(1574, 142)
                 else:
                     pyautogui.moveTo(1540, 138)

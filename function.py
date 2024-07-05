@@ -1,17 +1,9 @@
-import certifi                                                                                  
-import time                                                                                            
-import pyautogui                                                                                       
-import re                                                                                              
-import sys                                                                                            
+import certifi                                                                                                                                                                         
 from selenium import webdriver                                                                        
 from selenium.webdriver.common.by import By                                                            
 from selenium.webdriver.support.wait import WebDriverWait                                              
 from selenium.webdriver.support import expected_conditions as EC                                       
-from selenium.webdriver.chrome.options import Options                                                  
-from List_Zentao import ID, mongodb_id,tuple_id                                                       
-from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
-from PIL import ImageGrab, Image    
-from bson.objectid import ObjectId   
+from selenium.webdriver.chrome.options import Options                                                                                                                   
 from pymongo import MongoClient                                                                  
 
 def mongodb_atlas():
@@ -23,11 +15,24 @@ def mongodb_atlas():
     collection = db["Night_Database"]
     return collection
 
-# MongoDB Update Documnent
+# MongoDB Update one Document / Credit
 def update_one(filter, update):
     # update one data
     collection = mongodb_atlas()
     collection.update_one(filter, {"$set": {"Credit": update}})
+
+# MongoDB Update one Document / Report status
+def update_one2(filter, update):
+    # update one data
+    collection = mongodb_atlas()
+    collection.update_one(filter, {"$set": {"Reported": update}})
+
+# MongoDB Find One Document
+def find_one(find):
+    # Find one data
+    collection = mongodb_atlas()
+    document = collection.find_one(find)
+    return document
 
 # Selenium Chrome
 def chrome():
@@ -55,9 +60,17 @@ def wait(driver, path, text):
     except:
         pass
 
+# wait for button click
+def wait_buttonclick(driver, text): 
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.LINK_TEXT, text)))
+
+# Wait for a webpage fully load, then only continue steps
+def wait_for_page_load(driver):
+    return driver.execute_script("return document.readyState") == "complete"
+
 # Extract data / driver get_element by xpath
 # With Text
-def find_element_text(driver, path, text):
+def find_element_XPATH(driver, path, text):
     mongodb_atlas()
     element = driver.find_element(By.XPATH, path)
     element_text = element.get_attribute('textContent')
@@ -68,3 +81,10 @@ def find_element_text(driver, path, text):
 def find_element_nontext(driver, path):
     element = driver.find_element(By.XPATH, path)
     return element.get_attribute('textContent')
+
+# driver find element by ID
+def find_element_ID(driver, path):
+    element = driver.find_element(By.ID, path)
+    return element
+
+

@@ -5,7 +5,7 @@ import re
 from List_Zentao import ID, mongodb_id, tuple_id, Tencent_Webpage
 from PIL import ImageGrab
 from bson import ObjectId 
-from function import chrome, update_one, wait, find_element_text, find_element_nontext
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
 
 # 腾讯云【中国站】
 def tencent1(driver):

@@ -6,7 +6,7 @@ from List_Zentao import ID, mongodb_id,tuple_id
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab, Image    
 from bson.objectid import ObjectId                                                                  
-from function import chrome, update_one, wait, find_element_text, find_element_nontext
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
 
 # 阿里云【中国站】
 def aliyun1(driver):  
