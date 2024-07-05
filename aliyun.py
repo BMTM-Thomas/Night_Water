@@ -103,7 +103,6 @@ def aliyun1(driver):
                     time.sleep(5)
                     continue
                 break
-            print(f"{ID[id]}= {credit}")
 
             # Replace
             credit = credit.replace('¥ ', '')
