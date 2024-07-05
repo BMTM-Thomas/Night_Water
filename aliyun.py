@@ -1,62 +1,12 @@
-import certifi
-import pymongo                                                                                     
 import time                                                                                            
 import pyautogui                                                                                       
 import re                                                                                              
-import sys                                                                                            
-from selenium import webdriver                                                                        
-from selenium.webdriver.common.by import By                                                            
-from selenium.webdriver.support.wait import WebDriverWait                                              
-from selenium.webdriver.support import expected_conditions as EC                                       
-from selenium.webdriver.chrome.options import Options                                                  
+import sys                                                                                                                                      
 from List_Zentao import ID, mongodb_id,tuple_id                                                       
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab, Image    
-from bson.objectid import ObjectId   
-from pymongo import MongoClient                                                                  
-
-# Local Server
-# # Connect to the MongoDB Local server running on localhost at default port 27017
-# client = pymongo.MongoClient("mongodb://localhost:27017")
-# # Access Database
-# db = client["Thomas"]
-# # Access Collection
-# collection = db["Night_Database"]
-
-# MongoDB Atlas (Server)
-client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
-# Access Database
-db = client["Thomas"]
-# Access Collection
-collection = db["Night_Database"]
-
-def main():
-    options=Options()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--no-sandbox')
-    options.add_argument('start-maximized') 
-    options.add_argument('--remote-debugging-port=9222')
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--no-first-run")
-    options.add_argument("--hide-crash-restore-bubble")
-    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
-    options.add_experimental_option('useAutomationExtension', False)
-    driver=webdriver.Chrome(options=options)
-    aliyun1(driver)
-    ven387(driver)
-    aliyun2(driver)
-    aliyun3(driver)
-    driver.quit()
-    
-def wait(driver, path, text):
-    try:
-        WebDriverWait(driver, 1000).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
-    except:
-        pass
+from bson.objectid import ObjectId                                                                  
+from function import chrome, update_one, wait, find_element_text, find_element_nontext
 
 # 阿里云【中国站】
 def aliyun1(driver):  
@@ -147,11 +97,13 @@ def aliyun1(driver):
             # Extract credit
             while True:
                 try:
-                    credit = driver.find_element(By.XPATH, value='/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span').get_attribute('textContent')
+                    credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span')
                 except:
                     driver.refresh()
+                    time.sleep(5)
                     continue
                 break
+            print(f"{ID[id]}= {credit}")
 
             # Replace
             credit = credit.replace('¥ ', '')
@@ -159,7 +111,7 @@ def aliyun1(driver):
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             pyautogui.click(x= 1505, y=137)
@@ -167,7 +119,7 @@ def aliyun1(driver):
 
             while True:
                 try:
-                    if driver.find_element(By.XPATH, value='/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]').get_attribute('textContent') == "安全管控" :
+                    if find_element_text(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
@@ -262,16 +214,15 @@ def ven387(driver):
         wait(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/button[1]/span', '充值') 
         
         # Extract credit
-        credit = driver.find_element(By.XPATH, value='/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span').get_attribute('textContent')  
+        credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span')
         
         # Replace
         credit = credit.replace('¥ ', '')
         credit = credit.replace(',', '')
        
         
-        # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+        update_one(mangos_id, credit)
         print(f"{ID[id]}= {credit}")
         
         # Screenshot
@@ -290,7 +241,7 @@ def ven387(driver):
         time.sleep(2)
 
         # Extract credit
-        credit = driver.find_element(By.XPATH, value='/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span').get_attribute('textContent')    
+        credit = find_element_nontext(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span') 
                                                    
         A = re.findall(r'/(\d+)',credit)
         B = re.findall(r'(\d+)/',credit)
@@ -302,7 +253,7 @@ def ven387(driver):
 
         # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        collection.update_one(mangos_id, {"$set": {"Credit": str(credit)}})
+        update_one(mangos_id, credit)
         print(f"{ID[id]}= {credit}")
 
         pyautogui.moveTo(x= 1536, y=131)
@@ -348,7 +299,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(33):
+        for i in range(31):
             while True:
                 if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
                     if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
@@ -420,17 +371,15 @@ def aliyun2(driver):
 
             # Extract Credit
             while True:
-                credit = driver.find_element(By.XPATH, value='/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span').get_attribute('textContent')  
+                credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span')
                 if credit == "":
                     continue
                 else:
                     break
-            
-            time.sleep(1)
 
-           # MongoDB update Data 
+            # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             pyautogui.click(x= 1505, y=137)
@@ -438,7 +387,7 @@ def aliyun2(driver):
 
             while True:
                 try:
-                    if driver.find_element(By.XPATH, value='/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]').get_attribute('textContent') == "基本资料" :
+                    if find_element_text(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', '基本资料'):
                         break
                 except:
                         pyautogui.moveTo(x= 1183, y=192)
@@ -556,11 +505,11 @@ def aliyun3(driver):
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div/span', '正常')
 
             # Extract Credit
-            credit = driver.find_element(By.XPATH, value='/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span').get_attribute('textContent')  
+            credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span')
         
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             pyautogui.moveTo(x= 1521, y=143)
@@ -568,7 +517,7 @@ def aliyun3(driver):
 
             while True:
                 try:
-                    if driver.find_element(By.XPATH, value='/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]').get_attribute('textContent') == "安全管控" :
+                    if find_element_text(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
@@ -595,5 +544,8 @@ def aliyun3(driver):
         print(f"An error occurred: {e}")
         time.sleep(111111)
 
-if __name__ == "__main__":
-  main()
+driver = chrome()
+aliyun1(driver)
+ven387(driver)
+aliyun2(driver)
+aliyun3(driver)
