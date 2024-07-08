@@ -31,7 +31,7 @@ def noctool(driver):
             credit_value = documents.get('Credit', 'N/A') 
             print(f"{ID[id]}= {credit_value}")
             pyautogui.write(credit_value)
-            pyautogui.click(x=67, y=729)
+            # pyautogui.click(x=67, y=729)
 
             id+=1
             web +=1
