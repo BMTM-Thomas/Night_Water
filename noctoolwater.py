@@ -3,12 +3,10 @@ import pyautogui
 from List_Zentao import ID, mongodb_id
 from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
-from function import chrome, wait, find_one, update_one2
+from function import chrome, wait, find_one, update_one2, find_element_nontext
 
 # noctool
 def noctool(driver):
-    web = 0 
-    id = 0
     driver.get('http://10.77.1.196/stocks/')
     wait(driver, '/html/body/div/div/main/div/h3', '記錄列表') 
     driver.get('http://10.77.1.196/stocks/')
@@ -16,7 +14,7 @@ def noctool(driver):
     try:
         for i in range(101): # 101
  
-            driver.get(n_webpage[web])
+            driver.get(n_webpage[i])
             wait(driver, '/html/body/div/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖') 
              
             time.sleep(1)
@@ -26,27 +24,34 @@ def noctool(driver):
             pyautogui.scroll(-30)
             time.sleep(1)
             pyautogui.click(x=187, y=675)
-            mangos_id = {'_id': ObjectId(mongodb_id[id])}
+
+            # Previous Credit / Data
+            pre_credit = find_element_nontext(driver, "/html/body/div/div/main/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[1]/td[2]")
+
+            # Search for Database
+            mangos_id = {'_id': ObjectId(mongodb_id[i])}
             documents = find_one(mangos_id)
             credit_value = documents.get('Credit', 'N/A') 
-            print(f"{ID[id]}= {credit_value}")
+
+            # Print out Previous and Actual Data
+            print(f"{ID[i]}= Pre: {pre_credit}, Act: {credit_value}")
+            
+            # Write Data & Button Click
             pyautogui.write(credit_value)
             # pyautogui.click(x=67, y=729)
 
-            id+=1
-            web +=1
     except:
         while True:
             time.sleep(1)
 
 def low_water ():
-
-    id = 0
+    report_status = "Reported" 
+    report_status2 = "Not Yet" 
 
     print("\n\n")
     print("【低于安全水位】\n")
     for i in range (101): #101
-        mangos_id = {'_id': ObjectId(mongodb_id[id])}
+        mangos_id = {'_id': ObjectId(mongodb_id[i])}
         documents = find_one(mangos_id)
         ven = documents['Ven_Machine']
         credit = documents['Credit']
@@ -56,16 +61,13 @@ def low_water ():
 
         if float(credit) < float(secure_credit):
             print(f"【{report}】 {ven}已低于安全流量 (当前存量：{credit} {unit} 安全存量：{secure_credit} {unit})")
-            report_status = "Reported" 
             update_one2(mangos_id, report_status)
         else:
-            report_status2 = "Not Yet" 
             update_one2(mangos_id, report_status2)
-        i+=1      
-        id+=1
+
     print("\n\n")
 
-driver = chrome()
-noctool(driver)
-driver.close()
+# driver = chrome()
+# noctool(driver)
+# driver.close()
 low_water()

@@ -76,3 +76,4 @@ def ucloud(driver):
 
 driver = chrome()
 ucloud(driver)
+driver.close()

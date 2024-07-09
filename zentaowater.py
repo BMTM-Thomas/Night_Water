@@ -6,7 +6,7 @@ from AppKit import NSPasteboard, NSPasteboardTypePNG
 from PIL import ImageGrab
 from List_Zentao import ID, mongodb_id
 from bson.objectid import ObjectId   
-from function import chrome, find_element_ID, wait_buttonclick, find_one
+from function import chrome, find_element_ID, wait_buttonclick_XPATH, find_one
 
 # zentao
 def zentao(driver):
@@ -103,7 +103,7 @@ def zentao(driver):
 
         # Special Case for Button Click
         driver.switch_to.frame("appIframe-project")
-        save_button = wait_buttonclick(driver, "/html/body/main/div/div/form/div[2]/div[1]/div/div[5]/button")
+        save_button = wait_buttonclick_XPATH(driver, "/html/body/main/div/div/form/div[2]/div[1]/div/div[5]/button")
         save_button.click()
         time.sleep(3)
         

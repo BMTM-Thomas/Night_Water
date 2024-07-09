@@ -219,7 +219,6 @@ def ven387(driver):
         credit = credit.replace('¥ ', '')
         credit = credit.replace(',', '')
        
-        
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
         update_one(mangos_id, credit)
         print(f"{ID[id]}= {credit}")
@@ -252,7 +251,7 @@ def ven387(driver):
 
         # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        update_one(mangos_id, credit)
+        update_one(mangos_id, str(credit))
         print(f"{ID[id]}= {credit}")
 
         pyautogui.moveTo(x= 1536, y=131)
@@ -298,7 +297,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(32):
+        for i in range(34):
             while True:
                 if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
                     if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
@@ -544,7 +543,8 @@ def aliyun3(driver):
         time.sleep(111111)
 
 driver = chrome()
-aliyun1(driver)
-ven387(driver)
+# aliyun1(driver)
+# ven387(driver)
 aliyun2(driver)
-aliyun3(driver)
+# aliyun3(driver)
+driver.close()

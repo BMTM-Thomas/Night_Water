@@ -60,9 +60,15 @@ def wait(driver, path, text):
     except:
         pass
 
-# wait for button click
-def wait_buttonclick(driver, text): 
+# wait for button click by LINK
+def wait_buttonclick_LINK(driver, text): 
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.LINK_TEXT, text)))
+    return driver.find_element(By.LINK_TEXT, text)
+
+# wait for button click by XPATH
+def wait_buttonclick_XPATH(driver, text): 
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, text)))
+    return driver.find_element(By.XPATH, text)
 
 # Wait for a webpage fully load, then only continue steps
 def wait_for_page_load(driver):
@@ -86,5 +92,3 @@ def find_element_nontext(driver, path):
 def find_element_ID(driver, path):
     element = driver.find_element(By.ID, path)
     return element
-
-

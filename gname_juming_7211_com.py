@@ -9,7 +9,7 @@ import pytesseract
 from List_Zentao import ID, mongodb_id, tuple_id  
 from PIL import ImageGrab, Image
 from bson.objectid import ObjectId
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick, find_element_XPATH
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick_LINK
 
 # Gname
 def gname(driver):
@@ -118,7 +118,7 @@ def jumingwang(driver):
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
 
             # Button Click Logout
-            save_button = wait_buttonclick(driver, "退出")
+            save_button = wait_buttonclick_LINK(driver, "退出")
             save_button.click()
             time.sleep(3)
 
@@ -237,7 +237,7 @@ def ven196_7211(driver):
         time.sleep(1)
 
         # Extract Credit
-        credit = find_element_XPATH(driver, '/html/body/div[3]/table/tbody/tr[2]/td/font/b[2]/font')
+        credit = find_element_nontext(driver, '/html/body/div[3]/table/tbody/tr[2]/td/font/b[2]/font')
         time.sleep(1)
 
         # Replace
@@ -298,7 +298,6 @@ def ven295(driver):
         
         # Extract Credit                                            
         credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
-        print(f"{ID[id]}= {credit}")
 
         # Replace
         credit = credit.replace(',', '')
@@ -339,3 +338,4 @@ jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)
 ven295(driver)
+driver.close()

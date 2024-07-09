@@ -132,7 +132,7 @@ def tencent2(driver):
                 pass
             
             # Accountinfo
-            if i <= 8:
+            if i <= 9:
             
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
@@ -345,8 +345,9 @@ def tencent4(driver):
         sys.exit(1)
 
 driver = chrome()
-# tencent1(driver)
-# tencent2(driver)
-# tencent3(driver)
+tencent1(driver)
+tencent2(driver)
+tencent3(driver)
 tencent4(driver)
+driver.close()
 
