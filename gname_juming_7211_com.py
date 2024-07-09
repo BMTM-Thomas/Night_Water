@@ -1,70 +1,15 @@
 import time
-import certifi
 import pyautogui
 import sys
 import cv2
 import re
 import numpy as np
-import pymongo
 import pyperclip
 import pytesseract
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 from List_Zentao import ID, mongodb_id, tuple_id  
 from PIL import ImageGrab, Image
-from bson.objectid import ObjectId  
-from pymongo import MongoClient  
-
-# Local Server
-# # Connect to the MongoDB Local server running on localhost at default port 27017
-# client = pymongo.MongoClient("mongodb://localhost:27017")
-# # Access Database
-# db = client["Thomas"]
-# # Access Collection
-# collection = db["Night_Database"]
-
-# MongoDB Atlas (Server)
-client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
-# Access Database
-db = client["Thomas"]
-# Access Collection
-collection = db["Night_Database"]
-
-def main():
-    options=Options()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--no-sandbox')
-    options.add_argument('start-maximized') 
-    options.add_argument('--remote-debugging-port=9222')
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--no-first-run")
-    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
-    options.add_experimental_option('useAutomationExtension', False)
-    options.add_argument("--hide-crash-restore-bubble")
-    driver=webdriver.Chrome(options=options)
-    gname(driver)
-    jumingwang(driver)
-    sms326(driver)
-    ven196_7211(driver)
-    ven295(driver)
-    driver.quit()
-
-def wait(driver, path, text):
-    try:
-        WebDriverWait(driver, 100).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
-    except:
-        pass
-
-# Wait for a webpage fully load, then only continue steps
-def wait_for_page_load(driver):
-    return driver.execute_script("return document.readyState") == "complete"
+from bson.objectid import ObjectId
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick, find_element_XPATH
 
 # Gname
 def gname(driver):
@@ -106,11 +51,11 @@ def gname(driver):
             time.sleep(1)
             
             # Extract Credit
-            credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[3]/strong').get_attribute('textContent')
+            credit = find_element_nontext(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[3]/strong')
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             time.sleep(1)
@@ -155,7 +100,7 @@ def jumingwang(driver):
             wait(driver, '/html/body/div[1]/div[1]/div/div/div/span[13]/a', '退出') 
 
             # Extract Credit
-            credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[1]/div/div/div/span[7]/a').get_attribute('textContent')
+            credit = find_element_nontext(driver, '/html/body/div[1]/div[1]/div/div/div/span[7]/a')
             time.sleep(1)
 
             # Replace
@@ -164,7 +109,7 @@ def jumingwang(driver):
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             time.sleep(1)
@@ -173,7 +118,7 @@ def jumingwang(driver):
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
 
             # Button Click Logout
-            save_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.LINK_TEXT, "退出")))
+            save_button = wait_buttonclick(driver, "退出")
             save_button.click()
             time.sleep(3)
 
@@ -249,7 +194,7 @@ def sms326(driver):
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
             time.sleep(1)
@@ -292,7 +237,7 @@ def ven196_7211(driver):
         time.sleep(1)
 
         # Extract Credit
-        credit = driver.find_element(By.XPATH, value='/html/body/div[3]/table/tbody/tr[2]/td/font/b[2]/font').get_attribute('textContent')
+        credit = find_element_XPATH(driver, '/html/body/div[3]/table/tbody/tr[2]/td/font/b[2]/font')
         time.sleep(1)
 
         # Replace
@@ -302,7 +247,7 @@ def ven196_7211(driver):
         
         # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+        update_one(mangos_id, credit)
         print(f"{ID[id]}= {credit}")
 
         time.sleep(1)
@@ -352,7 +297,7 @@ def ven295(driver):
         time.sleep(2)
         
         # Extract Credit                                            
-        credit = driver.find_element(By.XPATH, value='/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div').get_attribute('textContent') 
+        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
         print(f"{ID[id]}= {credit}")
 
         # Replace
@@ -362,7 +307,8 @@ def ven295(driver):
         
         # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+        update_one(mangos_id, credit)
+        print(f"{ID[id]}= {credit}")
 
         time.sleep(1)
         pyautogui.click(x= 1558, y=135)
@@ -387,5 +333,10 @@ def ven295(driver):
         print(f"An error occurred: {e}")
         sys.exit(1)
 
-if __name__ == "__main__":
-    main()
+driver = chrome()
+gname(driver)
+jumingwang(driver)
+sms326(driver)
+ven196_7211(driver)
+ven295(driver)
+driver.close()

@@ -1,57 +1,10 @@
 import time
-import certifi
 import pyautogui
 import sys
-import pymongo
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 from List_Zentao import ID, mongodb_id, tuple_id 
 from PIL import ImageGrab
 from bson.objectid import ObjectId  
-from pymongo import MongoClient  
-
-# Local Server
-# # Connect to the MongoDB Local server running on localhost at default port 27017
-# client = pymongo.MongoClient("mongodb://localhost:27017")
-# # Access Database
-# db = client["Thomas"]
-# # Access Collection
-# collection = db["Night_Database"]
-
-# MongoDB Atlas (Server)
-client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
-# Access Database
-db = client["Thomas"]
-# Access Collection
-collection = db["Night_Database"]
-
-def main():
-    options=Options()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--no-sandbox')
-    options.add_argument('start-maximized') 
-    options.add_argument('--remote-debugging-port=9222')
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--hide-crash-restore-bubble")
-    options.add_argument("--no-first-run")
-    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
-    options.add_experimental_option('useAutomationExtension', False)
-    driver=webdriver.Chrome(options=options)
-    ucloud(driver)
-    driver.quit()
-
-def wait(driver, path, text):
-    try:
-        WebDriverWait(driver, 100).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
-    except:
-        pass
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
 
 # Ucloud
 def ucloud(driver):
@@ -95,14 +48,14 @@ def ucloud(driver):
             
             # Extract Credit
             try:
-                credit = driver.find_element(By.XPATH, value='/html/body/div[8]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]').get_attribute('textContent')
+                credit = find_element_nontext(driver, '/html/body/div[8]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             except:
-                credit = driver.find_element(By.XPATH, value='/html/body/div[11]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]').get_attribute('textContent')
+                credit = find_element_nontext(driver, '/html/body/div[11]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             credit = credit.replace(',', '')
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            collection.update_one(mangos_id, {"$set": {"Credit": credit}})
+            update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
             
             # Screenshot
@@ -121,5 +74,6 @@ def ucloud(driver):
         print(f"An error occurred: {e}")
         sys.exit(1)
 
-if __name__ == "__main__":
-    main()
+driver = chrome()
+ucloud(driver)
+driver.close()

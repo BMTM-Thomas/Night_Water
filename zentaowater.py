@@ -1,59 +1,12 @@
 import time
-import certifi
 import pyautogui
 import sys
-import pymongo
 import pyperclip
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 from AppKit import NSPasteboard, NSPasteboardTypePNG
 from PIL import ImageGrab
 from List_Zentao import ID, mongodb_id
-from bson.objectid import ObjectId  
-from pymongo import MongoClient  
-
-# Local Server
-# # Connect to the MongoDB Local server running on localhost at default port 27017
-# client = pymongo.MongoClient("mongodb://localhost:27017")
-# # Access Database
-# db = client["Thomas"]
-# # Access Collection
-# collection = db["Night_Database"]
-
-# MongoDB Atlas (Server)
-client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
-# Access Database
-db = client["Thomas"]
-# Access Collection
-collection = db["Night_Database"]
-
-def main():
-    options=Options()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--no-sandbox')
-    options.add_argument('start-maximized') 
-    options.add_argument('--remote-debugging-port=9222')
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--no-first-run")
-    options.add_argument("--hide-crash-restore-bubble")
-    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
-    options.add_experimental_option('useAutomationExtension', False)
-    driver=webdriver.Chrome(options=options)
-    zentao(driver)
-    driver.quit()
-
-def wait(driver, path, text):
-    try:
-        WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
-    except:
-        pass
+from bson.objectid import ObjectId   
+from function import chrome, find_element_ID, wait_buttonclick, find_one
 
 # zentao
 def zentao(driver):
@@ -62,7 +15,7 @@ def zentao(driver):
         # Go to Webpage
         driver.get('https://zr-zentao2023.cccqx.com/zentao/execution-task-26.html')
         try:
-            if driver.find_element(By.ID, 'loginPanel') is not None:
+            if find_element_ID(driver, 'loginPanel') is not None:
                 time.sleep(1)
                 pyautogui.click(1420,62)
 
@@ -108,9 +61,8 @@ def zentao(driver):
         id = 0
         for y in range(99): #99
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            documents = collection.find_one(mangos_id)
+            documents = find_one(mangos_id)
             ven_machine_value = documents.get('Ven_Machine','N/A')
-    
             credit_value = documents.get('Credit', 'N/A') 
             unit_value = documents.get('Unit', 'N/A')
             merge = ven_machine_value + " " + credit_value + " " + unit_value
@@ -151,7 +103,7 @@ def zentao(driver):
 
         # Special Case for Button Click
         driver.switch_to.frame("appIframe-project")
-        save_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/main/div/div/form/div[2]/div[1]/div/div[5]/button")))
+        save_button = wait_buttonclick(driver, "/html/body/main/div/div/form/div[2]/div[1]/div/div[5]/button")
         save_button.click()
         time.sleep(3)
         
@@ -159,5 +111,6 @@ def zentao(driver):
         print(f"An error occurred: {e}")
         sys.exit(1)
 
-if __name__ == "__main__":
-    main()
+driver = chrome()
+zentao(driver)
+driver.close()
