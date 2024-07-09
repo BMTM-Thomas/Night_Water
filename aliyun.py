@@ -298,7 +298,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(31):
+        for i in range(32):
             while True:
                 if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
                     if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
