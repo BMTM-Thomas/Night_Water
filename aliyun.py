@@ -543,8 +543,8 @@ def aliyun3(driver):
         time.sleep(111111)
 
 driver = chrome()
-# aliyun1(driver)
-# ven387(driver)
+aliyun1(driver)
+ven387(driver)
 aliyun2(driver)
-# aliyun3(driver)
+aliyun3(driver)
 driver.close()
