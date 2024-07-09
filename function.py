@@ -44,7 +44,7 @@ def update_one(filter, update):
 def update_one2(filter, update):
     # update one data
     collection = mongodb_atlas()
-    collection.update_one(filter, {"$set": {"Reported": update}})
+    collection.update_one(filter, {"$set": {"Report": update}})
 
 # MongoDB Find One Document
 def find_one(find):

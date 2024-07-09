@@ -103,7 +103,7 @@ def tencent2(driver):
         driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https%3A%2F%2Fconsole.tencentcloud.com%2Fexpense%2Frmc%2Faccountinfo')
         time.sleep(2)
 
-        for i in range(11):
+        for i in range(12):
 
             if pyautogui.locateOnScreen('./image/cam.png') is not None:
                 pyautogui.click(x=318, y=642)
@@ -147,9 +147,8 @@ def tencent2(driver):
                         break
 
             # Expenses
-            elif i >= 9:
-                if i == 9:
-                    driver.get('https://console.tencentcloud.com/expense')
+            else:
+                driver.get('https://console.tencentcloud.com/expense')
 
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
@@ -166,8 +165,6 @@ def tencent2(driver):
                     credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div/div/div/em')
                 except:                                            
                     credit = find_element_nontext(driver, '//*[@id="expense-index"]/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em')
-            
-            print(f"{ID[id]}= {credit}")
 
             # Replace
             credit = credit.replace(',', '')
@@ -348,8 +345,8 @@ def tencent4(driver):
         sys.exit(1)
 
 driver = chrome()
-tencent1(driver)
-tencent2(driver)
-tencent3(driver)
+# tencent1(driver)
+# tencent2(driver)
+# tencent3(driver)
 tencent4(driver)
-driver.close()
+
