@@ -3,7 +3,7 @@ import pyautogui
 from List_Zentao import ID, mongodb_id
 from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
-from function import wait, find_one, find_element_nontext, mongodb_atlas
+from function import chrome, wait, find_one, find_element_nontext, mongodb_atlas
 
 # noctool
 def noctool(driver):
