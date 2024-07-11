@@ -34,7 +34,7 @@ def noctool(driver):
             credit_value = documents.get('Credit', 'N/A') 
 
             # Print out Previous and Actual Data
-            print(f"{ID[i]}= Pre: {pre_credit}, Act: {credit_value}")
+            print(f"{ID[i]}= Pre: {pre_credit}, Act: {credit_value} \n")
             
             # Write Data & Button Click
             pyautogui.write(credit_value)
