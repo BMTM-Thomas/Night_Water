@@ -45,11 +45,7 @@ def noctool(driver):
             time.sleep(1)
 
 def low_water ():
-
-    print("\n")
-    print("【低于安全水位】")
-    print("\n")
-
+    print("\n【低于安全水位】\n")
     collection = mongodb_atlas()
     documents = collection.find()
 
@@ -59,7 +55,7 @@ def low_water ():
         
     print("\n\n")
 
-driver = chrome()
-noctool(driver)
-driver.close()
+# driver = chrome()
+# noctool(driver)
+# driver.close()
 low_water()
