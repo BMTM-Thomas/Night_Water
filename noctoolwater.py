@@ -3,7 +3,7 @@ import pyautogui
 from List_Zentao import ID, mongodb_id
 from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
-from function import chrome, wait, find_one, update_one2, find_element_nontext
+from function import wait, find_one, find_element_nontext, mongodb_atlas
 
 # noctool
 def noctool(driver):
@@ -45,26 +45,18 @@ def noctool(driver):
             time.sleep(1)
 
 def low_water ():
-    report_status = "Reported" 
-    report_status2 = "Not Yet" 
 
-    print("\n\n")
-    print("【低于安全水位】\n")
-    for i in range (101): #101
-        mangos_id = {'_id': ObjectId(mongodb_id[i])}
-        documents = find_one(mangos_id)
-        ven = documents['Ven_Machine']
-        credit = documents['Credit']
-        unit = documents['Unit']
-        secure_credit = documents['Secure_Credit']
-        report = documents['Report']
+    print("\n")
+    print("【低于安全水位】")
+    print("\n")
 
-        if float(credit) < float(secure_credit):
-            print(f"【{report}】 {ven}已低于安全流量 (当前存量：{credit} {unit} 安全存量：{secure_credit} {unit})")
-            update_one2(mangos_id, report_status)
-        else:
-            update_one2(mangos_id, report_status2)
+    collection = mongodb_atlas()
+    documents = collection.find()
 
+    for doc in documents:
+        if float(doc.get("Credit", 0)) < float(doc.get("Secure_Credit", 0)):
+            print(f"{doc.get('Ven_Machine')} 已低于安全流量 (当前存量：{doc.get('Credit')} {doc.get('Unit')}, 安全存量：{doc.get('Secure_Credit')} {doc.get('Unit')})")
+        
     print("\n\n")
 
 driver = chrome()

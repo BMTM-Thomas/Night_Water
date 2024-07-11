@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options                                                                                                                   
 from pymongo import MongoClient                                                                  
 
+# Serverless
 def mongodb_atlas():
     # MongoDB Atlas (Server)
     client = MongoClient("mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",tlsCAFile=certifi.where())
@@ -14,6 +15,19 @@ def mongodb_atlas():
     # Access Collection
     collection = db["Night_Database"]
     return collection
+
+# MongoDB Update one Document / Credit
+def update_one(filter, update):
+    # update one data
+    collection = mongodb_atlas()
+    collection.update_one(filter, {"$set": {"Credit": update}})
+    
+# MongoDB Find One Document
+def find_one(find):
+    # Find one data
+    collection = mongodb_atlas()
+    document = collection.find_one(find)
+    return document
 
 # Selenium Chrome
 def chrome():
@@ -33,25 +47,6 @@ def chrome():
     options.add_experimental_option('useAutomationExtension', False)
     driver=webdriver.Chrome(options=options)
     return driver
-
-# MongoDB Update one Document / Credit
-def update_one(filter, update):
-    # update one data
-    collection = mongodb_atlas()
-    collection.update_one(filter, {"$set": {"Credit": update}})
-
-# MongoDB Update one Document / Report status
-def update_one2(filter, update):
-    # update one data
-    collection = mongodb_atlas()
-    collection.update_one(filter, {"$set": {"Report": update}})
-
-# MongoDB Find One Document
-def find_one(find):
-    # Find one data
-    collection = mongodb_atlas()
-    document = collection.find_one(find)
-    return document
 
 # wait
 def wait(driver, path, text):
