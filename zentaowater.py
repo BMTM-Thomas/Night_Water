@@ -98,8 +98,6 @@ def zentao(driver):
             id+=1
 
         time.sleep(1)
-        pyautogui.click(1594,783)
-        time.sleep(1)
 
         # Special Case for Button Click
         driver.switch_to.frame("appIframe-project")
