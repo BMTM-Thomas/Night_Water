@@ -6,7 +6,7 @@ from List_Zentao import ID, mongodb_id,tuple_id
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab, Image    
 from bson.objectid import ObjectId                                                                  
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
+from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick_XPATH
 
 # 阿里云【中国站】
 def aliyun1(driver):  
@@ -122,17 +122,14 @@ def aliyun1(driver):
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
-                    time.sleep(1)
+                    time.sleep(2)
                     pyautogui.click(x= 1505, y=137)
-                    time.sleep(1)
+                    time.sleep(2)
 
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            logout = pyautogui.locateOnScreen('./image/aliyunlogout.png')
-            if logout is not None:
-                time.sleep(1)
-                pyautogui.click(logout)
-            time.sleep(1)
+            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[1]/a[1]")
+            logout_button.click()
             
             id += 1
 
@@ -260,11 +257,8 @@ def ven387(driver):
 
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-        logout = pyautogui.locateOnScreen('./image/aliyunlogout.png')
-        if logout is not None:
-            time.sleep(1)
-            pyautogui.click(logout)
-        time.sleep(1)
+        logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[1]/a[1]")
+        logout_button.click()
         
         id += 1
 
@@ -363,7 +357,7 @@ def aliyun2(driver):
                 pyautogui.dragTo(981, 526, button='left', duration=0.15)
             else:
                 pass
-
+            
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[1]/span', '信用额度')
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[2]/span', '状态')
 
@@ -389,16 +383,16 @@ def aliyun2(driver):
                         break
                 except:
                         pyautogui.moveTo(x= 1183, y=192)
-                        time.sleep(1)
+                        time.sleep(2)
                         pyautogui.moveTo(x= 1505, y=137)
-                        time.sleep(1)
+                        time.sleep(2)
 
             
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            logout = pyautogui.locateOnScreen('./image/aliyunlogout.png')
-            if logout is not None:
-                pyautogui.click(logout)
+            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[1]/a[1]")
+            logout_button.click()
+
             time.sleep(1)
             
             id += 1
@@ -527,13 +521,8 @@ def aliyun3(driver):
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             
             #Click Logout
-            logout = pyautogui.locateOnScreen('./image/alilogout.png')
-            if logout is not None:
-                image_center = pyautogui.center(logout)
-                pyautogui.click(image_center)
-            else:
-                print("Image not found on the screen.")
-            
+            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[2]/a[1]")
+            logout_button.click()
             time.sleep(2)
             
             id += 1
