@@ -12,7 +12,7 @@ def noctool(driver):
     driver.get('http://10.77.1.196/stocks/')
     time.sleep(1)
     try:
-        for i in range(101): # 101
+        for i in range(100): # 100
  
             driver.get(n_webpage[i])
             wait(driver, '/html/body/div/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖') 

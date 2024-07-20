@@ -417,7 +417,7 @@ def aliyun3(driver):
         time.sleep(2)
         pyautogui.click(x=1280, y=433)
         
-        for i in range(13):
+        for i in range(12):
 
             while True:
                 if pyautogui.locateOnScreen('./image/next1.png') is not None:
