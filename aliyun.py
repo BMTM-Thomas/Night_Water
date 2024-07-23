@@ -118,7 +118,7 @@ def aliyun1(driver):
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
@@ -128,7 +128,7 @@ def aliyun1(driver):
 
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[1]/a[1]")
+            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[2]/div[1]/div[1]/a[1]")
             logout_button.click()
             
             id += 1
@@ -219,33 +219,32 @@ def ven387(driver):
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
         update_one(mangos_id, credit)
         print(f"{ID[id]}= {credit}")
+
+        while True:
+                try:
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
+                        break
+                except:
+                    pyautogui.click(x= 1183, y=192)
+                    time.sleep(2)
+                    pyautogui.click(x= 1505, y=137)
+                    time.sleep(2)
         
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-
         time.sleep(1)
 
         id += 1
 
         #IP 纯真社区版IP库离线下载
         driver.get('https://market.console.aliyun.com/?spm=a2c81.42099b4.products-recent.dmarket.75381127UzpKUg#/?_k=koc938')
-        time.sleep(1)
         wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[1]', 'AppKey：') 
-        time.sleep(1)
         wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[2]/a', '复制') 
         time.sleep(2)
 
         # Extract credit
-        credit = find_element_nontext(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span') 
-                                                   
-        A = re.findall(r'/(\d+)',credit)
-        B = re.findall(r'(\d+)/',credit)
-
-        A = [int(item) for item in A]
-        B = [int(item) for item in B]
-        
-        credit = A[0] - B[0]
-
+        credit = find_element_nontext(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span/span') 
+                                                
         # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
         update_one(mangos_id, str(credit))
@@ -257,7 +256,7 @@ def ven387(driver):
 
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-        logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[1]/a[1]")
+        logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[2]/div[1]/div[1]/a[1]")
         logout_button.click()
         
         id += 1
@@ -379,7 +378,7 @@ def aliyun2(driver):
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', '基本资料'):
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', '基本资料'):
                         break
                 except:
                         pyautogui.moveTo(x= 1183, y=192)
@@ -390,7 +389,7 @@ def aliyun2(driver):
             
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[1]/a[1]")
+            logout_button = wait_buttonclick_XPATH(driver, "//html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[1]/a[1]")
             logout_button.click()
 
             time.sleep(1)
@@ -509,7 +508,7 @@ def aliyun3(driver):
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
                         break
                 except:
                     pyautogui.click(x= 1183, y=192)
@@ -521,7 +520,7 @@ def aliyun3(driver):
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             
             #Click Logout
-            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[8]/div[1]/header[2]/div[1]/div[2]/a[1]")
+            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[2]/a[1]")
             logout_button.click()
             time.sleep(2)
             
