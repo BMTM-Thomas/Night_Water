@@ -16,6 +16,25 @@ def mongodb_atlas():
     collection = db["Night_Database"]
     return collection
 
+# Selenium Chrome
+def chrome():
+    options=Options()
+    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
+    options.add_argument('profile-directory=Default')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--no-sandbox')
+    options.add_argument('start-maximized') 
+    options.add_argument('--remote-debugging-port=9222')
+    options.add_argument('--no-default-browser-check')
+    options.add_argument('--no-first-run')
+    options.add_argument('--hide-crash-restore-bubble')
+    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
+    options.add_experimental_option('useAutomationExtension', False)
+    driver=webdriver.Chrome(options=options)
+    return driver
+
 # MongoDB Update one Document / Credit
 def update_one(filter, update):
     # update one data
@@ -29,24 +48,24 @@ def find_one(find):
     document = collection.find_one(find)
     return document
 
-# Selenium Chrome
-def chrome():
-    options=Options()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--no-sandbox')
-    options.add_argument('start-maximized') 
-    options.add_argument('--remote-debugging-port=9222')
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--no-first-run")
-    options.add_argument("--hide-crash-restore-bubble")
-    options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
-    options.add_experimental_option('useAutomationExtension', False)
-    driver=webdriver.Chrome(options=options)
-    return driver
+# Extract data / driver get_element by xpath
+# With Text
+def find_element_XPATH(driver, path, text):
+    mongodb_atlas()
+    element = driver.find_element(By.XPATH, path)
+    element_text = element.get_attribute('textContent')
+    return element_text == text
+
+# Extract data / driver get_element by xpath
+# Without-Text
+def find_element_nontext(driver, path):
+    element = driver.find_element(By.XPATH, path)
+    return element.get_attribute('textContent')
+
+# driver find element by ID
+def find_element_ID(driver, path):
+    element = driver.find_element(By.ID, path)
+    return element
 
 # wait
 def wait(driver, path, text):
@@ -69,21 +88,3 @@ def wait_buttonclick_XPATH(driver, text):
 def wait_for_page_load(driver):
     return driver.execute_script("return document.readyState") == "complete"
 
-# Extract data / driver get_element by xpath
-# With Text
-def find_element_XPATH(driver, path, text):
-    mongodb_atlas()
-    element = driver.find_element(By.XPATH, path)
-    element_text = element.get_attribute('textContent')
-    return element_text == text
-
-# Extract data / driver get_element by xpath
-# Without-Text
-def find_element_nontext(driver, path):
-    element = driver.find_element(By.XPATH, path)
-    return element.get_attribute('textContent')
-
-# driver find element by ID
-def find_element_ID(driver, path):
-    element = driver.find_element(By.ID, path)
-    return element
