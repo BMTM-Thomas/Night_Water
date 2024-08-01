@@ -38,7 +38,7 @@ def noctool(driver):
             
             # Write Data & Button Click
             pyautogui.write(credit_value)
-            pyautogui.click(x=67, y=729)
+            pyautogui.press('enter')
 
     except:
         while True:
