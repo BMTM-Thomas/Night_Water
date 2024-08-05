@@ -59,7 +59,8 @@ def zanting(driver):
         time.sleep(1)
         pyautogui.click(362,328)
         time.sleep(1)
-        pyautogui.click(362,328)
+        zan_ting_zhong = pyautogui.locateOnScreen('./image/pause.png')
+        pyautogui.click(zan_ting_zhong)
         time.sleep(1)
         pyautogui.click(632,500)
         time.sleep(1)
@@ -78,3 +79,4 @@ def zanting(driver):
 
 driver = chrome()
 zanting(driver)
+driver.close()

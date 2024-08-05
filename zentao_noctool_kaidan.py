@@ -78,3 +78,4 @@ def kaidan(driver):
 
 driver = chrome()
 kaidan(driver)
+driver.close()

@@ -333,7 +333,7 @@ def ven295(driver):
         sys.exit(1)
 
 driver = chrome()
-gname(driver)
+# gname(driver)
 jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)
