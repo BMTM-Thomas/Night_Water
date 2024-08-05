@@ -86,6 +86,12 @@ def jumingwang(driver):
         for i in range (2):
             
             pyautogui.click(212, 138)
+
+            # wait for 账号登入 image appear
+            zhdl = None
+            while zhdl is None:
+                zhdl = pyautogui.locateOnScreen('./image/zhdl.png', grayscale = True)
+
             time.sleep(1)
             pyautogui.click(1416, 62)
             time.sleep(1)
@@ -333,7 +339,7 @@ def ven295(driver):
         sys.exit(1)
 
 driver = chrome()
-# gname(driver)
+gname(driver)
 jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)
