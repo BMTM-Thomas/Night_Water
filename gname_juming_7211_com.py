@@ -9,7 +9,7 @@ import pytesseract
 from List_Zentao import ID, mongodb_id, tuple_id  
 from PIL import ImageGrab, Image
 from bson.objectid import ObjectId
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick_LINK
+from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_LINK
 
 # Gname
 def gname(driver):
