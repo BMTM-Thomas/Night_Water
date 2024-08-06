@@ -3,7 +3,7 @@ import pyautogui
 from List_Zentao import ID, mongodb_id
 from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
-from function import chrome, wait, find_one, find_element_nontext, mongodb_atlas
+from function import chrome, wait, find_one, find_element_nontext, wait_buttonclick_XPATH, mongodb_atlas
 
 # noctool
 def noctool(driver):
@@ -36,9 +36,11 @@ def noctool(driver):
             # Print out Previous and Actual Data
             print(f"{ID[i]}= Pre: {pre_credit}, Act: {credit_value} \n")
             
-            # Write Data & Button Click
+            # Write Credit Value
             pyautogui.write(credit_value)
-            pyautogui.press('enter')
+
+            # button click (新增记录)
+            pyautogui.click(69,726)
 
     except:
         while True:
