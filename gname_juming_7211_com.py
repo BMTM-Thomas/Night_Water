@@ -92,7 +92,7 @@ def jumingwang(driver):
             while zhdl is None:
                 zhdl = pyautogui.locateOnScreen('./image/zhdl.png', grayscale = True)
 
-            time.sleep(1)
+            time.sleep(2)
             pyautogui.click(1416, 62)
             time.sleep(1)
             pyperclip.copy(ID[id])

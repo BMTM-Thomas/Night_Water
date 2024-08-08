@@ -26,7 +26,7 @@ db.Night_Database.findOne(
 
 #Find and Modify
 db.Night_Database.findAndModify({
-query: {"Ven_Machine": { "$regex": /ven290\*/i}},
+query: {"Ven_Machine": { "$regex": /ven290/i}},
 update: {"$set": {"Credit": "940102"}},
 new: true  
 });
