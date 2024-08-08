@@ -85,14 +85,25 @@ def jumingwang(driver):
     try:
         for i in range (2):
             
-            pyautogui.click(212, 138)
+            # Check if still login, if still login then logout, else button click login 
+            try:
+                if find_element_nontext(driver, "/html/body/div[1]/div[1]/div/div/div/span[13]/a") == "退出":
+                    save_button = wait_buttonclick_LINK(driver, "退出")
+                    save_button.click()
+                    wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[1]', '账户登录') 
+                    time.sleep(1)
+                    pyautogui.click(215,136)
+
+            except Exception as e:
+                time.sleep(1)
+                pyautogui.click(215,136)
 
             # wait for 账号登入 image appear
             zhdl = None
             while zhdl is None:
                 zhdl = pyautogui.locateOnScreen('./image/zhdl.png', grayscale = True)
 
-            time.sleep(2)
+            time.sleep(1)
             pyautogui.click(1416, 62)
             time.sleep(1)
             pyperclip.copy(ID[id])
