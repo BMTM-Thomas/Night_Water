@@ -158,20 +158,20 @@ tuple_id = (
 )   
 
 # Huawei OPSADMIN
-Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421#/login",            # ven236
-                  "https://auth.huaweicloud.com/authui/login.html?id=hwc07421725#/login",            # ven237
-                  "https://auth.huaweicloud.com/authui/login.html?id=hwc92509581#/login",            # ven239
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_-jcs3_zco-1c9bn#/login",    # ven267 
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_afpdy3ndeg2pt1j#/login",    # ven268
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_v4uabq_f1qhppn1#/login",    # ven273 
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_eev5hgcajnrs-p0#/login",    # ven385 
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_qsk0u_ee0lfjsc_#/login",    # ven399
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_pb3i1cpxtyp12rg#/login",    # ven400
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_s9_if_8abedsria#/login",    # ven405
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_a2v8fdw83st9mpo#/login",    # ven410 
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_jgs8o7to98pm29m#/login",    # ven411
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_ure8don9d5n32au#/login",    # ven421
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_l6-46ihc51ewb9y#/login",    # ven452  
+Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421&locale=zh-cn#/login",            # ven236
+                  "https://auth.huaweicloud.com/authui/login.html?id=hwc07421725#/login",                         # ven237
+                  "https://auth.huaweicloud.com/authui/login.html?id=hwc92509581#/login",                         # ven239
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_-jcs3_zco-1c9bn#/login",                 # ven267 
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_afpdy3ndeg2pt1j#/login",                 # ven268
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_v4uabq_f1qhppn1#/login",                 # ven273 
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_eev5hgcajnrs-p0#/login",                 # ven385 
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_qsk0u_ee0lfjsc_#/login",                 # ven399
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_pb3i1cpxtyp12rg#/login",                 # ven400
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_s9_if_8abedsria#/login",                 # ven405
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_a2v8fdw83st9mpo#/login",                 # ven410 
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_jgs8o7to98pm29m#/login",                 # ven411
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_ure8don9d5n32au#/login",                 # ven421
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_l6-46ihc51ewb9y#/login",                 # ven452  
                   )
 
 # Tencent CAM

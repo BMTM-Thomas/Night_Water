@@ -100,7 +100,7 @@ def tencent2(driver):
     id = tuple_id[5]
 
     try:
-        driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https%3A%2F%2Fconsole.tencentcloud.com%2Fexpense%2Frmc%2Faccountinfo')
+        driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
         time.sleep(2)
 
         for i in range(12):
