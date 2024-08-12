@@ -16,7 +16,7 @@ ID = (
     # 腾讯云 CAM用户登录
       "ven366", "ven451",
     # 华为云【OPSADMIN】【IAM用户登录】
-      "ven236", "ven237", "ven239", "ven267", "ven268", "ven273", "ven385", "ven399", "ven400", "ven405", "ven410","ven411", "ven421", "ven452",
+      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven399", "ven400", "ven405", "ven410","ven411", "ven421", "ven452",
     # 华为云 【华为帐号登录】
       "ven303", "ven307", "ven342", "ven345", "ven420", "ven425",
     # Ucloud
@@ -108,7 +108,6 @@ mongodb_id = (
               "6685df2ffcdbbe477f788a2b", # ven451
               "660515a0f9328322046690b6", # ven236
               "660515a0f9328322046690b7", # ven237
-              "660515a0f9328322046690b8", # ven239
               "660515a0f9328322046690b9", # ven267
               "660515a0f9328322046690ba", # ven268
               "660515a0f9328322046690bb", # ven273
@@ -148,19 +147,18 @@ tuple_id = (
            67,    # 腾讯云【中国站】【子用户】#322
            68,    # 腾讯云 CAM用户登录 #366
            70,    # 华为云【OPSADMIN】【IAM用户登录】#236
-           84,    # 华为云 【华为帐号登录】#303
-           90,    # Ucloud #281
-           93,    # Gname #332
-           95,    # 聚名網 #336
-           97,    # sms326
-           98,    # 7211.com ven196  
-           99,    # ven295 international tencent #295
+           83,    # 华为云 【华为帐号登录】#303
+           89,    # Ucloud #281
+           92,    # Gname #332
+           94,    # 聚名網 #336
+           96,    # sms326
+           97,    # 7211.com ven196  
+           98,    # ven295 international tencent #295
 )   
 
 # Huawei OPSADMIN
 Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421&locale=zh-cn#/login",            # ven236
                   "https://auth.huaweicloud.com/authui/login.html?id=hwc07421725#/login",                         # ven237
-                  "https://auth.huaweicloud.com/authui/login.html?id=hwc92509581#/login",                         # ven239
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_-jcs3_zco-1c9bn#/login",                 # ven267 
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_afpdy3ndeg2pt1j#/login",                 # ven268
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_v4uabq_f1qhppn1#/login",                 # ven273 

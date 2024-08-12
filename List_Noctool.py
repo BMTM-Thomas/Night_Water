@@ -86,7 +86,6 @@ n_webpage = (
             # 华为云 【IAM用户】
             "http://10.77.1.196/stocks/26bd3732-37f5-472a-b288-479e60387c20/",         # ven236
             "http://10.77.1.196/stocks/a919dcb6-c758-4999-81e0-8bd368909258/",         # ven237
-            "http://10.77.1.196/stocks/2d161f75-782d-4a19-9ea7-28052de3a3f6/",         # ven239
             "http://10.77.1.196/stocks/9ab46783-8865-4b4a-b295-359bc3ed60a0/",         # ven267
             "http://10.77.1.196/stocks/3119022b-d9b2-4026-928f-99a8761c1c57/",         # ven268
             "http://10.77.1.196/stocks/658b722d-fa61-47f0-b59e-e92798a7c4dd/",         # ven273
