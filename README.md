@@ -22,12 +22,12 @@ Terminal (after install python)
 # 9. pyscreeze         (pip install PyScreeze==0.1.28)
 
 Terminal (Shortcut)
-pip3 install selenium
-pip3 install PyAutoGUI==0.9.53
-pip3 install pillow
-pip3 install opencv-python
-pip3 install pytesseract
-brew install tesseract
-pip3 install pymongo
-pip3 install pyperclip
+pip install selenium
+pip install PyAutoGUI==0.9.53
+pip install pillow
+pip install opencv-python
+pip install pytesseract
+pip install pymongo
+pip install pyperclip
 pip install PyScreeze==0.1.28
+brew install tesseract
