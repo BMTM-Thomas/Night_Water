@@ -42,7 +42,7 @@ def zentao(driver):
                 else:
                     pass
                 
-        pyautogui.click(x=1509, y=315)
+        pyautogui.click(x=1500, y=291)
 
         while True: 
             remark = pyautogui.locateOnScreen('./image/remark.png')
@@ -50,13 +50,13 @@ def zentao(driver):
                 break
             else:
                 pass
-        pyautogui.click(x=1468, y=722)
+        pyautogui.click(x=1468, y=692)
         time.sleep(1)
-        pyautogui.click(x=729, y=737)
+        pyautogui.click(x=781, y=745)
         time.sleep(1) 
         pyautogui.press('enter', presses = 8)
         time.sleep(1)
-        pyautogui.click(x=600, y=644)
+        pyautogui.click(x=288, y=637)
 
         id = 0
         for y in range(99): #99

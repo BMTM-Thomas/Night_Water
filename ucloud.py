@@ -33,7 +33,7 @@ def ucloud(driver):
             time.sleep(1)
             pyautogui.click(x=1227, y=157)
             time.sleep(1)
-            pyautogui.click(x=639, y=599)
+            pyautogui.click(x=634, y=578)
             time.sleep(1)
 
             while True:
@@ -43,7 +43,7 @@ def ucloud(driver):
                 else:
                     time.sleep(2)
                 
-            pyautogui.click(x=1558, y=130)
+            pyautogui.click(x=1558, y=107)
             time.sleep(2)
             
             # Extract Credit

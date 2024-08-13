@@ -25,9 +25,9 @@ def gname(driver):
             time.sleep(3)
             
         if pyautogui.locateOnScreen('./image/bestdomain.png') is not None:
-            pyautogui.click(x=387, y=150)
+            pyautogui.click(x=382, y=183)
             time.sleep(1)
-            pyautogui.click(x=381, y=177)
+            pyautogui.click(x=379, y=146)
             time.sleep(1)
 
         for i in range(2):
@@ -46,7 +46,7 @@ def gname(driver):
                 wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', 'Basic Information') 
                 wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', 'Financial Information') 
                 time.sleep(1)
-                pyautogui.click(1002,324)
+                pyautogui.click(1003,298)
 
             time.sleep(1)
             
@@ -63,9 +63,9 @@ def gname(driver):
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             time.sleep(1)
-            pyautogui.moveTo(x=1540, y=142)
+            pyautogui.moveTo(x=1535, y=109)
             time.sleep(1)
-            pyautogui.click(x=1531, y=374)
+            pyautogui.click(x=1531, y=338)
             time.sleep(1)
 
             id += 1
@@ -92,11 +92,11 @@ def jumingwang(driver):
                     save_button.click()
                     wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[1]', '账户登录') 
                     time.sleep(1)
-                    pyautogui.click(215,136)
+                    pyautogui.click(215,102)
 
             except Exception as e:
                 time.sleep(1)
-                pyautogui.click(215,136)
+                pyautogui.click(215,102)
 
             # wait for 账号登入 image appear
             zhdl = None
@@ -111,8 +111,8 @@ def jumingwang(driver):
             time.sleep(1)
             pyautogui.click(1216, 175)
             time.sleep(1)
-            pyautogui.moveTo(803, 489, 0.2)
-            pyautogui.dragTo(1116, 489, button='left', duration=0.2)
+            pyautogui.moveTo(803, 470, 0.2)
+            pyautogui.dragTo(1116, 470, button='left', duration=0.2)
 
             wait(driver, '/html/body/div[1]/div[1]/div/div/div/span[13]/a', '退出') 
 
@@ -171,6 +171,9 @@ def sms326(driver):
             pyautogui.moveTo(1082,164)
             time.sleep(1)
             
+            # Restore Zoom 100%
+            pyautogui.hotkey('command', '0')
+
             if pyautogui.locateOnScreen('./image/sms_login.png') is None:
                 image_vault = None
                 while image_vault is None:
@@ -190,10 +193,11 @@ def sms326(driver):
             # Custom_Screenshot using cv2, due to imagegrab have some bug during screenshort
             # The first x,y use check_corrdinates tool to find the top-left coordinates
             # Weight & Height need to test and adjust by yourself
-            x, y, width, height = 232,144,178,63
+            x, y, width, height = 249,110,152,55
             custom_screenshot = cv2.cvtColor(np.array(pyautogui.screenshot(region=(x, y, width, height))), cv2.COLOR_RGB2BGR)
             cv2.imwrite(('./晚班水位/' + ID[id] + '.png'), custom_screenshot)
 
+            time.sleep(1)
             # Tesseract Image Extract value
             # Load Image
             img = cv2.imread("./晚班水位/ven326.png")
@@ -238,19 +242,19 @@ def ven196_7211(driver):
     driver.get('https://www.7211.com/login.php')
     wait(driver, '/html/body/div[2]/div/div/div[1]/div[1]/div/h2', '请先登录再下单！') 
     time.sleep(1)
-    pyautogui.click(387,641)
+    pyautogui.click(381,604)
     time.sleep(1)
     wait(driver, '/html/body/div[2]/div/div[1]/div/div[1]/div[1]/h2', '购买一个') 
     time.sleep(1)
 
     try:
-        pyautogui.moveTo(859,139)
+        pyautogui.moveTo(852,102)
         time.sleep(1)
-        pyautogui.click(823,168)
+        pyautogui.click(820,133)
         time.sleep(1)
         wait(driver, '/html/body/div[3]/table/tbody/tr/td[1]/div/div/div[1]/div[1]/strong', '快速链接') 
         time.sleep(1)
-        pyautogui.click(65,383)
+        pyautogui.click(62,350)
         time.sleep(1)
 
         # Extract Credit
@@ -273,9 +277,9 @@ def ven196_7211(driver):
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
 
         time.sleep(1)
-        pyautogui.click(1554,226)
+        pyautogui.click(1554,190)
         time.sleep(1)
-        pyautogui.click(1496,346)
+        pyautogui.click(1503,311)
         time.sleep(1)
 
         id+=1
@@ -307,7 +311,7 @@ def ven295(driver):
         time.sleep(1)
         pyautogui.click(x=1260, y=170)
         time.sleep(1)
-        pyautogui.click(x=313, y=484)
+        pyautogui.click(x=308, y=465)
         time.sleep(2)
 
         wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
@@ -327,8 +331,8 @@ def ven295(driver):
         print(f"{ID[id]}= {credit}")
 
         time.sleep(1)
-        pyautogui.click(x= 1558, y=135)
-        pyautogui.click(x= 1558, y=135)
+        pyautogui.click(x= 1554, y=109)
+        pyautogui.click(x= 1554, y=109)
         time.sleep(1)
         
         # Screenshot
@@ -339,7 +343,7 @@ def ven295(driver):
             time.sleep(1)
             pyautogui.click(logout)
         else:
-            pyautogui.click(x=1458, y=506)
+            pyautogui.click(x=1470, y=484)
                 
         time.sleep(2)
         

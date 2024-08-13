@@ -11,9 +11,9 @@ def kaidan(driver):
         # 拿SN码
         driver.get('https://ad.bgvip88.com/ticket.html')
         time.sleep(1)
-        pyautogui.click(139,163)
+        pyautogui.click(134,129)
         time.sleep(1)
-        pyautogui.click(74,292)
+        pyautogui.click(124,258)
         time.sleep(1)
         SN = find_element_nontext(driver, '/html/body/div[2]')
         pyperclip.copy(SN + " 晚班週期性業務")
@@ -24,23 +24,23 @@ def kaidan(driver):
         try:
             if find_element_ID(driver, 'loginPanel') is not None:
                 time.sleep(1)
-                pyautogui.click(805,582)          
+                pyautogui.click(802,543)          
         except:
             pass
         time.sleep(1)
         driver.switch_to.frame("appIframe-project")
         wait(driver, '/html/body/main/div/div/div/div/h2', '建任务') 
         time.sleep(1)
-        pyautogui.moveTo(305,574)
+        pyautogui.moveTo(305,542)
         pyautogui.mouseDown()
-        pyautogui.moveTo(585,574)
+        pyautogui.moveTo(585,542)
         pyautogui.mouseUp()
         time.sleep(1)
         pyautogui.hotkey("Command", "V")
         time.sleep(1)
         pyautogui.scroll(-30)
         time.sleep(1)
-        pyautogui.click(757,703)
+        pyautogui.click(758,694)
         time.sleep(2)
         
         # Noctool_开单
@@ -57,19 +57,19 @@ def kaidan(driver):
         except:
             pass
 
-        pyautogui.click(447,235)
+        pyautogui.click(468,200)
         time.sleep(1)
-        pyautogui.click(140,340)
+        pyautogui.click(142,307)
         time.sleep(1)
-        pyautogui.click(370,436)
+        pyautogui.click(213,403)
         pyautogui.hotkey("Command", "V")
         time.sleep(1)
-        pyautogui.click(248,529)
+        pyautogui.click(357,529)
         time.sleep(1)
         pyperclip.copy("处理中")
         pyautogui.hotkey("Command", "V")
         time.sleep(1)
-        pyautogui.click(37,730)
+        pyautogui.click(35,695)
         time.sleep(2)
 
     except Exception as e:

@@ -15,8 +15,8 @@ if stdout:
 if stderr:
     print(stderr.decode('utf-8'))
 
-exec(open('./Run_Check.py').read())
-exec(open('./zentao_noctool_kaidan.py').read())
+# exec(open('./Run_Check.py').read())
+# exec(open('./zentao_noctool_kaidan.py').read())
 exec(open('./aliyun.py').read())
 exec(open('./tencent.py').read())
 exec(open('./huawei.py').read())

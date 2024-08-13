@@ -5,7 +5,7 @@ import re
 from List_Zentao import ID, mongodb_id, tuple_id, Tencent_Webpage
 from PIL import ImageGrab
 from bson import ObjectId 
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
+from function import chrome, update_one, wait, find_element_nontext
 
 # 腾讯云【中国站】
 def tencent1(driver):
@@ -20,17 +20,11 @@ def tencent1(driver):
         # detect 切换其他账号button
         if pyautogui.locateOnScreen('./image/tencent1.png') is not None:
             time.sleep(2)
-            pyautogui.click(x=448, y=223)
-        elif pyautogui.locateOnScreen('./image/tencentint.png') is not None:
-            time.sleep(3)
-            pyautogui.moveTo(x=1460, y=139)
-            time.sleep(1)
-            pyautogui.click(x=1422, y=336)
-            time.sleep(1)
+            pyautogui.click(x=402, y=202)
         
         for i in range(5):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '扫码登录')
-            pyautogui.click(x=604, y=232)
+            pyautogui.click(x=579, y=209)
             time.sleep(1)     
             pyautogui.click(x=1416, y=62)
 
@@ -72,8 +66,8 @@ def tencent1(driver):
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
     
-            pyautogui.click(x= 1558, y=135)
-            pyautogui.click(x= 1558, y=135)
+            pyautogui.click(x= 1496, y=107)
+            pyautogui.click(x= 1496, y=107)
             time.sleep(1)
             
             # Screenshot
@@ -86,7 +80,7 @@ def tencent1(driver):
                 if logout2 is not None:
                     pyautogui.click(logout2)
                 else:
-                    pyautogui.click(x= 1425, y=524)
+                    pyautogui.click(x= 1415, y=539)
 
             id += 1
                
@@ -122,7 +116,7 @@ def tencent2(driver):
             time.sleep(1)
             pyautogui.click(x=1260, y=170)
             time.sleep(1)
-            pyautogui.click(x=313, y=484)
+            pyautogui.click(x=313, y=474)
             time.sleep(2)
 
             # Wait Image Appear 
@@ -157,14 +151,12 @@ def tencent2(driver):
                 
                 # Open 可用额度
                 if i == 6 and pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
-                    pyautogui.click(x=1562, y=183)
+                    pyautogui.click(x=1562, y=160)
                     time.sleep(1)
 
                 # Extract Credit 
-                try:
-                    credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div/div/div/em')
-                except:                                            
-                    credit = find_element_nontext(driver, '//*[@id="expense-index"]/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em')
+                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em')
+
 
             # Replace
             credit = credit.replace(',', '')
@@ -177,8 +169,8 @@ def tencent2(driver):
             print(f"{ID[id]}= {credit}")
 
             time.sleep(1)
-            pyautogui.click(x= 1558, y=135)
-            pyautogui.click(x= 1558, y=135)
+            pyautogui.click(x= 1552, y=110)
+            pyautogui.click(x= 1552, y=110)
             time.sleep(1)
             
             # Screenshot
@@ -189,7 +181,7 @@ def tencent2(driver):
                 time.sleep(1)
                 pyautogui.click(logout)
             else:
-                pyautogui.click(x=1458, y=506)
+                pyautogui.click(x=1473, y=485)
                     
             time.sleep(2)
             
@@ -220,7 +212,7 @@ def tencent3(driver):
         time.sleep(1)
         pyautogui.click(x=1260, y=170)
         time.sleep(1)
-        pyautogui.click(x=514, y=545)
+        pyautogui.click(x=505, y=534)
         time.sleep(1)
 
         # Wait Condition   
@@ -247,8 +239,8 @@ def tencent3(driver):
         print(f"{ID[id]}= {credit}")
 
         time.sleep(1)
-        pyautogui.click(x= 1558, y=135)
-        pyautogui.click(x= 1558, y=135)
+        pyautogui.click(x= 1552, y=110)
+        pyautogui.click(x= 1552, y=110)
         time.sleep(3)
 
         # Screenshot
@@ -258,7 +250,7 @@ def tencent3(driver):
             time.sleep(1)
             pyautogui.click(logout)
         else:
-            pyautogui.click(x=1475, y=581)
+            pyautogui.click(x=1404, y=609)
 
         time.sleep(2)
 
@@ -288,38 +280,20 @@ def tencent4(driver):
             time.sleep(1)
             pyautogui.click(x=1260, y=170)
             time.sleep(1)
-            pyautogui.click(x=314, y=570)
+            pyautogui.click(x=310, y=554)
             time.sleep(1)
-
-            # Wait Condition   
-            wait(driver, '/html/body/div/main/div/div/div/div/div[2]/div[1]/div', '完善关联手机信息') 
-            time.sleep(1)
-            pyautogui.click(x=1118, y=679)
 
             # Wait Condition
-            if i == 0:   
-                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
-                time.sleep(3)
-            else:
-                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
-                time.sleep(3)
+            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
+            time.sleep(2)
 
-            # Open 可用额度
-            if pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
-                pyautogui.click(x=1562, y=183)
-                time.sleep(1)
+            # Extract Credit  
+            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
 
-            try:
-            # Extract Credit (ven327, 328)   
-                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em')
-            except:
-                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
-            
             # Replace
             credit = re.sub(r'USD.*', 'USD', credit)
             credit = credit.replace(',', '')
             credit = credit.replace('USD', '')
-            
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
@@ -330,7 +304,7 @@ def tencent4(driver):
 
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            pyautogui.moveTo(x=1555, y=136)
+            pyautogui.moveTo(x=1558, y=110)
             time.sleep(2)
             logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
             if logout is not None:

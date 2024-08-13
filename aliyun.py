@@ -17,7 +17,7 @@ def aliyun1(driver):
         driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         time.sleep(1)
         if pyautogui.locateOnScreen('./image/ram.png') is not None: 
-                pyautogui.click(798, 651)
+                pyautogui.click(798, 632)
                 wait(driver, '/html/body/div[1]/div/div[1]/nav/div/div/div/span', 'International - 简体中文') 
                 time.sleep(1)  
         else:
@@ -26,9 +26,9 @@ def aliyun1(driver):
         if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
                 if pyautogui.locateOnScreen('./image/international.png') is not None:
                     time.sleep(1)
-                    pyautogui.moveTo(1288, 144)
+                    pyautogui.moveTo(1245, 114)
                     time.sleep(1)
-                    pyautogui.click(1253, 420)
+                    pyautogui.click(1253, 386)
                     time.sleep(1)
                     driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         else:
@@ -66,8 +66,8 @@ def aliyun1(driver):
             
             # Drag and Drop Appear?
             if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
-                pyautogui.moveTo(1058, 481, 0.2)
-                pyautogui.dragTo(1453, 558, button='left', duration=0.2)
+                pyautogui.moveTo(1058, 460, 0.2)
+                pyautogui.dragTo(1453, 545, button='left', duration=0.2)
             else:
                 pass
             
@@ -75,10 +75,10 @@ def aliyun1(driver):
             
             # Drag and Drop Failed
             if pyautogui.locateOnScreen('./image/alidndfailed.png') is not None:
-                pyautogui.click(x=1197, y=470)
+                pyautogui.click(x=1197, y=457)
                 time.sleep(1)
-                pyautogui.moveTo(1058, 470, 0.25)
-                pyautogui.dragTo(1363, 558, button='left', duration=0.25)
+                pyautogui.moveTo(1058, 457, 0.25)
+                pyautogui.dragTo(1363, 545, button='left', duration=0.25)
             else:
                 pass
 
@@ -275,17 +275,10 @@ def aliyun2(driver):
 
     try:
         driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview')
-        time.sleep(1)
-        alilogin2 = pyautogui.locateOnScreen('./image/alilogin_text1.png')
-        if alilogin2 is not None:
-            pyautogui.click(alilogin2)
-        else:
-            pass
-
         time.sleep(2)
 
         if pyautogui.locateOnScreen('./image/ram.png') is not None:
-            pyautogui.click(x=796, y=656)
+            pyautogui.click(x=796, y=634)
             time.sleep(1)
         else:
             pass
@@ -311,12 +304,11 @@ def aliyun2(driver):
             time.sleep(1)
             pyautogui.click(x=1216, y=175)
             time.sleep(1)
-            pyautogui.click(x=913, y=542)
+            pyautogui.click(x=913, y=525)
             time.sleep(4)
             
             # Drag and Drop Appear?
             if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
-                pyautogui.click(989,544)
                 pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.15)
                 pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.15)
                 X += 1
@@ -335,7 +327,7 @@ def aliyun2(driver):
             while True:
                 alidndfailed4 = pyautogui.locateOnScreen('./image/alidndfailed5.png')
                 if alidndfailed4 is not None:
-                    pyautogui.click(x=1111, y=543)
+                    pyautogui.click(x=1111, y=511)
                     time.sleep(1)
                     pyautogui.click(989,544)
                     pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.2)
@@ -373,7 +365,7 @@ def aliyun2(driver):
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
-            pyautogui.click(x= 1505, y=137)
+            pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
             while True:
@@ -381,9 +373,9 @@ def aliyun2(driver):
                     if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', '基本资料'):
                         break
                 except:
-                        pyautogui.moveTo(x= 1183, y=192)
+                        pyautogui.moveTo(x= 1183, y=162)
                         time.sleep(2)
-                        pyautogui.moveTo(x= 1505, y=137)
+                        pyautogui.moveTo(x= 1505, y=104)
                         time.sleep(2)
 
             
@@ -423,7 +415,6 @@ def aliyun3(driver):
                     break
                 else:
                     time.sleep(1)
-            time.sleep(1)
             pyautogui.click(x=1416, y=62)
 
             # Wait for image Appear
@@ -436,7 +427,7 @@ def aliyun3(driver):
             time.sleep(1)
             pyautogui.click(x=1257, y=171)
             time.sleep(1)
-            pyautogui.click(x=798, y=529)
+            pyautogui.click(x=792, y=507)
             time.sleep(3)
 
             # Drag and Drop Appear? #### Username Login
@@ -503,7 +494,7 @@ def aliyun3(driver):
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
-            pyautogui.moveTo(x= 1521, y=143)
+            pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
             while True:
@@ -511,9 +502,9 @@ def aliyun3(driver):
                     if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
                         break
                 except:
-                    pyautogui.click(x= 1183, y=192)
+                    pyautogui.click(x= 1183, y=104)
                     time.sleep(1)
-                    pyautogui.moveTo(x= 1521, y=143)
+                    pyautogui.click(x= 1505, y=104)
                     time.sleep(1)
             
             # Screenshot

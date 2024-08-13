@@ -43,7 +43,7 @@ def update_one(filter, update):
     
 # MongoDB Find One Document
 def find_one(find):
-    # Find one data
+    # Find one data 
     collection = mongodb_atlas()
     document = collection.find_one(find)
     return document
