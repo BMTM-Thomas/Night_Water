@@ -4,3 +4,4 @@ User Data Directory
 晚班水位/*.png
 .DS_Store
 **/.DS_Store
+.vscode
