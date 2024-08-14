@@ -113,7 +113,7 @@ def aliyun1(driver):
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
-            pyautogui.click(x= 1505, y=137)
+            pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
             while True:
@@ -123,7 +123,7 @@ def aliyun1(driver):
                 except:
                     pyautogui.click(x= 1183, y=192)
                     time.sleep(2)
-                    pyautogui.click(x= 1505, y=137)
+                    pyautogui.click(x= 1505, y=104)
                     time.sleep(2)
 
             # Screenshot
@@ -227,7 +227,7 @@ def ven387(driver):
                 except:
                     pyautogui.click(x= 1183, y=192)
                     time.sleep(2)
-                    pyautogui.click(x= 1505, y=137)
+                    pyautogui.click(x= 1505, y=104)
                     time.sleep(2)
         
         # Screenshot
