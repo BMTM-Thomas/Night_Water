@@ -24,7 +24,7 @@ def kaidan(driver):
         try:
             if find_element_ID(driver, 'loginPanel') is not None:
                 time.sleep(1)
-                pyautogui.click(802,543)          
+                pyautogui.click(804,558)          
         except:
             pass
         time.sleep(1)
