@@ -25,7 +25,7 @@ def gname(driver):
             time.sleep(3)
             
         if pyautogui.locateOnScreen('./image/bestdomain.png') is not None:
-            pyautogui.click(x=382, y=183)
+            pyautogui.moveTo(x=382, y=122)
             time.sleep(1)
             pyautogui.click(x=379, y=146)
             time.sleep(1)
@@ -193,7 +193,7 @@ def sms326(driver):
             # Custom_Screenshot using cv2, due to imagegrab have some bug during screenshort
             # The first x,y use check_corrdinates tool to find the top-left coordinates
             # Weight & Height need to test and adjust by yourself
-            x, y, width, height = 249,110,152,55
+            x, y, width, height = 251,110,152,55
             custom_screenshot = cv2.cvtColor(np.array(pyautogui.screenshot(region=(x, y, width, height))), cv2.COLOR_RGB2BGR)
             cv2.imwrite(('./晚班水位/' + ID[id] + '.png'), custom_screenshot)
 
