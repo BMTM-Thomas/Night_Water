@@ -28,9 +28,9 @@ def zentao(driver):
                 time.sleep(1)
                 pyautogui.click(1176,212)   
                 time.sleep(1)
-                pyautogui.click(805,577)    
+                pyautogui.click(805,557)    
                 time.sleep(1)   
-                pyautogui.click(805,577)   
+                pyautogui.click(805,557)   
         except:
             pass
 
