@@ -71,7 +71,8 @@ def huawei1(driver):
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             try:
                 if find_element_XPATH(driver, '/html/body/div[1]/div/div[1]/div/span[2]', '您尚未开启敏感操作保护，存在安全风险，请您前往 安全设置>敏感操作>操作保护 开启敏感操作保护。'):
-                    pyautogui.click(1574, 142)
+                    pyautogui.click(1574, 108)
+                    time.sleep(1)
                 else:
                     pyautogui.moveTo(1530, 104)
             except:
