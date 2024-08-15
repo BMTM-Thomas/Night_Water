@@ -344,8 +344,8 @@ def aliyun2(driver):
 
             # detected unusual traffic from your network (Drag n Drop)
             if pyautogui.locateOnScreen('./image/unusual_traffic.png') is not None:
-                pyautogui.moveTo(671, 526, 0.15)
-                pyautogui.dragTo(981, 526, button='left', duration=0.15)
+                pyautogui.moveTo(671, 506, 0.15)
+                pyautogui.dragTo(981, 506, button='left', duration=0.15)
             else:
                 pass
             
