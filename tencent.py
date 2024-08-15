@@ -20,7 +20,7 @@ def tencent1(driver):
         # detect 切换其他账号button
         if pyautogui.locateOnScreen('./image/tencent1.png') is not None:
             time.sleep(2)
-            pyautogui.click(x=402, y=202)
+            pyautogui.click(x=450, y=202)
         
         for i in range(5):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '扫码登录')
@@ -93,8 +93,8 @@ def tencent2(driver):
 
         for i in range(12):
 
-            if pyautogui.locateOnScreen('./image/cam.png') is not None:
-                pyautogui.click(x=318, y=642)
+            if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
+                pyautogui.click(x=318, y=623)
                 
             wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]', '邮箱登录')    
             time.sleep(3)        
@@ -151,7 +151,7 @@ def tencent2(driver):
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[1]/div/div/h3', '可用额度')
 
                 # Extract Credit 
-                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div/em')
+                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div[1]/div/em')
 
 
             # Replace
