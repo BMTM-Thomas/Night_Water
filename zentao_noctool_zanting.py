@@ -1,5 +1,5 @@
 from datetime import datetime
-from function import wait, find_element_ID, find_element_nontext, wait_buttonclick_XPATH, chrome
+from function import wait, find_element_nontext, wait_buttonclick_XPATH, chrome
 import time
 import pyautogui
 import pyperclip
@@ -11,11 +11,11 @@ def zanting(driver):
         # Zentao_关单
         driver.get('https://zr-zentao2023.cccqx.com/zentao/execution-task-26.html')
         try:
-            if find_element_ID(driver, 'loginPanel') is not None:
+            if find_element_nontext(driver, "/html/body/main/div/div[1]/header/h2" ) == "ZTS项目管理系统" :
                 time.sleep(1)
-                pyautogui.click(805,615)
+                pyautogui.click(803,546)
                 time.sleep(1)
-                pyautogui.click(805,582)          
+                pyautogui.click(803,546)         
         except:
             pass
         time.sleep(1)
@@ -72,7 +72,6 @@ def zanting(driver):
         button_click.click()
         time.sleep(2)
     
-
     except Exception as e:
         print(f"An error occurred: {e}")
         sys.exit(1)

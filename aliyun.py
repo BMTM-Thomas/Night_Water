@@ -16,12 +16,17 @@ def aliyun1(driver):
     try:
         driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         time.sleep(1)
-        if pyautogui.locateOnScreen('./image/ram.png') is not None: 
-                pyautogui.click(798, 632)
-                wait(driver, '/html/body/div[1]/div/div[1]/nav/div/div/div/span', 'International - 简体中文') 
-                time.sleep(1)  
-        else:
+
+        try:
+            if find_element_nontext(driver, "/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div/h3") == "RAM 用户登录": 
+                    pyautogui.click(798, 632)
+                    wait(driver, '/html/body/div[1]/div/div[1]/nav/div/div/div/span', 'International - 简体中文') 
+                    time.sleep(1)  
+            else:
+                pass
+        except Exception as e:
             pass
+
 
         if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
                 if pyautogui.locateOnScreen('./image/international.png') is not None:

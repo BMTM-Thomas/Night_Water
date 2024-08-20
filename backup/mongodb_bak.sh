@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # MongoDB Atlas
 MONGO_URL="mongodb+srv://thomasleong:8zvnWrT3sf8N2u7x@cluster0.ef0wowh.mongodb.net"

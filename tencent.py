@@ -18,9 +18,12 @@ def tencent1(driver):
         time.sleep(2)
 
         # detect 切换其他账号button
-        if pyautogui.locateOnScreen('./image/tencent1.png') is not None:
-            time.sleep(2)
-            pyautogui.click(x=450, y=202)
+        try:
+            if find_element_nontext(driver, "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3") == "子用户登录":
+                time.sleep(2)
+                pyautogui.click(x=450, y=202)
+        except:
+            pass
         
         for i in range(5):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '扫码登录')
@@ -92,9 +95,12 @@ def tencent2(driver):
         time.sleep(2)
 
         for i in range(12):
-
-            if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
-                pyautogui.click(x=318, y=623)
+            
+            try:
+                if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
+                    pyautogui.click(x=318, y=623)
+            except:
+                pass
                 
             wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]', '邮箱登录')    
             time.sleep(3)        
@@ -312,7 +318,7 @@ def tencent4(driver):
 
     except Exception as e:
         print(f"An error occurred: {e}")
-        sys.exit(1)
+        time.sleep(111111)
 
 driver = chrome()
 tencent1(driver)

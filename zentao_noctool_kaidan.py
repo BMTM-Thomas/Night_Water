@@ -9,7 +9,7 @@ night = " #晚班週期性業務"
 def kaidan(driver):
     try:
         # 拿SN码
-        driver.get('https://ad.bgvip88.com/ticket.html')
+        driver.get('https://ticket.big555.net/')
         time.sleep(1)
         pyautogui.click(134,129)
         time.sleep(1)
