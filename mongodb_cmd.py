@@ -35,5 +35,8 @@ new: true
 });
 
 
+# findOne
+db.Night_Database.findOne({Ven_Machine: {"$regex": /ven239/i}})
 
-
+# updateOne
+db.Night_Database.updateOne({"Ven_Machine":{"$regex": /ven356/i}}, { $set: { "Credit": "28174.92" } })

@@ -193,21 +193,24 @@ def sms326(driver):
             # Custom_Screenshot using cv2, due to imagegrab have some bug during screenshort
             # The first x,y use check_corrdinates tool to find the top-left coordinates
             # Weight & Height need to test and adjust by yourself
-            x, y, width, height = 248,110,152,55
+            x, y, width, height = 240,110,140,55
             custom_screenshot = cv2.cvtColor(np.array(pyautogui.screenshot(region=(x, y, width, height))), cv2.COLOR_RGB2BGR)
             cv2.imwrite(('./晚班水位/' + ID[id] + '_tesseract.png'), custom_screenshot)
 
             time.sleep(1)
             # Tesseract Image Extract value
             # Load Image
-            img = cv2.imread('./晚班水位/' + ID[id] + '_tesseract.png')
-            # Convert Image to grayscale
-            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            # Apply threshold to convert to binary image
-            threshold_img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-            # Pass the image through pytesseract
-            # Extract the value from image
-            credit = pytesseract.image_to_string(threshold_img)
+            img = Image.open('./晚班水位/' + ID[id] + '_tesseract.png')
+            credit = pytesseract.image_to_string(img)
+
+            # img = cv2.imread('./晚班水位/' + ID[id] + '_tesseract.png')
+            # # Convert Image to grayscale
+            # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            # # Apply threshold to convert to binary image
+            # threshold_img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+            # # Pass the image through pytesseract
+            # # Extract the value from image
+            # credit = pytesseract.image_to_string(threshold_img)
 
             # Replace
             credit = credit.replace('$', '')

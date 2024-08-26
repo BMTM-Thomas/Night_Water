@@ -289,6 +289,13 @@ def aliyun2(driver):
             pass
 
         for i in range(34):
+
+            # Refresh
+            with pyautogui.hold('command'):
+                pyautogui.press('r')
+
+            time.sleep(2)
+
             while True:
                 if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
                     if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
@@ -414,6 +421,12 @@ def aliyun3(driver):
         pyautogui.click(x=1280, y=433)
         
         for i in range(12):
+            
+            # Refresh
+            with pyautogui.hold('command'):
+                pyautogui.press('r')
+            
+            time.sleep(1)
 
             while True:
                 if pyautogui.locateOnScreen('./image/next1.png') is not None:
@@ -529,6 +542,6 @@ def aliyun3(driver):
 driver = chrome()
 aliyun1(driver)
 ven387(driver)
-aliyun2(driver)
-aliyun3(driver)
+# aliyun2(driver)
+# aliyun3(driver)
 driver.close()

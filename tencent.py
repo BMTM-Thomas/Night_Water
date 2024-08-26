@@ -101,9 +101,15 @@ def tencent2(driver):
                     pyautogui.click(x=318, y=623)
             except:
                 pass
-                
+            
+            # Refresh
+            time.sleep(1)
+            with pyautogui.hold('command'):
+                pyautogui.press('r')
+
             wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]', '邮箱登录')    
-            time.sleep(3)        
+            time.sleep(3)  
+            pyautogui      
             pyautogui.click(x=1416, y=62)
             time.sleep(1)
 
@@ -136,7 +142,7 @@ def tencent2(driver):
                 while True:
                     credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
                     if credit == "0.00USD（冻结额度 0.00 USD）":
-                        pass
+                        pyautogui.hotkey('command', 'r')
                     else:
                         break
 
