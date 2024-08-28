@@ -542,6 +542,6 @@ def aliyun3(driver):
 driver = chrome()
 aliyun1(driver)
 ven387(driver)
-# aliyun2(driver)
-# aliyun3(driver)
+aliyun2(driver)
+aliyun3(driver)
 driver.close()
