@@ -1,9 +1,10 @@
 import certifi                                                                                                                                                                         
-from selenium import webdriver                                                                        
+from selenium import webdriver     
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager                                                                   
 from selenium.webdriver.common.by import By                                                            
 from selenium.webdriver.support.wait import WebDriverWait                                              
-from selenium.webdriver.support import expected_conditions as EC                                       
-from selenium.webdriver.chrome.options import Options                                                                                                                   
+from selenium.webdriver.support import expected_conditions as EC                                                                                                                                                          
 from pymongo import MongoClient                                                                  
 
 # Serverless
@@ -16,9 +17,12 @@ def mongodb_atlas():
     collection = db["Night_Database"]
     return collection
 
-# Selenium Chrome
+# Selenium Chrome   
 def chrome():
-    options=Options()
+
+    service = Service(executable_path=ChromeDriverManager().install())
+
+    options = webdriver.ChromeOptions()
     options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
     options.add_argument('profile-directory=Default')
     options.add_argument('--disable-blink-features=AutomationControlled')
@@ -32,7 +36,10 @@ def chrome():
     options.add_argument('--hide-crash-restore-bubble')
     options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
     options.add_experimental_option('useAutomationExtension', False)
-    driver=webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(service=service, options=options)
+
+    print("Chrome version:", driver.capabilities['browserVersion'])
+    print("ChromeDriver version:", driver.capabilities['chrome']['chromedriverVersion'])
     return driver
 
 # MongoDB Update one Document / Credit
