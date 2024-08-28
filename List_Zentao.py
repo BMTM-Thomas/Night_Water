@@ -31,6 +31,10 @@ ID = (
       "ven196",
     # ven295
       "ven295",
+    # watermelon【国际版】【RAM】
+      "ven191", "ven192", "ven193", "ven194", "ven195", "ven221", "ven240", "ven241", "ven242",
+    # watermelon【国际版】 
+      "ven318", "ven319", "ven320"  
 )
 
 
@@ -138,22 +142,24 @@ mongodb_id = (
             )
 
 tuple_id = (
-            0,    # 阿里云【中国站】 #338
-            2,    # ven387 费用 + IP 纯真社区版IP库离线下载 #387
-            4,    # 阿里云【国际站】 #122
-           38,    # 阿里云【国际站】【RAM】 #134
-           50,    # 腾讯云【中国站】#29
-           55,    # 腾讯云【国际站】#314
-           67,    # 腾讯云【中国站】【子用户】#322
-           68,    # 腾讯云 CAM用户登录 #366
-           70,    # 华为云【OPSADMIN】【IAM用户登录】#236
-           83,    # 华为云 【华为帐号登录】#303
-           89,    # Ucloud #281
-           92,    # Gname #332
-           94,    # 聚名網 #336
-           96,    # sms326
-           97,    # 7211.com ven196  
-           98,    # ven295 international tencent #295
+            0,    # 0 _ 阿里云【中国站】 #338
+            2,    # 1 _ ven387 费用 + IP 纯真社区版IP库离线下载 #387
+            4,    # 2 _ 阿里云【国际站】 #122
+           38,    # 3 _ 阿里云【国际站】【RAM】 #134
+           50,    # 4 _ 腾讯云【中国站】#29
+           55,    # 5 _ 腾讯云【国际站】#314
+           67,    # 6 _ 腾讯云【中国站】【子用户】#322
+           68,    # 7 _ 腾讯云 CAM用户登录 #366
+           70,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
+           83,    # 9 _ 华为云 【华为帐号登录】#303
+           89,    # 10 _ Ucloud #281
+           92,    # 11 _ Gname #332
+           94,    # 12 _ 聚名網 #336
+           96,    # 13 _ sms326
+           97,    # 14 _ 7211.com ven196  
+           98,    # 15 _ ven295 international tencent #295
+           99,    # 16 _ ven191
+          108,    # 17 _ ven318
 )   
 
 # Huawei OPSADMIN
@@ -179,13 +185,12 @@ Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200
 
 if __name__ == "__main__":
 
-  tupl3 = ["ven338", "ven387", "ven122", "ven134", "ven29", "ven314", "ven322", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295"]
+  tupl3 = ["ven338", "ven387", "ven122", "ven134", "ven29", "ven314", "ven322", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven191", "ven318"]
   
   index1= ID.index("ven387")
   index2= mongodb_id[index1]
-  index3 = mongodb_id.index(index2)
+  index3= mongodb_id.index(index2)
   # print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
-
 
   for item in tupl3:
     index1= ID.index(item)
