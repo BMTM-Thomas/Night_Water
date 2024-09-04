@@ -356,8 +356,8 @@ def aliyun2(driver):
 
             # detected unusual traffic from your network (Drag n Drop)
             if pyautogui.locateOnScreen('./image/unusual_traffic.png') is not None:
-                pyautogui.moveTo(671, 506, 0.15)
-                pyautogui.dragTo(981, 506, button='left', duration=0.15)
+                pyautogui.moveTo(671, 506, 0.2)
+                pyautogui.dragTo(981, 506, button='left', duration=0.2)
             else:
                 pass
             
@@ -651,6 +651,9 @@ def watermelon_1(driver):
             else:
                 pass
 
+            # Screenshot
+            ImageGrab.grab().save('./watermelon/' + ID[id] + '.png')
+
             pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
@@ -773,6 +776,9 @@ def watermelon_2(driver):
                 print(f"{ID[id]}= !!!!! OVERDUE !!!")
             else:
                 pass
+
+            # Screenshot
+            ImageGrab.grab().save('./watermelon/' + ID[id] + '.png')
 
             pyautogui.click(x= 1505, y=104)
             time.sleep(1)

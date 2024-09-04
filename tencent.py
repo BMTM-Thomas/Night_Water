@@ -140,11 +140,16 @@ def tencent2(driver):
                 time.sleep(1)
 
                 while True:
-                    credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+                    try:
+                        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+                    except:
+                        pass           
+                    
                     if credit == "0.00USD（冻结额度 0.00 USD）":
                         pyautogui.hotkey('command', 'r')
                     else:
                         break
+                    
 
             # Expenses
             else:
