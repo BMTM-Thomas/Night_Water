@@ -5,3 +5,4 @@ User Data Directory
 .DS_Store
 **/.DS_Store
 .vscode
+.venv

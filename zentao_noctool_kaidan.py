@@ -40,7 +40,7 @@ def kaidan(driver):
         time.sleep(1)
         pyautogui.scroll(-30)
         time.sleep(1)
-        pyautogui.click(758,694)
+        # pyautogui.click(758,694)
         time.sleep(2)
         
         # Noctool_开单
@@ -69,7 +69,7 @@ def kaidan(driver):
         pyperclip.copy("处理中")
         pyautogui.hotkey("Command", "V")
         time.sleep(1)
-        pyautogui.click(35,695)
+        # pyautogui.click(35,695)
         time.sleep(2)
 
     except Exception as e:
