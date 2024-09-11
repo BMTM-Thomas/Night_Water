@@ -24,7 +24,7 @@ import subprocess
 # exec(open('./gname_juming_7211_com.py').read())
 # exec(open('./zentaowater.py').read())
 # exec(open('./noctoolwater.py').read())
-# exec(open('./zentao_noctool_zanting.py').read())
+# exec(open('./zentao_noctool_zanting.py').read()) 
 
 subprocess.run(["python3", "./Run_Check.py"])
 subprocess.run(["python3", "./zentao_noctool_kaidan.py"])
