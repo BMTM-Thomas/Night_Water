@@ -47,6 +47,10 @@ def kaidan(driver):
         driver.get('http://10.77.1.196/workorders/create/')
         time.sleep(1)
 
+        # Refresh
+        with pyautogui.hold('command'):
+            pyautogui.press('r')
+
         # Check if is in 登入系统
         try:
             if find_element_nontext(driver, "/html/body/div[1]/div/article/h4") == "登入系統":
@@ -56,7 +60,8 @@ def kaidan(driver):
                 time.sleep(1)
         except:
             pass
-
+        
+        time.sleep(1)
         pyautogui.click(468,200)
         time.sleep(1)
         pyautogui.click(142,307)

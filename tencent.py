@@ -147,6 +147,7 @@ def tencent2(driver):
                     
                     if credit == "0.00USD（冻结额度 0.00 USD）":
                         pyautogui.hotkey('command', 'r')
+                        time.sleep(1)
                     else:
                         break
                     
