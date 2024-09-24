@@ -4,7 +4,7 @@ import sys
 import pyperclip
 from AppKit import NSPasteboard, NSPasteboardTypePNG
 from PIL import ImageGrab
-from List_Zentao import ID, mongodb_id
+from List_Zentao import ID, mongodb_id, zen_noc_tuple
 from bson.objectid import ObjectId   
 from function import chrome, find_element_ID, wait_buttonclick_XPATH, find_one
 
@@ -59,7 +59,7 @@ def zentao(driver):
         pyautogui.click(x=288, y=637)
 
         id = 0
-        for y in range(100): #100
+        for y in range(zen_noc_tuple[0]): #100
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
             documents = find_one(mangos_id)
             ven_machine_value = documents.get('Ven_Machine','N/A')

@@ -163,6 +163,10 @@ tuple_id = (
           109,    # 17 _ ven318 #watermelon
 )   
 
+zen_noc_tuple = (
+  100,
+)
+
 # Huawei OPSADMIN
 Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421&locale=zh-cn#/login",            # ven236
                   "https://auth.huaweicloud.com/authui/login.html?id=hwc07421725#/login",                         # ven237
