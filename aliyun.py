@@ -287,7 +287,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(34):
+        for i in range(35):
 
             # Refresh
             with pyautogui.hold('command'):
