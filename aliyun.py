@@ -93,21 +93,38 @@ def aliyun1(driver):
             else:
                 pass
 
-            # Waiting for a Text to be appear
-            wait(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/button[1]/span', '充值') 
 
-            time.sleep(1)
-            
             # Extract credit
-            while True:
-                try:
-                    credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span')
-                except:
-                    driver.refresh()
-                    time.sleep(5)
-                    continue
-                break
+            # This is due to VEN407 aliyun China UI CHANGE
+            if i == 1:
+                # Waiting for a Text to be appear
+                wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
 
+                time.sleep(1)
+
+                while True:
+                    try:
+                        credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
+                    except:
+                        driver.refresh()
+                        time.sleep(5)
+                        continue
+                    break
+            
+            # VEN338 Aliyun China remain same no change
+            else:
+                # Waiting for a Text to be appear
+                wait(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/button[1]/span', '充值') 
+                
+                while True:
+                    try:
+                        credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span')
+                    except:
+                        driver.refresh()
+                        time.sleep(5)
+                        continue
+                    break
+            
             # Replace
             credit = credit.replace('¥ ', '')
             credit = credit.replace(',', '')
@@ -211,10 +228,18 @@ def ven387(driver):
             pass
         
         # Waiting for a Text to be appear
-        wait(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/button[1]/span', '充值') 
+        wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
         
-        # Extract credit
-        credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span')
+        time.sleep(1)
+        
+        while True:
+                    try:
+                        credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
+                    except:
+                        driver.refresh()
+                        time.sleep(5)
+                        continue
+                    break
         
         # Replace
         credit = credit.replace('¥ ', '')
@@ -811,8 +836,8 @@ def watermelon_2(driver):
 driver = chrome()
 aliyun1(driver)
 ven387(driver)
-aliyun2(driver)
-aliyun3(driver)
-watermelon_1(driver)
-watermelon_2(driver)
+# aliyun2(driver)
+# aliyun3(driver)
+# watermelon_1(driver)
+# watermelon_2(driver)
 driver.close()
