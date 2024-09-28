@@ -231,7 +231,7 @@ def ven387(driver):
         wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
         
         time.sleep(1)
-        
+
         while True:
                     try:
                         credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
@@ -836,8 +836,8 @@ def watermelon_2(driver):
 driver = chrome()
 aliyun1(driver)
 ven387(driver)
-# aliyun2(driver)
-# aliyun3(driver)
-# watermelon_1(driver)
-# watermelon_2(driver)
+aliyun2(driver)
+aliyun3(driver)
+watermelon_1(driver)
+watermelon_2(driver)
 driver.close()
