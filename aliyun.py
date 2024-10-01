@@ -5,7 +5,7 @@ from List_Zentao import ID, mongodb_id,tuple_id
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab  
 from bson.objectid import ObjectId                                                                  
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext, wait_buttonclick_XPATH
+from function import chrome, update_one, wait, wait2, find_element_XPATH, find_element_nontext, wait_buttonclick_XPATH
 
 # 阿里云【中国站】
 def aliyun1(driver):  
@@ -569,7 +569,7 @@ def watermelon_1(driver):
     id = tuple_id[16]
     X = 0
     Y = 0
-    
+
     try:
         driver.get('https://signin.alibabacloud.com/5099316222832876.onaliyun.com/login.htm?callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview#/main')
         time.sleep(2)
@@ -667,12 +667,15 @@ def watermelon_1(driver):
                 pass
 
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[1]/span', '本月消费概览')
-            time.sleep(1)
+            time.sleep(2)
 
             # Check if overdue payment
-            if pyautogui.locateOnScreen('./image/overdue.png') is not None:
-                print(f"{ID[id]}= !!!!! OVERDUE !!!")
-            else:
+            try:
+                if pyautogui.locateOnScreen('./image/overdue.png') is not None:
+                    overdue = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
+                    print(f"{ID[id]}= ", overdue)
+                    
+            except:
                 pass
 
             # Screenshot
@@ -792,13 +795,15 @@ def watermelon_2(driver):
             else:
                 pass
             
-            wait(driver, '//html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[1]/span', '本月消费概览')
+            wait2(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[1]/div/p[2]', '本月已消费')
             time.sleep(1)
 
             # Check if overdue payment
-            if pyautogui.locateOnScreen('./image/overdue.png') is not None:
-                print(f"{ID[id]}= !!!!! OVERDUE !!!")
-            else:
+            try:
+                if pyautogui.locateOnScreen('./image/overdue.png') is not None:
+                    overdue = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
+                    print(f"{ID[id]}= ", overdue)
+            except:
                 pass
 
             # Screenshot

@@ -81,6 +81,13 @@ def wait(driver, path, text):
     except:
         pass
 
+# wait2 (for special purpose)
+def wait2(driver, path, text):
+    try:
+        WebDriverWait(driver, 2).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
+    except:
+        pass
+
 # wait for button click by LINK
 def wait_buttonclick_LINK(driver, text): 
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.LINK_TEXT, text)))
