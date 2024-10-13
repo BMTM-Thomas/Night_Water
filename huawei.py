@@ -116,14 +116,14 @@ def huawei2(driver):
             time.sleep(1)
             pyautogui.click(x= 1532, y=156)
             time.sleep(1)
-            wait(driver, '/html/body/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/div[2]/div/div/div[1]/div[1]/div/span/span', '华为帐号登录') 
+            wait(driver, '/html/body/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div/span/span', '华为账号登录') 
             time.sleep(1)
         else:
             pass
         
         for i in range(6):
             
-            wait(driver, '/html/body/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/div[2]/div/div/div[1]/div[1]/div/span/span', '华为帐号登录') 
+            wait(driver, '/html/body/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div/span/span', '华为账号登录') 
             time.sleep(1)
             pyautogui.click(x=1416, y=62)
 
