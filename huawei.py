@@ -12,7 +12,7 @@ def huawei1(driver):
     id = tuple_id[8]
     
     try:
-        for i in range(13):
+        for i in range(14):
             # # Go to Webpage
             driver.get(Huawei_Webpage[i])
             with pyautogui.hold('command'):
@@ -37,7 +37,7 @@ def huawei1(driver):
             time.sleep(1)
 
             # for ven399 purpose
-            if i == 6:
+            if i == 7:
                 wait(driver, '/html/body/div[3]/div/div[1]/div[1]/p', '登录验证') 
                 time.sleep(3)
                 pyautogui.click(x= 930, y=488)
@@ -49,7 +49,7 @@ def huawei1(driver):
             driver.get('https://account-intl.huaweicloud.com/usercenter/?region=ap-southeast-1#/userindex/allview')
             wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span', '本月剩余预算') 
             
-            if i <= 7:
+            if i <= 8:
                 wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[2]/span[1]', '合作伙伴为您设置的月度预算是:') 
             else:
                 wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[2]/span[1]', '合作伙伴为您设置的一次性预算是:')

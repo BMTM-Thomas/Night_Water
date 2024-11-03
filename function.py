@@ -37,9 +37,7 @@ def chrome():
     options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
     options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(service=service, options=options)
-
-    print("Chrome version:", driver.capabilities['browserVersion'])
-    print("ChromeDriver version:", driver.capabilities['chrome']['chromedriverVersion'])
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     return driver
 
 # MongoDB Update one Document / Credit

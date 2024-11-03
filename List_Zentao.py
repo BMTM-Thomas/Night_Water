@@ -2,11 +2,11 @@ ID = (
     # 阿里云【中国站】
       "ven338", "ven407", "ven387", "ven387纯真",
     # 阿里云【国际版】
-      "ven122", "ven125", "ven126", "ven127", "ven128", "ven137", "ven150", "ven211", "ven219", "ven231", "ven244", "ven265", "ven290", "ven293", "ven294", "ven312", "ven313", "ven323", "ven324", "ven331", "ven346", "ven356", "ven365", "ven395", "ven396", "ven413", "ven416", "ven419", "ven422", "ven423", "ven429", "ven430", "ven438", "ven445 ecs", "ven456",  
+      "ven122", "ven125", "ven126", "ven127", "ven128", "ven137", "ven150", "ven211", "ven219", "ven231", "ven244", "ven265", "ven290", "ven293", "ven294", "ven313", "ven323", "ven324", "ven331", "ven346", "ven356", "ven365", "ven395", "ven396", "ven413", "ven416", "ven419", "ven422", "ven423", "ven429", "ven430", "ven438", "ven445 ecs", "ven456",  
     # 阿里云【国际版】【RAM】
       "ven134", "ven135", "ven136", "ven138", "ven139", "ven141", "ven142", "ven148", "ven149", "ven152", "ven154", "ven155",
     # 腾讯云【中国站】
-      "ven29", "ven178", "ven181", "ven182", "ven186", 
+      "ven29", "ven181", "ven182", "ven186", 
     # 腾讯云【国际站】accountinfo
       "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439","ven441",
     # 腾讯云【国际站】expense
@@ -16,7 +16,7 @@ ID = (
     # 腾讯云 CAM用户登录
       "ven366", "ven451",
     # 华为云【OPSADMIN】【IAM用户登录】
-      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven399", "ven400", "ven405", "ven410","ven411", "ven421", "ven452",
+      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", "ven405", "ven410", "ven411", "ven421", "ven452",
     # 华为云 【华为帐号登录】
       "ven303", "ven307", "ven342", "ven345", "ven420", "ven425",
     # Ucloud
@@ -59,7 +59,6 @@ mongodb_id = (
               "660515a0f932832204669084", # ven290
               "660515a0f932832204669085", # ven293
               "660515a0f932832204669086", # ven294
-              "660515a0f932832204669087", # ven312
               "660515a0f932832204669088", # ven313
               "660515a0f932832204669089", # ven323
               "660515a0f93283220466908a", # ven324
@@ -92,7 +91,6 @@ mongodb_id = (
               "660515a0f9328322046690a2", # ven154
               "660515a0f9328322046690a3", # ven155
               "660515a0f9328322046690a5", # ven29
-              "660515a0f9328322046690a6", # ven178
               "660515a0f9328322046690a7", # ven181
               "660515a0f9328322046690a8", # ven182
               "660515a0f9328322046690aa", # ven186
@@ -117,6 +115,7 @@ mongodb_id = (
               "660515a0f9328322046690ba", # ven268
               "660515a0f9328322046690bb", # ven273
               "660515a0f9328322046690bc", # ven385
+              "67216acacd6787b10b4e5576", # ven388
               "660515a0f9328322046690bd", # ven399
               "660515a0f9328322046690be", # ven400
               "660515a0f9328322046690bf", # ven405
@@ -140,32 +139,34 @@ mongodb_id = (
               "6639017a8a475f0ccf08ad13", # ven326 sms_man
               "663901e48a475f0ccf08ad14", # ven196 7211.com
               "6643a21a3953c8f355c0a007", # ven295 international tencent
+              
+
             )
 
 tuple_id = (
             0,    # 0 _ 阿里云【中国站】 #338
             2,    # 1 _ ven387 费用 + IP 纯真社区版IP库离线下载 #387
             4,    # 2 _ 阿里云【国际站】 #122
-           39,    # 3 _ 阿里云【国际站】【RAM】 #134
-           51,    # 4 _ 腾讯云【中国站】#29
-           56,    # 5 _ 腾讯云【国际站】#314
-           68,    # 6 _ 腾讯云【中国站】【子用户】#322
-           69,    # 7 _ 腾讯云 CAM用户登录 #366
-           71,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
-           84,    # 9 _ 华为云 【华为帐号登录】#303
-           90,    # 10 _ Ucloud #281
-           93,    # 11 _ Gname #332
-           95,    # 12 _ 聚名網 #336
-           97,    # 13 _ sms326
-           98,    # 14 _ 7211.com ven196  
-           99,    # 15 _ ven295 international tencent #295
-          100,    # 16 _ ven191 #watermelon
-          109,    # 17 _ ven318 #watermelon
+           38,    # 3 _ 阿里云【国际站】【RAM】 #134
+           50,    # 4 _ 腾讯云【中国站】#29
+           54,    # 5 _ 腾讯云【国际站】#314
+           66,    # 6 _ 腾讯云【中国站】【子用户】#322
+           67,    # 7 _ 腾讯云 CAM用户登录 #366
+           69,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
+           83,    # 9 _ 华为云 【华为帐号登录】#303
+           89,    # 10 _ Ucloud #281
+           92,    # 11 _ Gname #332
+           94,    # 12 _ 聚名網 #336
+           96,    # 13 _ sms326
+           97,    # 14 _ 7211.com ven196  
+           98,    # 15 _ ven295 international tencent #295
+           99,    # 16 _ ven191 #watermelon
+          108,    # 17 _ ven318 #watermelon
 )   
 
 zen_noc_tuple = (
-  100,
-)
+   99,
+ )
 
 # Huawei OPSADMIN
 Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421&locale=zh-cn#/login",            # ven236
@@ -174,6 +175,7 @@ Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_afpdy3ndeg2pt1j#/login",                 # ven268
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_v4uabq_f1qhppn1#/login",                 # ven273 
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_eev5hgcajnrs-p0#/login",                 # ven385 
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_vz7bw73fbmbylhj#/login",                 # ven388
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_qsk0u_ee0lfjsc_#/login",                 # ven399
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_pb3i1cpxtyp12rg#/login",                 # ven400
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_s9_if_8abedsria#/login",                 # ven405
@@ -192,10 +194,10 @@ if __name__ == "__main__":
 
   tupl3 = ["ven338", "ven387", "ven122", "ven134", "ven29", "ven314", "ven322", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven191", "ven318"]
   
-  index1= ID.index("ven387")
+  index1= ID.index("ven281")
   index2= mongodb_id[index1]
   index3= mongodb_id.index(index2)
-  # print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
+  #print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
 
   for item in tupl3:
     index1= ID.index(item)

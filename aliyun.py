@@ -1,6 +1,7 @@
 import time                                                                                            
 import pyautogui                                                                                                                                                                                  
-import sys                                                                                                                                      
+import sys    
+import random                                                                                                                                  
 from List_Zentao import ID, mongodb_id,tuple_id                                                       
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab  
@@ -312,13 +313,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(35):
-            
-            # Refresh
-            with pyautogui.hold('command'):
-                pyautogui.press('r')
-
-            time.sleep(2)
+        for i in range(34):
 
             while True:
                 if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
@@ -341,42 +336,41 @@ def aliyun2(driver):
             pyautogui.click(x=1216, y=175)
             time.sleep(1)
             pyautogui.click(x=913, y=525)
-            time.sleep(4)
+            time.sleep(random.uniform(4.0,6.0))
+
+            # # Drag and Drop Appear?
+            # if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
+            #     pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.15)
+            #     pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.15)
+            #     X += 1
+            #     Y += 1
+                
+            #     if X >= 8:
+            #         X = 0
+            #         Y = 0
+            #     time.sleep(2)
+            # else:
+            #     pass
             
-            # Drag and Drop Appear?
-            if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
-                pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.15)
-                pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.15)
-                X += 1
-                Y += 1
-
-                if X >= 8:
-                    X = 0
-                    Y = 0
-                time.sleep(2)
-            else:
-                pass
+            # time.sleep(2)
             
-            time.sleep(2)
-
-            # # Drag and Drop Failed
-            while True:
-                alidndfailed4 = pyautogui.locateOnScreen('./image/alidndfailed5.png')
-                if alidndfailed4 is not None:
-                    pyautogui.click(x=1111, y=511)
-                    time.sleep(1)
-                    pyautogui.click(989,544)
-                    pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.15)
-                    pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.15)
-                    X += 1
-                    Y += 1
-
-                    if X >= 8:
-                        X = 0
-                        Y = 0
-                    time.sleep(2)
-                else:
-                    break
+            # # # Drag and Drop Failed
+            # while True:
+            #     if pyautogui.locateOnScreen('./image/alidndfailed5.png') is not None:
+            #         pyautogui.click(x=1111, y=511)
+            #         time.sleep(1)
+            #         pyautogui.click(989,544)
+            #         pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.15)
+            #         pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.15)
+            #         X += 1
+            #         Y += 1
+                
+            #         if X >= 8:
+            #             X = 0
+            #             Y = 0
+            #         time.sleep(2)
+            #     else:
+            #         break
 
             # detected unusual traffic from your network (Drag n Drop)
             if pyautogui.locateOnScreen('./image/unusual_traffic.png') is not None:
@@ -434,6 +428,7 @@ def aliyun2(driver):
         
 # 阿里云【国际站】【RAM】
 def aliyun3(driver):
+
     
     id = tuple_id[3]
     X = 0
@@ -839,9 +834,9 @@ def watermelon_2(driver):
         time.sleep(11111)
 
 driver = chrome()
-aliyun1(driver)
-ven387(driver)
-aliyun2(driver)
+# aliyun1(driver)
+# ven387(driver)
+# aliyun2(driver)
 aliyun3(driver)
 watermelon_1(driver)
 watermelon_2(driver)

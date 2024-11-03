@@ -11,7 +11,7 @@ from function import chrome, update_one, wait, find_element_nontext, wait_button
 def tencent1(driver):
     
     id = tuple_id[4]
- 
+
     try:
         # Go to Webpage
         driver.get('https://cloud.tencent.com/login?s_url=https://console.cloud.tencent.com/expense/overview')
@@ -25,7 +25,7 @@ def tencent1(driver):
         except:
             pass
         
-        for i in range(5):
+        for i in range(4):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '扫码登录')
             pyautogui.click(x=608, y=209)
             time.sleep(1)     

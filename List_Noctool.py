@@ -21,7 +21,6 @@ n_webpage = (
              "http://10.77.1.196/stocks/44b13810-530a-4ca5-a8ff-31ee6211c6cd/",        # ven290
              "http://10.77.1.196/stocks/4f458e2d-a886-4022-bf1a-e38ca128e5e0/",        # ven293
              "http://10.77.1.196/stocks/041b7a56-a0d5-449c-9f3a-3ea5777babaa/",        # ven294
-             "http://10.77.1.196/stocks/a4fa9880-d75f-43b3-bc1b-31017811050f/",        # ven312
              "http://10.77.1.196/stocks/e0049f16-9a0b-4060-8ac8-5af3105430a2/",        # ven313
              "http://10.77.1.196/stocks/34500244-4f18-4d9c-8841-3127d086d1b3/",        # ven323
              "http://10.77.1.196/stocks/4f2e9bc2-161f-4728-b9c6-cea9a5e9fd5d/",        # ven324
@@ -59,7 +58,6 @@ n_webpage = (
 
             # 腾讯云【中国站】
              "http://10.77.1.196/stocks/0016a6bd-af7b-47de-bcfd-b7d4d30b3065/",        # ven29
-             "http://10.77.1.196/stocks/4bee60a3-a2fb-4daa-91a0-93b36e9b7c30/",        # ven178
              "http://10.77.1.196/stocks/a094cc56-31eb-47f3-a1d0-92394c8890a5/",        # ven181
              "http://10.77.1.196/stocks/c5c43e2c-9042-4a65-a965-56b8325ffe3b/",        # ven182
              "http://10.77.1.196/stocks/fd59d3ed-7f4a-4664-acfa-45a0b51b0e5e/",        # ven186
@@ -92,6 +90,7 @@ n_webpage = (
             "http://10.77.1.196/stocks/3119022b-d9b2-4026-928f-99a8761c1c57/",         # ven268
             "http://10.77.1.196/stocks/658b722d-fa61-47f0-b59e-e92798a7c4dd/",         # ven273
             "http://10.77.1.196/stocks/15a708d0-07d4-4bf2-b930-92b8e534ec28/",         # ven385
+            "http://10.77.1.196/stocks/20836417-1801-4e87-a08d-0584f3789d12/",         # ven388
             "http://10.77.1.196/stocks/3d54541a-40a1-48c5-97ab-35b431b1c23c/",         # ven399
             "http://10.77.1.196/stocks/3ecf782b-44f7-4e94-bcad-3eb6dbbe504f/",         # ven400
             "http://10.77.1.196/stocks/2a6741fc-eb73-4dbc-9921-ac3edf2b0d68/",         # ven405
