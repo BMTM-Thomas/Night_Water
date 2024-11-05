@@ -39,7 +39,7 @@ def noctool(driver):
             pyperclip.copy(credit_value)
 
             # Print out Previous and Actual Data
-            print(f"{ID[i]}= Pre: {pre_credit}, Act: {credit_value} \n")
+            print(f"{ID[i]}= Previous: {pre_credit}, Actual: {credit_value} \n")
 
             # Write Credit Value
             # pyautogui.write(credit_value)

@@ -269,18 +269,30 @@ def ven387(driver):
         #IP 纯真社区版IP库离线下载
         driver.get('https://market.console.aliyun.com/?spm=a2c81.42099b4.products-recent.dmarket.75381127UzpKUg#/?_k=koc938')
         wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[1]', 'AppKey：') 
-        wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[2]/a', '复制') 
+        wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[1]/a', '复制') 
         time.sleep(2)
 
         # Extract credit
-        credit = find_element_nontext(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span/span') 
-                                                
+        credit = find_element_nontext(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span/span')                                  
+        
         # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
         update_one(mangos_id, str(credit))
         print(f"{ID[id]}= {credit}")
 
         pyautogui.moveTo(x= 1536, y=131)
+        time.sleep(1)
+
+        while True:
+                try:
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[1]/header[1]/div[2]/div[1]/a[1]', '基本资料'):
+                        break
+                except:
+                        pyautogui.moveTo(x= 1183, y=162)
+                        time.sleep(2)
+                        pyautogui.moveTo(x= 1536, y=131)
+                        time.sleep(2)
+
 
         time.sleep(1)
 
@@ -834,10 +846,10 @@ def watermelon_2(driver):
         time.sleep(11111)
 
 driver = chrome()
-# aliyun1(driver)
-# ven387(driver)
+aliyun1(driver)
+ven387(driver)
 # aliyun2(driver)
 aliyun3(driver)
-watermelon_1(driver)
-watermelon_2(driver)
+# watermelon_1(driver)
+# watermelon_2(driver)
 driver.close()

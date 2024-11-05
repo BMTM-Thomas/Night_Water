@@ -48,7 +48,7 @@ def ucloud(driver):
             
             # Extract Credit
             try:
-                credit = find_element_nontext(driver, '/html/body/div[8]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
+                credit = find_element_nontext(driver, '/html/body/div[12]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             except:
                 credit = find_element_nontext(driver, '/html/body/div[11]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             credit = credit.replace(',', '')
