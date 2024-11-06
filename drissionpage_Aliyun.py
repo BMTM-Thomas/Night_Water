@@ -15,12 +15,10 @@ co.set_argument('--no-sandbox')
 co.set_argument('--start-maximized')
 co.set_argument('--disable-gpu')
 co.set_argument('--disable-dev-shm-usage')
-co.set_argument('--disable-popup-blocking')
 co.set_argument('--remote-debugging-port=9222')
 co.set_argument('--no-default-browser-check')
 co.set_argument('--no-first-run')
 co.set_argument('--hide-crash-restore-bubble')
-co.set_argument("--disable-notifications")
 co.set_argument("--disable-blink-features=AutomationControlled")
 
 driver = ChromiumPage(co)
@@ -76,7 +74,7 @@ try:
 
         # Drag and Drop Appear?
         if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
-            pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.14)
+            pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.12)
             pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.12)
             X += 1
             Y += 1
@@ -95,8 +93,7 @@ try:
             if pyautogui.locateOnScreen('./image/alidndfailed5.png') is not None:
                 pyautogui.click(x=1111, y=511)
                 time.sleep(1)
-                pyautogui.click(989,544)
-                pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.14)
+                pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.12)
                 pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.12)
                 X += 1
                 Y += 1
