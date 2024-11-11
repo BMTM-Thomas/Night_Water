@@ -39,6 +39,9 @@ def gname(driver):
             pyautogui.click(x=1202, y=180)
             time.sleep(1)
             
+            pyautogui.moveTo(858, 560, 0.2)
+            pyautogui.dragTo(1280, 562, button='left', duration=0.2)
+
             if i == 0:
                 wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', '基本信息') 
                 wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', '资金信息') 
@@ -174,14 +177,13 @@ def sms326(driver):
             # Restore Zoom 100%
             pyautogui.hotkey('command', '0')
 
-            if pyautogui.locateOnScreen('./image/sms_login.png') is None:
-                image_vault = None
-                while image_vault is None:
-                    image_vault = pyautogui.locateOnScreen('./image/newsms.png', grayscale = True)
-                    time.sleep(2)
-                pass
-            elif pyautogui.locateOnScreen('./image/newsms.png') is None:
-                time.sleep(4)
+            # if is in login page, then do, else ignore
+            if pyautogui.locateOnScreen('./image/sms_login.png') is not None:
+                time.sleep(3)
+                pyautogui.click(x=797, y=626)
+                time.sleep(6)
+            else:
+                time.sleep(2)
                 pass
             
             # Zoom up
@@ -193,7 +195,7 @@ def sms326(driver):
             # Custom_Screenshot using cv2, due to imagegrab have some bug during screenshort
             # The first x,y use check_corrdinates tool to find the top-left coordinates
             # Weight & Height need to test and adjust by yourself
-            x, y, width, height = 240,110,140,55
+            x, y, width, height = 240,100,150,54
             custom_screenshot = cv2.cvtColor(np.array(pyautogui.screenshot(region=(x, y, width, height))), cv2.COLOR_RGB2BGR)
             cv2.imwrite(('./晚班水位/' + ID[id] + '_tesseract.png'), custom_screenshot)
 
@@ -202,15 +204,6 @@ def sms326(driver):
             # Load Image
             img = Image.open('./晚班水位/' + ID[id] + '_tesseract.png')
             credit = pytesseract.image_to_string(img)
-
-            # img = cv2.imread('./晚班水位/' + ID[id] + '_tesseract.png')
-            # # Convert Image to grayscale
-            # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            # # Apply threshold to convert to binary image
-            # threshold_img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-            # # Pass the image through pytesseract
-            # # Extract the value from image
-            # credit = pytesseract.image_to_string(threshold_img)
 
             # Replace
             credit = credit.replace('$', '')
