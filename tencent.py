@@ -26,7 +26,7 @@ def tencent1(driver):
             pass
         
         for i in range(4):
-            wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '扫码登录')
+            wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '微信登录')
             pyautogui.click(x=608, y=209)
             time.sleep(1)     
             pyautogui.click(x=1416, y=62)
@@ -132,7 +132,7 @@ def tencent2(driver):
                 pass
             
             # Accountinfo
-            if i <= 9:
+            if i <= 10:
             
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')

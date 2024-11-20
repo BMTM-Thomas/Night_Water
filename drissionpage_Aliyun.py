@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 from DrissionPage import ChromiumOptions, ChromiumPage            
 from DrissionPage.common import Settings
 from function import update_one
+from function import find_element_nontext
 
 co = ChromiumOptions()
 co.set_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
@@ -23,140 +24,268 @@ co.set_argument("--disable-blink-features=AutomationControlled")
 
 driver = ChromiumPage(co)
 
-id = tuple_id[2]
-X = 0
-Y = 0
 
-try:
-    driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview')
-    time.sleep(1)
-    pyautogui.click(x=1576, y=115)
-    time.sleep(1)
-
-    if pyautogui.locateOnScreen('./image/ram.png') is not None:
-        pyautogui.click(x=796, y=634)
-        time.sleep(1)
-    else:
-        pass
-
-    for i in range(34):
-
-        driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview')
-
-        time.sleep(1)
-
-        if pyautogui.locateOnScreen('./image/logout_Bug.png') is not None:
-            pyautogui.click(x=1102, y=445)
-        else:
-            pass
+def aliyun2(driver):
     
-        while True:
-                if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
-                    if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
-                        time.sleep(1)
-                        break
+    id = tuple_id[2]
+    X = 0
+    Y = 0
 
-        # click lastpass extension       
-        pyautogui.click(x=1416, y=62)
-
-        # Wait for image Appear
-        image_vault = None
-        while image_vault is None:
-            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
-
+    try:
+        driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview')
         time.sleep(1)
-        pyautogui.write(ID[id])
+        pyautogui.click(x=1576, y=115)
         time.sleep(1)
-        pyautogui.click(x=1216, y=175)
-        time.sleep(1)
-        pyautogui.click(x=913, y=525)
-        time.sleep(3)
 
-        # Drag and Drop Appear?
-        if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
-            pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.12)
-            pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.12)
-            X += 1
-            Y += 1
-            
-            if X >= 8:
-                X = 0
-                Y = 0
-            time.sleep(2)
+        if pyautogui.locateOnScreen('./image/ali_Eng.png') is not None:
+            pyautogui.click(x=1246, y=118)
+            time.sleep(1)
+            pyautogui.click(x=1235, y=186)
+            time.sleep(1)
         else:
             pass
+
+        for i in range(29):
+
+            driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F#/account/overview')
+
+            time.sleep(1)
+
+            if pyautogui.locateOnScreen('./image/logout_Bug.png') is not None:
+                pyautogui.click(x=1102, y=445)
+            else:
+                pass
+
+            time.sleep(1)
+
+            while True:
+                    if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
+                        if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
+                            time.sleep(1)
+                            break
         
-        time.sleep(2)
-        
-        # # Drag and Drop Failed
-        while True:
-            if pyautogui.locateOnScreen('./image/alidndfailed5.png') is not None:
-                pyautogui.click(x=1111, y=511)
-                time.sleep(1)
-                pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.12)
-                pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.12)
+            # click lastpass extension       
+            pyautogui.click(x=1416, y=62)
+
+            # Wait for image Appear
+            image_vault = None
+            while image_vault is None:
+                image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+
+            time.sleep(1)
+            pyautogui.write(ID[id])
+            time.sleep(1)
+            pyautogui.click(x=1216, y=175)
+            time.sleep(1)
+            pyautogui.click(x=913, y=525)
+            time.sleep(3)
+
+            # Drag and Drop Appear?
+            if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
+                pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.13)
+                pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.13)
                 X += 1
                 Y += 1
-
-                print(m_X1[X], m_Y2[Y], d_X1[X], d_Y2[Y])
+                
                 if X >= 8:
                     X = 0
                     Y = 0
                 time.sleep(2)
             else:
-                break
+                pass
+            
+            time.sleep(2)
+            
+            # # Drag and Drop Failed
+            while True:
+                if pyautogui.locateOnScreen('./image/alidndfailed5.png') is not None:
+                    pyautogui.click(x=1111, y=511)
+                    time.sleep(1)
+                    pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.13)
+                    pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.13)
+                    X += 1
+                    Y += 1
 
-        # detected unusual traffic from your network (Drag n Drop)
-        if pyautogui.locateOnScreen('./image/unusual_traffic.png') is not None:
-            pyautogui.moveTo(660, 507, 0.12)
-            pyautogui.dragTo(970, 507, button='left', duration=0.12)
+                    if X >= 8:
+                        X = 0
+                        Y = 0
+                    time.sleep(2)
+                else:
+                    break
+
+            # detected unusual traffic from your network (Drag n Drop)
+            if pyautogui.locateOnScreen('./image/unusual_traffic.png') is not None:
+                pyautogui.moveTo(660, 507, 0.12)
+                pyautogui.dragTo(970, 507, button='left', duration=0.12)
+            else:
+                pass
+            
+            driver.wait.doc_loaded()
+
+            # Extract Credit
+            while True:
+                credit = driver('x:/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span').text
+                if credit == "":
+                    continue
+                else:
+                    break
+
+            # MongoDB update Data 
+            mangos_id = {'_id': ObjectId(mongodb_id[id])}
+            update_one(mangos_id, credit)
+            print(f"{ID[id]}= {credit}")
+
+            pyautogui.click(x= 1505, y=104)
+            time.sleep(1)
+
+            while True:
+                try:
+                    if driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', timeout=2).text == '基本资料':
+                        break
+                except:
+                    pyautogui.moveTo(x= 1183, y=162)
+                    time.sleep(2)
+                    pyautogui.moveTo(x= 1505, y=104)
+                    time.sleep(2)
+                
+
+            # Screenshot
+            ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+
+            # Element Button Click
+            time.sleep(1)
+            driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[1]/a[1]').click()
+
+            time.sleep(1)
+            
+            id += 1
+            if X >= 8:
+                X = 0
+                Y = 0
+    
+            driver.wait.doc_loaded()
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        time.sleep(11111)
+
+def watermelon_2(driver):
+
+    id = tuple_id[17]
+    X = 0
+    Y = 0
+
+    try:
+        driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview')
+        time.sleep(2)
+
+        if pyautogui.locateOnScreen('./image/ram.png') is not None:
+            pyautogui.click(x=796, y=634)
+            time.sleep(1)
         else:
             pass
-        
-        driver.wait.doc_loaded()
 
-        # Extract Credit
-        while True:
-            credit = driver('x:/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span').text
-            if credit == "":
-                continue
-            else:
-                break
+        for i in range(3):
 
-        # MongoDB update Data 
-        mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        update_one(mangos_id, credit)
-        print(f"{ID[id]}= {credit}")
+            # Refresh
+            with pyautogui.hold('command'):
+                pyautogui.press('r')
 
-        pyautogui.click(x= 1505, y=104)
-        time.sleep(1)
+            time.sleep(2)
 
-        while True:
-            try:
-                if driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', timeout=2).text == '基本资料':
-                    break
-            except:
-                pyautogui.moveTo(x= 1183, y=162)
-                time.sleep(2)
-                pyautogui.moveTo(x= 1505, y=104)
-                time.sleep(2)
+            while True:
+                if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
+                    if pyautogui.locateOnScreen('./image/alilogin_text2.png') is not None:
+                        time.sleep(1)
+                        break
+                else:
+                    time.sleep(1)
+                    
+            pyautogui.click(x=1416, y=62)
+
+            # Wait for image Appear
+            image_vault = None
+            while image_vault is None:
+                image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+
+            time.sleep(1)
+            pyautogui.write(ID[id])
+            time.sleep(1)
+            pyautogui.click(x=1216, y=175)
+            time.sleep(1)
+            pyautogui.click(x=913, y=525)
+            time.sleep(4)
             
+            # Drag and Drop Appear?
+            if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
+                pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.15)
+                pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.15)
+                X += 1
+                Y += 1
 
-        # Screenshot
-        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+                if X >= 8:
+                    X = 0
+                    Y = 0
+                time.sleep(2)
+            else:
+                pass
+            
+            time.sleep(2)
 
-        # Element Button Click
-        driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[1]/a[1]').click()
+            # # Drag and Drop Failed
+            while True:
+                alidndfailed4 = pyautogui.locateOnScreen('./image/alidndfailed5.png')
+                if alidndfailed4 is not None:
+                    pyautogui.click(x=1111, y=511)
+                    time.sleep(1)
+                    pyautogui.click(989,544)
+                    pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.2)
+                    pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.2)
+                    X += 1
+                    Y += 1
 
-        time.sleep(1)
-        
-        id += 1
-        if X >= 8:
-            X = 0
-            Y = 0
-   
-        driver.wait.doc_loaded()
+                    if X >= 8:
+                        X = 0
+                        Y = 0
+                    time.sleep(2)
+                else:
+                    break
 
-except Exception as e:
-    print(f"An error occurred: {e}")
-    time.sleep(11111)
+            # detected unusual traffic from your network (Drag n Drop)
+            if pyautogui.locateOnScreen('./image/unusual_traffic.png') is not None:
+                pyautogui.moveTo(671, 506, 0.15)
+                pyautogui.dragTo(981, 506, button='left', duration=0.15)
+            else:
+                pass
+            
+            driver.wait.doc_loaded()
+
+            # Check if overdue payment
+            try:
+                if pyautogui.locateOnScreen('./image/overdue.png') is not None:
+                    overdue = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
+                    print(f"{ID[id]}= ", overdue)
+            except:
+                pass
+
+            # Screenshot
+            ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+
+            # Element Button Click
+            driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[1]/a[1]').click()
+
+            time.sleep(1)
+            
+            id += 1
+            if X >= 8:
+                X = 0
+                Y = 0
+    
+            driver.wait.doc_loaded()
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        time.sleep(11111)
+
+aliyun2(driver)
+watermelon_2(driver)

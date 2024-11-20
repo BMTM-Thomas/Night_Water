@@ -39,8 +39,8 @@ def gname(driver):
             pyautogui.click(x=1202, y=180)
             time.sleep(1)
             
-            pyautogui.moveTo(858, 560, 0.2)
-            pyautogui.dragTo(1280, 562, button='left', duration=0.2)
+            pyautogui.moveTo(858, 560, 0.4)
+            pyautogui.dragTo(1280, 562, button='left', duration=0.4)
 
             if i == 0:
                 wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', '基本信息') 
@@ -179,11 +179,13 @@ def sms326(driver):
 
             # if is in login page, then do, else ignore
             if pyautogui.locateOnScreen('./image/sms_login.png') is not None:
-                time.sleep(3)
+                print("pass1")
+                time.sleep(15)
                 pyautogui.click(x=797, y=626)
                 time.sleep(6)
             else:
-                time.sleep(2)
+                print("pass2")
+                time.sleep(6)
                 pass
             
             # Zoom up

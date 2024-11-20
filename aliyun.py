@@ -325,7 +325,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(34):
+        for i in range(32):
 
             while True:
                 if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
@@ -451,7 +451,7 @@ def aliyun3(driver):
         time.sleep(2)
         pyautogui.click(x=1280, y=433)
         
-        for i in range(12):
+        for i in range(7):
             
             # Refresh
             with pyautogui.hold('command'):
@@ -515,6 +515,7 @@ def aliyun3(driver):
             # Click Login
             wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
+
             if login is not None:
                 image_center = pyautogui.center(login)
                 pyautogui.click(image_center)
@@ -532,6 +533,10 @@ def aliyun3(driver):
             else:
                 pass
             
+            time.sleep(2)
+            driver.get("https://usercenter2-intl.aliyun.com/billing/#/account/overview")
+            time.sleep(1)
+
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[1]/span', '信用额度')
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div/span', '正常')
 
@@ -663,6 +668,8 @@ def watermelon_1(driver):
             else:
                 pass
             
+            time.sleep(2)
+            driver.get("https://usercenter2-intl.aliyun.com/billing/#/account/overview")
             time.sleep(1)
 
             # 启用 MFA 设备
@@ -850,6 +857,6 @@ aliyun1(driver)
 ven387(driver)
 # aliyun2(driver)
 aliyun3(driver)
-# watermelon_1(driver)
+watermelon_1(driver)
 # watermelon_2(driver)
 driver.close()
