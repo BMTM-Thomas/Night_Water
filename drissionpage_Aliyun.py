@@ -121,7 +121,8 @@ def aliyun2(driver):
                 pass
             
             driver.wait.doc_loaded()
-
+            time.sleep(2)
+            
             # Extract Credit
             while True:
                 credit = driver('x:/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span').text
@@ -267,6 +268,19 @@ def watermelon_2(driver):
                     print(f"{ID[id]}= ", overdue)
             except:
                 pass
+
+            pyautogui.click(x= 1505, y=104)
+            time.sleep(1)
+
+            while True:
+                try:
+                    if driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', timeout=2).text == '基本资料':
+                        break
+                except:
+                    pyautogui.moveTo(x= 1183, y=162)
+                    time.sleep(2)
+                    pyautogui.moveTo(x= 1505, y=104)
+                    time.sleep(2)
 
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')

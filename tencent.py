@@ -94,7 +94,7 @@ def tencent2(driver):
         driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
         time.sleep(2)
 
-        for i in range(12):
+        for i in range(13):
             
             try:
                 if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":

@@ -179,12 +179,10 @@ def sms326(driver):
 
             # if is in login page, then do, else ignore
             if pyautogui.locateOnScreen('./image/sms_login.png') is not None:
-                print("pass1")
-                time.sleep(15)
+                time.sleep(9)
                 pyautogui.click(x=797, y=626)
                 time.sleep(6)
             else:
-                print("pass2")
                 time.sleep(6)
                 pass
             

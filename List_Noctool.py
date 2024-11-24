@@ -43,7 +43,6 @@ n_webpage = (
              "http://10.77.1.196/stocks/6126a308-d875-47f2-bb4b-6042c4cd8188/",        # ven141
              "http://10.77.1.196/stocks/9e2e1d85-626a-4345-bbf3-4bafaa0c6681/",        # ven142
              "http://10.77.1.196/stocks/f10c8972-d161-462c-9c9c-3047b8ecc05c/",        # ven148
-             "http://10.77.1.196/stocks/391ae0bd-72b4-4ada-8606-3f4efd9e02e3/",        # ven152
              "http://10.77.1.196/stocks/b88afaff-11b2-4ea4-8892-068947d1a873/",        # ven154
 
             # 腾讯云【中国站】

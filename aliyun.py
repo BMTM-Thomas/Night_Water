@@ -451,7 +451,7 @@ def aliyun3(driver):
         time.sleep(2)
         pyautogui.click(x=1280, y=433)
         
-        for i in range(7):
+        for i in range(6):
             
             # Refresh
             with pyautogui.hold('command'):
@@ -855,8 +855,8 @@ def watermelon_2(driver):
 driver = chrome()
 aliyun1(driver)
 ven387(driver)
-# aliyun2(driver)
+## aliyun2(driver)
 aliyun3(driver)
 watermelon_1(driver)
-# watermelon_2(driver)
+## watermelon_2(driver)
 driver.close()
