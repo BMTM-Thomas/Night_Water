@@ -9,7 +9,7 @@ import pytesseract
 from List_Zentao import ID, mongodb_id, tuple_id  
 from PIL import ImageGrab, Image
 from bson.objectid import ObjectId
-from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_LINK
+from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_LINK, wait_for_page_load
 
 # Gname
 def gname(driver):
@@ -177,11 +177,14 @@ def sms326(driver):
             # Restore Zoom 100%
             pyautogui.hotkey('command', '0')
 
+            wait_for_page_load(driver)
+            time.sleep(2)
+
             # if is in login page, then do, else ignore
             if pyautogui.locateOnScreen('./image/sms_login.png') is not None:
-                time.sleep(9)
+                time.sleep(3)
                 pyautogui.click(x=797, y=626)
-                time.sleep(6)
+                time.sleep(3)
             else:
                 time.sleep(6)
                 pass

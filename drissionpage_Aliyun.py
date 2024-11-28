@@ -45,7 +45,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(29):
+        for i in range(30):
 
             driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F#/account/overview')
 
@@ -125,7 +125,7 @@ def aliyun2(driver):
             
             # Extract Credit
             while True:
-                credit = driver('x:/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span').text
+                credit = driver('x:/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span', timeout=200).text
                 if credit == "":
                     continue
                 else:
@@ -303,3 +303,4 @@ def watermelon_2(driver):
 
 aliyun2(driver)
 watermelon_2(driver)
+driver.quit()

@@ -11,7 +11,7 @@ from function import chrome, wait, find_one, find_element_nontext, mongodb_atlas
 #noctool
 def noctool(driver):
     driver.get('http://10.77.1.196/stocks/')
-    wait(driver, '/html/body/div/div/main/div/h3', '記錄列表') 
+    wait(driver, '/html/body/div[1]/div/main/div/h3', '記錄列表') 
     driver.get('http://10.77.1.196/stocks/')
     time.sleep(1)
 
@@ -19,15 +19,21 @@ def noctool(driver):
         for i in range(zen_noc_tuple[0]):
  
             driver.get(n_webpage[i])
-            wait(driver, '/html/body/div/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖')       
-            time.sleep(0.5)
+            wait(driver, '/html/body/div[1]/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖')       
+            time.sleep(1)
             if i == 0:       
                 pyautogui.click(x=879, y=346)
                 time.sleep(1)
-            pyautogui.scroll(-30)
+            
+            while True:
+                if pyautogui.locateOnScreen('./image/current_water.png') is None:
+                    pyautogui.scroll(-100)
+                    continue
+                else:
+                    break
 
             # Click
-            pyautogui.click(x=180, y=668)
+            pyautogui.click(x=180, y=671)
 
             # Previous Credit / Data
             pre_credit = find_element_nontext(driver, "/html/body/div/div/main/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[1]/td[2]")
@@ -39,14 +45,14 @@ def noctool(driver):
             pyperclip.copy(credit_value)
 
             # Print out Previous and Actual Data
-            print(f"{ID[i]}= Previous: {pre_credit}, Actual: {credit_value} \n")
+            print(f"{ID[i]}= Previous: {pre_credit}, Actual: {credit_value} \n") 
 
             # Write Credit Value
             # pyautogui.write(credit_value)
             pyautogui.hotkey("Command", "V")
 
             # button click (新增记录)
-            pyautogui.hotkey("Enter")
+            # pyautogui.hotkey("Enter")
             time.sleep(1)
 
     except:
@@ -61,7 +67,6 @@ def low_water ():
     for doc in documents:
         if float(doc.get("Credit", 0)) < float(doc.get("Secure_Credit", 0)):
             print(f"{doc.get('Ven_Machine')} 已低于安全流量 (当前存量：{doc.get('Credit')} {doc.get('Unit')}, 安全存量：{doc.get('Secure_Credit')} {doc.get('Unit')})")
-        
     print("\n\n")
 
 driver = chrome()

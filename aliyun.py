@@ -29,20 +29,20 @@ def aliyun1(driver):
 
 
         if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
-                if pyautogui.locateOnScreen('./image/international.png') is not None:
-                    time.sleep(1)
-                    pyautogui.moveTo(1245, 114)
-                    time.sleep(1)
-                    pyautogui.click(1253, 386)
-                    time.sleep(1)
-                    driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
+            if pyautogui.locateOnScreen('./image/international.png') is not None:
+                time.sleep(1)
+                pyautogui.moveTo(1245, 114)
+                time.sleep(1)
+                pyautogui.click(1253, 386)
+                time.sleep(1)
+                driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         else:
             pass
 
 
         for i in range (2) : 
-            wait(driver, '/html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
-            wait(driver, '/html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
+            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
+            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
             if pyautogui.locateOnScreen('./image/cross.png') is not None: 
                 pyautogui.click(85, 62)
             time.sleep(1)
@@ -186,8 +186,8 @@ def ven387(driver):
         else:
             pass
         
-        wait(driver, '/html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
-        wait(driver, '/html/body/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
+        wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
+        wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
         pyautogui.click(x=1416, y=62)
 
         # Wait for image Appear
