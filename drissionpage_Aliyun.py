@@ -24,7 +24,7 @@ co.set_argument("--disable-blink-features=AutomationControlled")
 
 driver = ChromiumPage(co)
 
-
+# 阿里云【国际站】
 def aliyun2(driver):
     
     id = tuple_id[2]
@@ -45,7 +45,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(30):
+        for i in range(31):
 
             driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F#/account/overview')
 
@@ -170,6 +170,7 @@ def aliyun2(driver):
         print(f"An error occurred: {e}")
         time.sleep(11111)
 
+# watermelon 【国际站】
 def watermelon_2(driver):
 
     id = tuple_id[17]

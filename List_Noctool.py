@@ -36,6 +36,7 @@ n_webpage = (
              "http://10.77.1.196/stocks/3b6dd8d5-25d5-4231-8d15-439ed068e40d/",        # ven438
              "http://10.77.1.196/stocks/65ee63e9-ab6f-46e1-bb55-3fb813e4b786/",        # ven445
              "http://10.77.1.196/stocks/226098bb-c62a-4525-b387-864e31e8fd2c/",        # ven456
+             "http://10.77.1.196/stocks/55c76812-5470-4c74-846b-cba36642dd8c/",        # ven465
 
              
             # 阿里云【国际站】【RAM】

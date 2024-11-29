@@ -71,8 +71,8 @@ def aliyun1(driver):
             
             # Drag and Drop Appear?
             if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
-                pyautogui.moveTo(1058, 460, 0.2)
-                pyautogui.dragTo(1453, 545, button='left', duration=0.2)
+                pyautogui.moveTo(841, 458, 0.25)
+                pyautogui.dragTo(1150, 545, button='left', duration=0.25)
             else:
                 pass
             
@@ -82,8 +82,8 @@ def aliyun1(driver):
             if pyautogui.locateOnScreen('./image/alidndfailed.png') is not None:
                 pyautogui.click(x=1197, y=457)
                 time.sleep(1)
-                pyautogui.moveTo(1058, 457, 0.25)
-                pyautogui.dragTo(1363, 545, button='left', duration=0.25)
+                pyautogui.moveTo(834, 460, 0.2)
+                pyautogui.dragTo(1150, 545, button='left', duration=0.2)
             else:
                 pass
 

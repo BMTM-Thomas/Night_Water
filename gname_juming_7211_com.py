@@ -182,11 +182,11 @@ def sms326(driver):
 
             # if is in login page, then do, else ignore
             if pyautogui.locateOnScreen('./image/sms_login.png') is not None:
-                time.sleep(3)
+                time.sleep(5)
                 pyautogui.click(x=797, y=626)
-                time.sleep(3)
+                time.sleep(5)
             else:
-                time.sleep(6)
+                time.sleep(8)
                 pass
             
             # Zoom up
@@ -353,8 +353,8 @@ def ven295(driver):
         sys.exit(1)
 
 driver = chrome()
-gname(driver)
-jumingwang(driver)
+# gname(driver)
+# jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)
 ven295(driver)

@@ -137,7 +137,7 @@ def tencent2(driver):
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
 
-                time.sleep(1)
+                time.sleep(3)
 
                 while True:
                     try:
@@ -146,8 +146,7 @@ def tencent2(driver):
                         pass           
                     
                     if credit == "0.00USD（冻结额度 0.00 USD）":
-                        pyautogui.hotkey('command', 'r')
-                        time.sleep(1)
+                        time.sleep(2)
                     else:
                         break
                     
