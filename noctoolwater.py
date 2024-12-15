@@ -7,7 +7,6 @@ from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
 from function import chrome, wait, find_one, find_element_nontext, mongodb_atlas
 
-
 #noctool
 def noctool(driver):
     driver.get('http://10.77.1.196/stocks/')

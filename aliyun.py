@@ -583,11 +583,11 @@ def watermelon_1(driver):
     Y = 0
 
     try:
-        driver.get('https://signin.alibabacloud.com/5099316222832876.onaliyun.com/login.htm?callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview#/main')
+        driver.get('https://signin.alibabacloud.com/5256975880117898.onaliyun.com/login.htm?callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview#/main')
         time.sleep(2)
         pyautogui.click(x=1280, y=433)
         
-        for i in range(9):
+        for i in range(6):
             
             # Refresh
             with pyautogui.hold('command'):
@@ -651,6 +651,7 @@ def watermelon_1(driver):
             # Click Login
             wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
+
             if login is not None:
                 image_center = pyautogui.center(login)
                 pyautogui.click(image_center)
