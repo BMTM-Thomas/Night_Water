@@ -153,6 +153,7 @@ def tencent2(driver):
 
             # Expenses
             else:
+                time.sleep(7)
                 driver.get('https://console.tencentcloud.com/expense')
 
                 # Wait Condition   
@@ -333,7 +334,7 @@ def tencent4(driver):
 
 driver = chrome()
 tencent1(driver)
-tencent2(driver)
+tencent2(driver) 
 tencent3(driver)
 tencent4(driver)
 driver.close()

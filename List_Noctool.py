@@ -51,7 +51,7 @@ n_webpage = (
              "http://10.77.1.196/stocks/0016a6bd-af7b-47de-bcfd-b7d4d30b3065/",        # ven29
              "http://10.77.1.196/stocks/a094cc56-31eb-47f3-a1d0-92394c8890a5/",        # ven181
              "http://10.77.1.196/stocks/c5c43e2c-9042-4a65-a965-56b8325ffe3b/",        # ven182
-             "http://10.77.1.196/stocks/fd59d3ed-7f4a-4664-acfa-45a0b51b0e5e/",        # ven186
+             #"http://10.77.1.196/stocks/fd59d3ed-7f4a-4664-acfa-45a0b51b0e5e/",        # ven186
 
             # 腾讯云【国际站】https://www.tencentcloud.com/zh/account/login                           
             "http://10.77.1.196/stocks/5cae984c-9343-4310-b97c-f9029a5c133e/",         # ven314

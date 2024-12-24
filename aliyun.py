@@ -96,16 +96,16 @@ def aliyun1(driver):
 
 
             # Extract credit
-            # This is due to VEN407 aliyun China UI CHANGE
+            # This is due to VEN407 change UI
             if i == 1:
                 # Waiting for a Text to be appear
-                wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
+                wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
 
                 time.sleep(1)
 
                 while True:
                     try:
-                        credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
+                        credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
                     except:
                         driver.refresh()
                         time.sleep(5)
@@ -176,13 +176,13 @@ def ven387(driver):
             pass
 
         if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
-                if pyautogui.locateOnScreen('./image/international.png') is not None:
-                    time.sleep(1)
-                    pyautogui.moveTo(1288, 144, 0.2)
-                    time.sleep(1)
-                    pyautogui.click(1253, 420)
-                    time.sleep(1)
-                    driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
+            if pyautogui.locateOnScreen('./image/international.png') is not None:
+                time.sleep(1)
+                pyautogui.moveTo(1288, 144, 0.2)
+                time.sleep(1)
+                pyautogui.click(1253, 420)
+                time.sleep(1)
+                driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         else:
             pass
         
@@ -229,18 +229,18 @@ def ven387(driver):
             pass
         
         # Waiting for a Text to be appear
-        wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
+        wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
         
         time.sleep(1)
 
         while True:
-                    try:
-                        credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
-                    except:
-                        driver.refresh()
-                        time.sleep(5)
-                        continue
-                    break
+            try:
+                credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
+            except:
+                driver.refresh()
+                time.sleep(5)
+                continue
+            break
         
         # Replace
         credit = credit.replace('¥ ', '')
@@ -251,14 +251,14 @@ def ven387(driver):
         print(f"{ID[id]}= {credit}")
 
         while True:
-                try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
-                        break
-                except:
-                    pyautogui.click(x= 1183, y=192)
-                    time.sleep(2)
-                    pyautogui.click(x= 1505, y=104)
-                    time.sleep(2)
+            try:
+                if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
+                    break
+            except:
+                pyautogui.click(x= 1183, y=192)
+                time.sleep(2)
+                pyautogui.click(x= 1505, y=104)
+                time.sleep(2)
         
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
@@ -284,14 +284,14 @@ def ven387(driver):
         time.sleep(1)
 
         while True:
-                try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[1]/header[1]/div[2]/div[1]/a[1]', '基本资料'):
-                        break
-                except:
-                        pyautogui.moveTo(x= 1183, y=162)
-                        time.sleep(2)
-                        pyautogui.moveTo(x= 1536, y=131)
-                        time.sleep(2)
+            try:
+                if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[1]/header[1]/div[2]/div[1]/a[1]', '基本资料'):
+                    break
+            except:
+                    pyautogui.moveTo(x= 1183, y=162)
+                    time.sleep(2)
+                    pyautogui.moveTo(x= 1536, y=131)
+                    time.sleep(2)
 
 
         time.sleep(1)

@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 from DrissionPage import ChromiumOptions, ChromiumPage            
 from DrissionPage.common import Settings
 from function import update_one
-from function import find_element_nontext
+from function import find_element_nontext, wait
 
 co = ChromiumOptions()
 co.set_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
@@ -180,9 +180,19 @@ def watermelon_2(driver):
     try:
         driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview')
         time.sleep(2)
+        pyautogui.click(x=1576, y=115)
+        time.sleep(1)
 
         if pyautogui.locateOnScreen('./image/ram.png') is not None:
             pyautogui.click(x=796, y=634)
+            time.sleep(1)
+        else:
+            pass
+        
+        if pyautogui.locateOnScreen('./image/ali_Eng.png') is not None:
+            pyautogui.click(x=1246, y=118)
+            time.sleep(1)
+            pyautogui.click(x=1235, y=186)
             time.sleep(1)
         else:
             pass
@@ -261,6 +271,8 @@ def watermelon_2(driver):
                 pass
             
             driver.wait.doc_loaded()
+            wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[1]/span', '本月消费概览')
+            time.sleep(2)
 
             # Check if overdue payment
             try:
@@ -284,7 +296,7 @@ def watermelon_2(driver):
                     time.sleep(2)
 
             # Screenshot
-            ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+            ImageGrab.grab().save('./watermelon/' + ID[id] + '.png')
 
             # Element Button Click
             driver('x:/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[1]/a[1]').click()
