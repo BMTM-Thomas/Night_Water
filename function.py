@@ -20,7 +20,7 @@ def mongodb_atlas():
 # Selenium Chrome   
 def chrome():
 
-    service = Service(executable_path=ChromeDriverManager().install())
+    # service = Service(executable_path=ChromeDriverManager().install())
 
     options = webdriver.ChromeOptions()
     options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
@@ -35,8 +35,9 @@ def chrome():
     options.add_argument('--hide-crash-restore-bubble')
     options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
     options.add_experimental_option('useAutomationExtension', False)
-    driver = webdriver.Chrome(service=service, options=options)
-    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome(service=service, options=options)
+    # driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     return driver
 
 # MongoDB Update one Document / Credit
@@ -89,6 +90,13 @@ def wait2(driver, path, text):
 def wait_buttonclick_LINK(driver, text): 
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.LINK_TEXT, text)))
     return driver.find_element(By.LINK_TEXT, text)
+
+# wait by ID
+def waitID(driver, waitid):
+    try:
+        WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, waitid)))
+    except:
+        pass
 
 # wait for button click by XPATH
 def wait_buttonclick_XPATH(driver, text): 

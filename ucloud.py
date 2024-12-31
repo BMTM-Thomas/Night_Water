@@ -9,7 +9,7 @@ from function import chrome, update_one, wait, find_element_XPATH, find_element_
 # Ucloud
 def ucloud(driver):
 
-    id = tuple_id[10]
+    id = tuple_id[9]
     
     try:
         # Go to Webpage

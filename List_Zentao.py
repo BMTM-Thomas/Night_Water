@@ -6,13 +6,11 @@ ID = (
     # 阿里云【国际版】【RAM】
       "ven134", "ven136", "ven141", "ven142", "ven148", "ven154", 
     # 腾讯云【中国站】
-      "ven29", "ven181", "ven182", "ven186", 
+      "ven29", "ven181", "ven182",
     # 腾讯云【国际站】accountinfo
       "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439","ven441", "ven464",
     # 腾讯云【国际站】expense
       "ven327", "ven328", 
-    # 腾讯云【中国站】【子用户】
-      "ven322",
     # 腾讯云 CAM用户登录
       "ven366", "ven451",
     # 华为云【OPSADMIN】【IAM用户登录】
@@ -31,6 +29,8 @@ ID = (
       "ven196",
     # ven295
       "ven295",
+    # ven467 byteplus
+      "ven467",
     # watermelon【国际版】【RAM】
       "ven191", "ven192", "ven193", "ven194", "ven195", "ven221", "ven240", "ven241", "ven242",
     # watermelon【国际版】 
@@ -84,7 +84,6 @@ mongodb_id = (
               "660515a0f9328322046690a5", # ven29
               "660515a0f9328322046690a7", # ven181
               "660515a0f9328322046690a8", # ven182
-              "660515a0f9328322046690aa", # ven186
               "660515a0f9328322046690ab", # ven314
               "660515a0f9328322046690ac", # ven315
               "660515a0f9328322046690ad", # ven367
@@ -98,7 +97,6 @@ mongodb_id = (
               "673cab005884cd7ec0e214a2", # ven464
               "660515a0f9328322046690b2", # ven327
               "660515a0f9328322046690b3", # ven328
-              "660515a0f9328322046690b4", # ven322
               "660515a0f9328322046690b5", # ven366
               "6685df2ffcdbbe477f788a2b", # ven451
               "660515a0f9328322046690b6", # ven236
@@ -131,8 +129,8 @@ mongodb_id = (
               "6639017a8a475f0ccf08ad13", # ven326 sms_man
               "663901e48a475f0ccf08ad14", # ven196 7211.com
               "6643a21a3953c8f355c0a007", # ven295 international tencent
-              
-
+              "67738a58cbe95821ef0efd24", # ven467 bytePlus
+            
             )
 
 tuple_id = (
@@ -141,23 +139,23 @@ tuple_id = (
             4,    # 2 _ 阿里云【国际站】 #126
            35,    # 3 _ 阿里云【国际站】【RAM】 #134
            41,    # 4 _ 腾讯云【中国站】#29
-           45,    # 5 _ 腾讯云【国际站】#314
-           58,    # 6 _ 腾讯云【中国站】【子用户】#322
-           59,    # 7 _ 腾讯云 CAM用户登录 #366
-           61,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
-           75,    # 9 _ 华为云 【华为帐号登录】#303
-           81,    # 10 _ Ucloud #281
-           84,    # 11 _ Gname #332
-           86,    # 12 _ 聚名網 #336
-           88,    # 13 _ sms326
-           89,    # 14 _ 7211.com ven196  
-           90,    # 15 _ ven295 international tencent #295
-           91,    # 16 _ ven191 #watermelon
-           100,   # 17 _ ven318 #watermelon
+           44,    # 5 _ 腾讯云【国际站】#314
+           57,    # 6 _ 腾讯云 CAM用户登录 #366
+           59,    # 7 _ 华为云【OPSADMIN】【IAM用户登录】#236
+           73,    # 8 _ 华为云 【华为帐号登录】#303
+           79,    # 9 _ Ucloud #281
+           82,    # 10 _ Gname #332
+           84,    # 11 _ 聚名網 #336
+           86,    # 12 _ sms326
+           87,    # 13 _ 7211.com ven196  
+           88,    # 14 _ ven295 international tencent #295
+           89,    # 15 _ ven467 bytePlus
+           90,    # 16 _ ven191 #watermelon
+           99,    # 17 _ ven318 #watermelon
 )   
 
 zen_noc_tuple = (
-   91,
+   90,
  )
 
 # Huawei OPSADMIN
@@ -184,7 +182,7 @@ Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200
 
 if __name__ == "__main__":
 
-  tupl3 = ["ven338", "ven387", "ven126", "ven134", "ven29", "ven314", "ven322", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven191", "ven318"]
+  tupl3 = ["ven338", "ven387", "ven126", "ven134", "ven29", "ven314", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven467", "ven191", "ven318"]
   
   index1= ID.index("ven281")
   index2= mongodb_id[index1]
@@ -196,4 +194,4 @@ if __name__ == "__main__":
     print(f"Mongodb_ID & Ven_ID Index = {index1}")
 
 
-# 104.28.205.48
+

@@ -25,7 +25,7 @@ def tencent1(driver):
         except:
             pass
         
-        for i in range(4):
+        for i in range(3):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '微信登录')
             pyautogui.click(x=608, y=209)
             time.sleep(1)     
@@ -167,6 +167,7 @@ def tencent2(driver):
                     time.sleep(1)
                 
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[1]/div/div/h3', '可用额度')
+                time.sleep(2)
 
                 # Extract Credit 
                 credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div[2]/div[1]/div/em')
@@ -275,7 +276,7 @@ def tencent3(driver):
 # 腾讯云 CAM用户登录   
 def tencent4(driver):
 
-    id = tuple_id[7]
+    id = tuple_id[6]
 
     try:
         for i in range(2):
@@ -299,7 +300,7 @@ def tencent4(driver):
 
             # Wait Condition
             wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
-            time.sleep(2)
+            time.sleep(3)
 
             # Extract Credit  
             credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
@@ -335,7 +336,7 @@ def tencent4(driver):
 driver = chrome()
 tencent1(driver)
 tencent2(driver) 
-tencent3(driver)
+# tencent3(driver)
 tencent4(driver)
 driver.close()
 

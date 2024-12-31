@@ -51,7 +51,6 @@ n_webpage = (
              "http://10.77.1.196/stocks/0016a6bd-af7b-47de-bcfd-b7d4d30b3065/",        # ven29
              "http://10.77.1.196/stocks/a094cc56-31eb-47f3-a1d0-92394c8890a5/",        # ven181
              "http://10.77.1.196/stocks/c5c43e2c-9042-4a65-a965-56b8325ffe3b/",        # ven182
-             #"http://10.77.1.196/stocks/fd59d3ed-7f4a-4664-acfa-45a0b51b0e5e/",        # ven186
 
             # 腾讯云【国际站】https://www.tencentcloud.com/zh/account/login                           
             "http://10.77.1.196/stocks/5cae984c-9343-4310-b97c-f9029a5c133e/",         # ven314
@@ -67,9 +66,6 @@ n_webpage = (
             "http://10.77.1.196/stocks/43a3584f-934e-4011-983d-141253ec1524/",         # ven464
             "http://10.77.1.196/stocks/925fba92-eb94-4c6f-8b4c-0d7ffbbf5ef6/",         # ven327
             "http://10.77.1.196/stocks/e30de46c-6689-4034-8819-39a4f00d8eb2/",         # ven328
-            
-            # 腾讯云【中国站】【子用户】
-            "http://10.77.1.196/stocks/45b99ae0-77eb-4ffb-b564-43abdcf407e7/",         # ven322
 
             # 腾讯云 CAM用户登录
             "http://10.77.1.196/stocks/59cc541b-9b86-436b-b8b2-a23bf73b2b6b/",         # ven366
@@ -119,7 +115,10 @@ n_webpage = (
             "http://10.77.1.196/stocks/b6c5f050-82bf-45f6-aa32-04b4faab1161/",         # ven196
 
             # ven295
-            "http://10.77.1.196/stocks/d0440c05-c1c2-4228-a346-26901f2ebf7f/"          # ven295
+            "http://10.77.1.196/stocks/d0440c05-c1c2-4228-a346-26901f2ebf7f/",          # ven295
+
+            # ven467 BytePlus
+            "http://10.77.1.196/stocks/13137e47-f739-4fd1-98c5-f406d1217606/",          # ven295
             )
 
 if __name__ == "__main__":

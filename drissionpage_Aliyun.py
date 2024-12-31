@@ -173,7 +173,7 @@ def aliyun2(driver):
 # watermelon 【国际站】
 def watermelon_2(driver):
 
-    id = tuple_id[17]
+    id = tuple_id[16]
     X = 0
     Y = 0
 

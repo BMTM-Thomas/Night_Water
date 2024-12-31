@@ -9,12 +9,13 @@ from function import chrome, update_one, wait, find_element_XPATH, find_element_
 # 华为云【OPSADMIN】【IAM用户登录】
 def huawei1(driver):
 
-    id = tuple_id[8]
+    id = tuple_id[7]
     
     try:
         for i in range(14):
             # # Go to Webpage
             driver.get(Huawei_Webpage[i])
+            wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span', 'IAM用户登录') 
             with pyautogui.hold('command'):
                 pyautogui.press('r')
                 time.sleep(1)
@@ -99,7 +100,7 @@ def huawei1(driver):
 # 华为云 【华为帐号登录】
 def huawei2(driver):
     
-    id = tuple_id[9]
+    id = tuple_id[8]
     
     try:
         # Go to Webpage
