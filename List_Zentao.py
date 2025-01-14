@@ -6,15 +6,15 @@ ID = (
     # 阿里云【国际版】【RAM】
       "ven134", "ven136", "ven141", "ven142", "ven148", "ven154", 
     # 腾讯云【中国站】
-      "ven29", "ven181", "ven182",
+      "ven29", "ven182",
     # 腾讯云【国际站】accountinfo
       "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439","ven441", "ven464",
     # 腾讯云【国际站】expense
       "ven327", "ven328", 
     # 腾讯云 CAM用户登录
-      "ven366", "ven451",
+      "ven366",
     # 华为云【OPSADMIN】【IAM用户登录】
-      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", "ven405", "ven410", "ven411", "ven421", "ven452",
+      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", "ven405", "ven410", "ven411", "ven421",
     # 华为云 【华为帐号登录】
       "ven303", "ven307", "ven342", "ven345", "ven420", "ven425",
     # Ucloud
@@ -82,7 +82,6 @@ mongodb_id = (
               "660515a0f93283220466909f", # ven148
               "660515a0f9328322046690a2", # ven154
               "660515a0f9328322046690a5", # ven29
-              "660515a0f9328322046690a7", # ven181
               "660515a0f9328322046690a8", # ven182
               "660515a0f9328322046690ab", # ven314
               "660515a0f9328322046690ac", # ven315
@@ -98,7 +97,6 @@ mongodb_id = (
               "660515a0f9328322046690b2", # ven327
               "660515a0f9328322046690b3", # ven328
               "660515a0f9328322046690b5", # ven366
-              "6685df2ffcdbbe477f788a2b", # ven451
               "660515a0f9328322046690b6", # ven236
               "660515a0f9328322046690b7", # ven237
               "660515a0f9328322046690b9", # ven267
@@ -112,7 +110,6 @@ mongodb_id = (
               "660515a0f9328322046690c0", # ven410
               "661728143db8585a9ee41be9", # ven411
               "6685df2ffcdbbe477f788a2c", # ven421
-              "6685df2ffcdbbe477f788a2d", # ven452
               "660515a0f9328322046690c1", # ven303
               "660515a0f9328322046690c2", # ven307
               "660515a0f9328322046690c3", # ven342
@@ -139,23 +136,23 @@ tuple_id = (
             4,    # 2 _ 阿里云【国际站】 #126
            35,    # 3 _ 阿里云【国际站】【RAM】 #134
            41,    # 4 _ 腾讯云【中国站】#29
-           44,    # 5 _ 腾讯云【国际站】#314
-           57,    # 6 _ 腾讯云 CAM用户登录 #366
-           59,    # 7 _ 华为云【OPSADMIN】【IAM用户登录】#236
-           73,    # 8 _ 华为云 【华为帐号登录】#303
-           79,    # 9 _ Ucloud #281
-           82,    # 10 _ Gname #332
-           84,    # 11 _ 聚名網 #336
-           86,    # 12 _ sms326
-           87,    # 13 _ 7211.com ven196  
-           88,    # 14 _ ven295 international tencent #295
-           89,    # 15 _ ven467 bytePlus
-           90,    # 16 _ ven191 #watermelon
-           99,    # 17 _ ven318 #watermelon
+           43,    # 5 _ 腾讯云【国际站】#314
+           56,    # 6 _ 腾讯云 CAM用户登录 #366
+           57,    # 7 _ 华为云【OPSADMIN】【IAM用户登录】#236
+           70,    # 8 _ 华为云 【华为帐号登录】#303
+           76,    # 9 _ Ucloud #281
+           79,    # 10 _ Gname #332
+           81,    # 11 _ 聚名網 #336
+           83,    # 12 _ sms326
+           84,    # 13 _ 7211.com ven196  
+           85,    # 14 _ ven295 international tencent #295
+           86,    # 15 _ ven467 bytePlus
+           87,    # 16 _ ven191 #watermelon
+           96,    # 17 _ ven318 #watermelon
 )   
 
 zen_noc_tuple = (
-   90,
+   87,
  )
 
 # Huawei OPSADMIN
@@ -171,13 +168,11 @@ Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_s9_if_8abedsria#/login",                 # ven405
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_a2v8fdw83st9mpo#/login",                 # ven410 
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_jgs8o7to98pm29m#/login",                 # ven411
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_ure8don9d5n32au#/login",                 # ven421
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_l6-46ihc51ewb9y#/login",                 # ven452  
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_ure8don9d5n32au#/login",                 # ven421     
                   )
 
 # Tencent CAM
 Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200022457909?s_url=https://console.tencentcloud.com/expense",                      # ven366
-                   "https://www.tencentcloud.com/zh/account/login/subAccount/200035895854?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo",      # ven451
                   )
 
 if __name__ == "__main__":

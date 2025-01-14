@@ -101,8 +101,8 @@ def aliyun2(driver):
                 if pyautogui.locateOnScreen('./image/alidndfailed5.png') is not None:
                     pyautogui.click(x=1111, y=511)
                     time.sleep(1)
-                    pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.13)
-                    pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.13)
+                    pyautogui.moveTo(m_X1[X], m_Y2[Y], 0.16)
+                    pyautogui.dragTo(d_X1[X], d_Y2[Y], button='left', duration=0.16)
                     X += 1
                     Y += 1
 
@@ -173,7 +173,7 @@ def aliyun2(driver):
 # watermelon 【国际站】
 def watermelon_2(driver):
 
-    id = tuple_id[16]
+    id = tuple_id[17]
     X = 0
     Y = 0
 

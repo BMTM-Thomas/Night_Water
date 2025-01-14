@@ -25,7 +25,7 @@ def tencent1(driver):
         except:
             pass
         
-        for i in range(3):
+        for i in range(2):
             wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '微信登录')
             pyautogui.click(x=608, y=209)
             time.sleep(1)     
@@ -279,7 +279,7 @@ def tencent4(driver):
     id = tuple_id[6]
 
     try:
-        for i in range(2):
+        for i in range(1):
             driver.get(Tencent_Webpage[i])
 
             time.sleep(3)
@@ -336,7 +336,7 @@ def tencent4(driver):
 driver = chrome()
 tencent1(driver)
 tencent2(driver) 
-# tencent3(driver)
+tencent3(driver)
 tencent4(driver)
 driver.close()
 

@@ -578,7 +578,7 @@ def aliyun3(driver):
 # watermelon【国际站】【RAM】
 def watermelon_1(driver):
 
-    id = tuple_id[15]
+    id = tuple_id[16]
     X = 0
     Y = 0
 
@@ -856,8 +856,6 @@ def watermelon_2(driver):
 driver = chrome()
 aliyun1(driver)
 ven387(driver)
-## aliyun2(driver)
 aliyun3(driver)
 watermelon_1(driver)
-## watermelon_2(driver)
 driver.close()
