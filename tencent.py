@@ -25,61 +25,58 @@ def tencent1(driver):
         except:
             pass
         
-        for i in range(2):
-            wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '微信登录')
-            pyautogui.click(x=608, y=209)
-            time.sleep(1)     
-            pyautogui.click(x=1416, y=62)
+        wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '微信登录')
+        pyautogui.click(x=608, y=209)
+        time.sleep(1)     
+        pyautogui.click(x=1416, y=62)
 
-            # Wait for image Appear
-            image_vault = None
-            while image_vault is None:
-                image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+        # Wait for image Appear
+        image_vault = None
+        while image_vault is None:
+            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
 
-            time.sleep(1)
-            pyautogui.write(ID[id])
-            time.sleep(1)
-            pyautogui.click(x=1260, y=170)
-            time.sleep(1)
-            pyautogui.click(x=554, y=455)
-            time.sleep(1)
-              
-            while True:
-                if pyautogui.locateOnScreen('./image/keyong.png') is not None:
-                    time.sleep(2)
-                    break
-                else:
-                    time.sleep(1)
-
-            time.sleep(1)
-
-            while True:
-                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
-                if credit == "--":
-                    continue
-                else:
-                    break
-
-            # Replace
-            credit = credit.replace(',', '')
-            credit = credit.replace('元', '')
-
-            # MongoDB update Data 
-            mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            update_one(mangos_id, credit)
-            print(f"{ID[id]}= {credit}")
-    
-            pyautogui.click(x= 1496, y=107)
-            pyautogui.click(x= 1496, y=107)
-            time.sleep(1)
+        time.sleep(1)
+        pyautogui.write(ID[id])
+        time.sleep(1)
+        pyautogui.click(x=1260, y=170)
+        time.sleep(1)
+        pyautogui.click(x=554, y=455)
+        time.sleep(1)
             
-            # Screenshot
-            ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            # Logout
-            logout_button = wait_buttonclick_XPATH(driver, "//button[contains(text(),'退出')]")
-            logout_button.click()
+        while True:
+            if pyautogui.locateOnScreen('./image/keyong.png') is not None:
+                time.sleep(2)
+                break
+            else:
+                time.sleep(1)
 
-            id += 1
+        time.sleep(1)
+
+        while True:
+            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+            if credit == "--":
+                continue
+            else:
+                break
+
+        # Replace
+        credit = credit.replace(',', '')
+        credit = credit.replace('元', '')
+
+        # MongoDB update Data 
+        mangos_id = {'_id': ObjectId(mongodb_id[id])}
+        update_one(mangos_id, credit)
+        print(f"{ID[id]}= {credit}")
+
+        pyautogui.click(x= 1496, y=107)
+        pyautogui.click(x= 1496, y=107)
+        time.sleep(1)
+        
+        # Screenshot
+        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+        # Logout
+        logout_button = wait_buttonclick_XPATH(driver, "//button[contains(text(),'退出')]")
+        logout_button.click()
                
     except Exception as e:
         print(f"An error occurred: {e}")
