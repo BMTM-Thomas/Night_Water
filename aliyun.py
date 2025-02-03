@@ -513,7 +513,7 @@ def aliyun3(driver):
                     break
                 
             # Click Login
-            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
+            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
 
             if login is not None:
@@ -553,7 +553,7 @@ def aliyun3(driver):
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全信息") :
                         break
                 except:
                     pyautogui.click(x= 1183, y=104)
@@ -649,7 +649,7 @@ def watermelon_1(driver):
                     break
                 
             # Click Login
-            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
+            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
 
             if login is not None:
@@ -701,7 +701,7 @@ def watermelon_1(driver):
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全管控") :
+                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全信息") :
                         break
                 except:
                     pyautogui.click(x= 1183, y=104)

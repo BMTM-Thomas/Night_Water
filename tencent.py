@@ -91,7 +91,7 @@ def tencent2(driver):
         driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
         time.sleep(2)
 
-        for i in range(13):
+        for i in range(14): #14
             
             try:
                 if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
@@ -129,7 +129,7 @@ def tencent2(driver):
                 pass
             
             # Accountinfo
-            if i <= 10:
+            if i <= 11:
             
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
@@ -203,75 +203,8 @@ def tencent2(driver):
         print(f"An error occurred: {e}")
         sys.exit(1)
 
-# 腾讯云【中国站】【子用户】   
-def tencent3(driver):
-
-    id = tuple_id[6]
-
-    try:
-        driver.get('https://cloud.tencent.com/login/subAccount/100015429463?s_url=https://console.cloud.tencent.com/expense/overview')
-
-        time.sleep(1)
-        pyautogui.click(x=1416, y=62)
-
-        # Wait for image Appear
-        image_vault = None
-        while image_vault is None:
-            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
-        
-        time.sleep(1)
-        pyautogui.write(ID[id])
-        time.sleep(1)
-        pyautogui.click(x=1260, y=170)
-        time.sleep(1)
-        pyautogui.click(x=556, y=498)
-        time.sleep(1)
-
-        # Wait Condition   
-        while True:
-            if pyautogui.locateOnScreen('./image/keyong.png') is not None:
-                time.sleep(3)
-                break
-            else:
-                pass
-            
-         # Extract Credit
-        try:
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')                                                  
-        except:
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[3]/div/div/div[2]/div[1]/div[1]')
-                                                    
-        # Replace
-        credit = credit.replace(',', '')
-        credit = credit.replace('元', '')
-        
-        # MongoDB update Data 
-        mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        update_one(mangos_id, credit)
-        print(f"{ID[id]}= {credit}")
-
-        time.sleep(1)
-        pyautogui.click(x= 1552, y=110)
-        pyautogui.click(x= 1552, y=110)
-        time.sleep(3)
-
-        # Screenshot
-        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-        logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
-        if logout is not None:
-            time.sleep(1)
-            pyautogui.click(logout)
-        else:
-            pyautogui.click(x=1404, y=609)
-
-        time.sleep(2)
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        sys.exit(1)
-
 # 腾讯云 CAM用户登录   
-def tencent4(driver):
+def tencent3(driver):
 
     id = tuple_id[6]
 
@@ -334,6 +267,5 @@ driver = chrome()
 tencent1(driver)
 tencent2(driver) 
 tencent3(driver)
-tencent4(driver)
 driver.close()
 

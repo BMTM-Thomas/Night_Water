@@ -44,11 +44,12 @@ def ucloud(driver):
                     time.sleep(2)
                 
             pyautogui.click(x=1558, y=107)
-            time.sleep(2)
+            time.sleep(3)
             
+
             # Extract Credit
             try:
-                credit = find_element_nontext(driver, '/html/body/div[12]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
+                credit = find_element_nontext(driver, '/html/body/div[13]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             except:
                 credit = find_element_nontext(driver, '/html/body/div[11]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             credit = credit.replace(',', '')

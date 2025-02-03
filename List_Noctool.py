@@ -62,6 +62,7 @@ n_webpage = (
             "http://10.77.1.196/stocks/d91f70b3-1b35-4f46-bb5f-3e59d763f696/",         # ven428
             "http://10.77.1.196/stocks/eafba977-634f-4e96-87a7-c4d3851b79e6/",         # ven439
             "http://10.77.1.196/stocks/cbde9b38-e103-4c10-8822-3229ac70719e/",         # ven441
+            "http://10.77.1.196/stocks/167d3e40-4f09-47dd-961c-68e5e806ba7f/",         # ven460
             "http://10.77.1.196/stocks/43a3584f-934e-4011-983d-141253ec1524/",         # ven464
             "http://10.77.1.196/stocks/925fba92-eb94-4c6f-8b4c-0d7ffbbf5ef6/",         # ven327
             "http://10.77.1.196/stocks/e30de46c-6689-4034-8819-39a4f00d8eb2/",         # ven328

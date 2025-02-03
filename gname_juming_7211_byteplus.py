@@ -19,11 +19,9 @@ def gname(driver):
     try:
         # Go to Webpage
         driver.get('https://www.gname.com/login?refer=https%3A%2F%2Fwww.gname.com%2Fuser')
-        with pyautogui.hold('command'):
-            pyautogui.press('r')
 
-            time.sleep(3)
-            
+        time.sleep(2)
+
         if pyautogui.locateOnScreen('./image/bestdomain.png') is not None:
             pyautogui.moveTo(x=382, y=122)
             time.sleep(1)
@@ -360,18 +358,20 @@ def ven467(driver):
     try:
         driver.get("https://console.byteplus.com/auth/login/?redirectURI=https%3A%2F%2Fwww.byteplus.com&_gl=1*1ndxskn*_gcl_au*NTI5NTk5LjE3MjM0MzUyNzg.*_ga*NDc5ODkwMTM2LjE3MjM0MzUyNzg.*_ga_3H57BBC3B9*MTcyMzQzNTI3Ny4xLjAuMTcyMzQzNTI3Ny42MC4wLjA")
         time.sleep(2)
-        # pyautogui.click(x=1416, y=62)
+        pyautogui.click(x=1416, y=62)
 
-        # # Wait for image Appear
-        # image_vault = None
-        # while image_vault is None:
-        #     image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+        # Wait for image Appear
+        image_vault = None
+        while image_vault is None:
+            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
 
-        # time.sleep(1)
-        # pyautogui.write(ID[id])
-        # time.sleep(1)
-        # pyautogui.click(x=1227, y=157)
-        # time.sleep(1)
+        time.sleep(1)
+        pyautogui.write(ID[id])
+        time.sleep(1)
+        pyautogui.click(x=1227, y=157)
+        time.sleep(1)
+        pyautogui.click(x=1069, y=528)
+        time.sleep(1)
 
         waitID(driver, "volcfe-i18n-header")
         time.sleep(1) 
@@ -403,10 +403,10 @@ def ven467(driver):
 
 
 driver = chrome()
-gname(driver)
-jumingwang(driver)
+# gname(driver)
+# jumingwang(driver)
 sms326(driver)
-ven196_7211(driver)
-ven295(driver)
-ven467(driver)
+# ven196_7211(driver)
+# ven295(driver)
+# ven467(driver)
 driver.close()
