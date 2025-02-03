@@ -263,9 +263,70 @@ def tencent3(driver):
         print(f"An error occurred: {e}")
         time.sleep(111111)
 
+# 腾讯云 子用户登录 
+def tencent4(driver):
+
+    id = tuple_id[7]
+
+    try:
+
+        # Go to Webpage
+        driver.get('https://cloud.tencent.com/login?s_url=https://console.cloud.tencent.com/expense/overview')
+        time.sleep(2)
+
+        pyautogui.click(x=1416, y=62)
+    
+        # Wait for image Appear
+        image_vault = None
+        while image_vault is None:
+            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+
+        time.sleep(1)
+        pyautogui.write(ID[id])
+        time.sleep(1)
+        pyautogui.click(x=1260, y=170)
+        time.sleep(1)
+        pyautogui.click(x=546, y=524)
+        time.sleep(1)
+
+        # Wait Condition
+        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
+        time.sleep(3)
+
+        # Extract Credit  
+        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+
+        # Replace
+        credit = re.sub(r'USD.*', 'USD', credit)
+        credit = credit.replace(',', '')
+        credit = credit.replace('USD', '')
+        
+        # MongoDB update Data 
+        mangos_id = {'_id': ObjectId(mongodb_id[id])}
+        update_one(mangos_id, credit)
+        print(f"{ID[id]}= {credit}")
+
+        time.sleep(1)
+
+        # Screenshot
+        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+        pyautogui.moveTo(x=1558, y=110)
+        time.sleep(2)
+        logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
+        if logout is not None:
+            time.sleep(1)
+            pyautogui.click(logout)
+
+        time.sleep(2)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        time.sleep(111111)
+
 driver = chrome()
 tencent1(driver)
 tencent2(driver) 
 tencent3(driver)
+# tencent4(driver)
 driver.close()
 

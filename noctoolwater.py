@@ -23,16 +23,19 @@ def noctool(driver):
             if i == 0:       
                 pyautogui.click(x=879, y=346)
                 time.sleep(1)
+
             
             while True:
                 if pyautogui.locateOnScreen('./image/current_water.png') is None:
+                    pyautogui.click(x=1595, y=812)
+                    time.sleep(1)
                     pyautogui.scroll(-100)
                     continue
                 else:
                     break
 
             # Click
-            pyautogui.click(x=180, y=671)
+            pyautogui.click(x=168, y=671)
 
             # Previous Credit / Data
             pre_credit = find_element_nontext(driver, "/html/body/div/div/main/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[1]/td[2]")

@@ -13,6 +13,8 @@ ID = (
       "ven327", "ven328", 
     # 腾讯云 CAM用户登录
       "ven366",
+    # 腾讯云 子用户登录
+      "ven322",
     # 华为云【OPSADMIN】【IAM用户登录】
       "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", "ven405", "ven410", "ven411", "ven421",
     # 华为云 【华为帐号登录】
@@ -97,6 +99,7 @@ mongodb_id = (
               "660515a0f9328322046690b2", # ven327
               "660515a0f9328322046690b3", # ven328
               "660515a0f9328322046690b5", # ven366
+              "67a10f19d5f05d3aa4ccc37d", # ven322
               "660515a0f9328322046690b6", # ven236
               "660515a0f9328322046690b7", # ven237
               "660515a0f9328322046690b9", # ven267
@@ -138,21 +141,22 @@ tuple_id = (
            41,    # 4 _ 腾讯云【中国站】#182
            42,    # 5 _ 腾讯云【国际站】#314
            56,    # 6 _ 腾讯云 CAM用户登录 #366
-           57,    # 7 _ 华为云【OPSADMIN】【IAM用户登录】#236
-           70,    # 8 _ 华为云 【华为帐号登录】#303
-           76,    # 9 _ Ucloud #281
-           79,    # 10 _ Gname #332
-           81,    # 11 _ 聚名網 #336
-           83,    # 12 _ sms326
-           84,    # 13 _ 7211.com ven196  
-           85,    # 14 _ ven295 international tencent #295
-           86,    # 15 _ ven467 bytePlus
-           87,    # 16 _ ven191 #watermelon
-           96,    # 17 _ ven318 #watermelon
+           57,    # 7 _ 腾讯云 子用户登录 #322
+           58,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
+           71,    # 9 _ 华为云 【华为帐号登录】#303
+           77,    # 10 _ Ucloud #281
+           80,    # 11 _ Gname #332
+           82,    # 12 _ 聚名網 #336
+           84,    # 13 _ sms326
+           85,    # 14 _ 7211.com ven196  
+           86,    # 15 _ ven295 international tencent #295
+           87,    # 16 _ ven467 bytePlus
+           88,    # 17 _ ven191 #watermelon
+           97,    # 18 _ ven318 #watermelon
 )   
 
 zen_noc_tuple = (
-   87,
+   88,
  )
 
 # Huawei OPSADMIN
@@ -177,7 +181,7 @@ Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200
 
 if __name__ == "__main__":
 
-  tupl3 = ["ven338", "ven387", "ven126", "ven134", "ven182", "ven314", "ven366", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven467", "ven191", "ven318"]
+  tupl3 = ["ven338", "ven387", "ven126", "ven134", "ven182", "ven314", "ven366", "ven322", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven467", "ven191", "ven318"]
   
   index1= ID.index("ven281")
   index2= mongodb_id[index1]
