@@ -86,7 +86,6 @@ n_webpage = (
             "http://10.77.1.196/stocks/4f61f9a6-0617-4d06-8e39-1cb016adf9d3/",         # ven410
             "http://10.77.1.196/stocks/87a68696-7d1e-4024-a003-01d640e7b574/",         # ven411
             "http://10.77.1.196/stocks/ac2dee98-67ec-48f3-8ccb-b2df246710a2/",         # ven421
-            "http://10.77.1.196/stocks/fe9910ac-8408-4d45-b6e7-4b3e045369c1/",         # ven452
 
             # 华为云 【华为帐号登录】
             "http://10.77.1.196/stocks/ce9bbbcd-69c0-4aae-a26e-6bbbbb4acdcf/",         # ven303

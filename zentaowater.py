@@ -69,7 +69,9 @@ def zentao(driver):
 
             pyperclip.copy(merge)
             pyautogui.hotkey("command", "v")
-    
+            
+            time.sleep(0.2)
+
             # Create an instance of the NSPasteboard class
             pasteboard = NSPasteboard.generalPasteboard()
 

@@ -54,7 +54,7 @@ def noctool(driver):
             pyautogui.hotkey("Command", "V")
 
             # button click (新增记录)
-            pyautogui.hotkey("Enter")
+            # pyautogui.hotkey("Enter")
             time.sleep(1)
 
     except:

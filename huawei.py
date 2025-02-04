@@ -9,7 +9,7 @@ from function import chrome, update_one, wait, find_element_XPATH, find_element_
 # 华为云【OPSADMIN】【IAM用户登录】
 def huawei1(driver):
 
-    id = tuple_id[7]
+    id = tuple_id[8]
     
     try:
         for i in range(13):
@@ -100,7 +100,7 @@ def huawei1(driver):
 # 华为云 【华为帐号登录】
 def huawei2(driver):
     
-    id = tuple_id[8]
+    id = tuple_id[9]
     
     try:
         # Go to Webpage

@@ -183,10 +183,10 @@ if __name__ == "__main__":
 
   tupl3 = ["ven338", "ven387", "ven126", "ven134", "ven182", "ven314", "ven366", "ven322", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven467", "ven191", "ven318"]
   
-  index1= ID.index("ven281")
+  index1= ID.index("ven134")
   index2= mongodb_id[index1]
   index3= mongodb_id.index(index2)
-  #print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
+  print(f"\n ID = {ID[index1]} \n Mongodb_ID & Ven_ID Index = {index1} \n Mongodb_ID = {index2} \n ")
 
   for item in tupl3:
     index1= ID.index(item)

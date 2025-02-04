@@ -24,7 +24,6 @@ def chrome():
 
     options = webdriver.ChromeOptions()
     options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-dev-shm-usage')
