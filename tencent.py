@@ -88,25 +88,22 @@ def tencent2(driver):
     id = tuple_id[5]
 
     try:
-        driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
-        time.sleep(2)
 
         for i in range(14): #14
+
+            if i <= 11:
+                driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
+            else:
+                driver.get('https://www.tencentcloud.com/account/login?s_url=https%3A%2F%2Fconsole.tencentcloud.com%2Fexpense')
             
             try:
                 if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
                     pyautogui.click(x=318, y=623)
             except:
                 pass
-            
-            # Refresh
-            time.sleep(1)
-            with pyautogui.hold('command'):
-                pyautogui.press('r')
 
             wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]', '邮箱登录')    
-            time.sleep(3)  
-            pyautogui      
+            time.sleep(1)    
             pyautogui.click(x=1416, y=62)
             time.sleep(1)
 
@@ -134,7 +131,7 @@ def tencent2(driver):
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
 
-                time.sleep(3)
+                time.sleep(1)
 
                 while True:
                     try:
@@ -151,16 +148,11 @@ def tencent2(driver):
             # Expenses
             else:
                 time.sleep(1)
-                if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div[2]") == "身份认证":
-                    wait(driver, '/html/body/div[1]/div[1]/div/div[2]/div[1]/div/div[3]/div[2]/div[2]/a', '控制台')
-                
-                time.sleep(1)
-                driver.get('https://console.tencentcloud.com/expense')
 
                 # Wait Condition   
                 wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
                 
-                time.sleep(3)
+                time.sleep(1)
                 
                 # Open 可用额度
                 if pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
