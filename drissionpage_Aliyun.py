@@ -65,7 +65,7 @@ def aliyun2(driver):
                             break
         
             # click lastpass extension       
-            pyautogui.click(x=1416, y=62)
+            pyautogui.click(x=1361, y=62)
 
             # Wait for image Appear
             image_vault = None
@@ -213,7 +213,8 @@ def watermelon_2(driver):
                 else:
                     time.sleep(1)
                     
-            pyautogui.click(x=1416, y=62)
+            # click lastpass extension       
+            pyautogui.click(x=1361, y=62)
 
             # Wait for image Appear
             image_vault = None

@@ -20,11 +20,11 @@ def mongodb_atlas():
 # Selenium Chrome   
 def chrome():
 
-    # service = Service(executable_path=ChromeDriverManager().install())
-
     options = webdriver.ChromeOptions()
-    options.add_argument('--user-data-dir=\\Users\\n02-19\\Library\\Application Support\\Google\\Chrome\\')
+    options.add_argument('--user-data-dir=\\Users\\Thomas\\Library\\Application Support\\Google\\Chrome\\')
+    options.add_argument('profile-directory=Default')
     options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--disable-popup-blocking')
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')
@@ -35,8 +35,6 @@ def chrome():
     options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
     options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(options=options)
-    # driver = webdriver.Chrome(service=service, options=options)
-    # driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     return driver
 
 # MongoDB Update one Document / Credit

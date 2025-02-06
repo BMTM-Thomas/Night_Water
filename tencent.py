@@ -205,55 +205,53 @@ def tencent3(driver):
     id = tuple_id[6]
 
     try:
-        for i in range(1):
-            driver.get(Tencent_Webpage[i])
+        driver.get(Tencent_Webpage[0])
 
-            time.sleep(3)
-            pyautogui.click(x=1416, y=62)
+        time.sleep(3)
+        pyautogui.click(x=1416, y=62)
+    
+        # Wait for image Appear
+        image_vault = None
+        while image_vault is None:
+            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+
+        time.sleep(1)
+        pyautogui.write(ID[id])
+        time.sleep(1)
+        pyautogui.click(x=1260, y=170)
+        time.sleep(1)
+        pyautogui.click(x=310, y=554)
+        time.sleep(1)
+
+        # Wait Condition
+        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
+        time.sleep(3)
+
+        # Extract Credit  
+        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+
+        # Replace
+        credit = re.sub(r'USD.*', 'USD', credit)
+        credit = credit.replace(',', '')
+        credit = credit.replace('USD', '')
         
-            # Wait for image Appear
-            image_vault = None
-            while image_vault is None:
-                image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
+        # MongoDB update Data 
+        mangos_id = {'_id': ObjectId(mongodb_id[id])}
+        update_one(mangos_id, credit)
+        print(f"{ID[id]}= {credit}")
 
+        time.sleep(1)
+
+        # Screenshot
+        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+        pyautogui.moveTo(x=1558, y=110)
+        time.sleep(2)
+        logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
+        if logout is not None:
             time.sleep(1)
-            pyautogui.write(ID[id])
-            time.sleep(1)
-            pyautogui.click(x=1260, y=170)
-            time.sleep(1)
-            pyautogui.click(x=310, y=554)
-            time.sleep(1)
+            pyautogui.click(logout)
 
-            # Wait Condition
-            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
-            time.sleep(3)
-
-            # Extract Credit  
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
-
-            # Replace
-            credit = re.sub(r'USD.*', 'USD', credit)
-            credit = credit.replace(',', '')
-            credit = credit.replace('USD', '')
-            
-            # MongoDB update Data 
-            mangos_id = {'_id': ObjectId(mongodb_id[id])}
-            update_one(mangos_id, credit)
-            print(f"{ID[id]}= {credit}")
-
-            time.sleep(1)
-
-            # Screenshot
-            ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            pyautogui.moveTo(x=1558, y=110)
-            time.sleep(2)
-            logout = pyautogui.locateOnScreen('./image/tencentlogout1.png')
-            if logout is not None:
-                time.sleep(1)
-                pyautogui.click(logout)
-
-            time.sleep(2)
-            id+=1
+        time.sleep(2)
 
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -269,6 +267,8 @@ def tencent4(driver):
         # Go to Webpage
         driver.get('https://cloud.tencent.com/login/subAccount?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fexpense%2Foverview')
         time.sleep(2)
+        
+        wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3', '子用户登录') 
 
         pyautogui.click(x=1416, y=62)
     
@@ -306,9 +306,9 @@ def tencent4(driver):
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
         pyautogui.moveTo(x=1507, y=106)
-        time.sleep(2)
+        time.sleep(3)
         pyautogui.click(1426, 558)
-        time.sleep(2)
+        time.sleep(3)
 
     except Exception as e:
         print(f"An error occurred: {e}")

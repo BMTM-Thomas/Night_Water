@@ -16,9 +16,8 @@ def huawei1(driver):
             # # Go to Webpage
             driver.get(Huawei_Webpage[i])
             wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span', 'IAM用户登录') 
-            with pyautogui.hold('command'):
-                pyautogui.press('r')
-                time.sleep(1)
+
+            time.sleep(1)
 
             wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span', 'IAM用户登录') 
             time.sleep(1)
@@ -105,8 +104,8 @@ def huawei2(driver):
     try:
         # Go to Webpage
         driver.get('https://auth.huaweicloud.com/authui/login.html?service=https://account-intl.huaweicloud.com/usercenter/#/login')
-        with pyautogui.hold('command'):
-            pyautogui.press('r')
+        # with pyautogui.hold('command'):
+        #     pyautogui.press('r')
 
         time.sleep(3)
 

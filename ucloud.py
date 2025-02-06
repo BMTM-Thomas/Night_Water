@@ -14,9 +14,8 @@ def ucloud(driver):
     try:
         # Go to Webpage
         driver.get('https://passport.ucloud.cn/#login')
-        with pyautogui.hold('command'):
-            pyautogui.press('r')
-            time.sleep(1)
+
+        time.sleep(1)
 
         for i in range(3):
             wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div[1]', '账号登录') 

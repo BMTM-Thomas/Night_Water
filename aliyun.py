@@ -322,11 +322,7 @@ def aliyun3(driver):
         pyautogui.click(x=1280, y=433)
         
         for i in range(6):
-            
-            # Refresh
-            with pyautogui.hold('command'):
-                pyautogui.press('r')
-            
+    
             time.sleep(1)
 
             while True:
@@ -458,10 +454,6 @@ def watermelon_1(driver):
         pyautogui.click(x=1280, y=433)
         
         for i in range(6):
-            
-            # Refresh
-            with pyautogui.hold('command'):
-                pyautogui.press('r')
             
             time.sleep(1)
 
