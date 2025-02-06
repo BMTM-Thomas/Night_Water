@@ -1,7 +1,6 @@
 import time                                                                                            
 import pyautogui                                                                                                                                                                                  
-import sys    
-import random                                                                                                                                  
+import sys                                                                                                                                  
 from List_Zentao import ID, mongodb_id,tuple_id                                                       
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab  

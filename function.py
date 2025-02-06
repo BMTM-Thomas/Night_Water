@@ -21,8 +21,8 @@ def mongodb_atlas():
 def chrome():
 
     options = webdriver.ChromeOptions()
-    options.add_argument('--user-data-dir=\\Users\\Thomas\\Library\\Application Support\\Google\\Chrome\\')
-    options.add_argument('profile-directory=Default')
+    options.add_argument("--user-data-dir=\\Users\\Thomas\\Library\\Application Support\\Google\\Chrome\\")
+    options.add_argument('profile-directory=Profile 3')
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument('--disable-popup-blocking')
     options.add_argument('--disable-gpu')
@@ -35,6 +35,7 @@ def chrome():
     options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
     options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(options=options)
+
     return driver
 
 # MongoDB Update one Document / Credit
