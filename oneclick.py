@@ -16,7 +16,7 @@ if stderr:
     print(stderr.decode('utf-8'))
 
 #subprocess.run(["python3", "./Run_Check.py"])
-subprocess.run(["python3", "./zentao_noctool_kaidan.py"])
+# subprocess.run(["python3", "./zentao_noctool_kaidan.py"])
 subprocess.run(["python3", "./aliyun.py"])
 subprocess.run(["python3", "./tencent.py"])
 subprocess.run(["python3", "./huawei.py"])

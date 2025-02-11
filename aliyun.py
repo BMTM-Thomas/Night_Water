@@ -347,8 +347,8 @@ def aliyun3(driver):
             # Drag and Drop Appear? #### Username Login
             alidnd3 = pyautogui.locateOnScreen('./image/alidnd.png')
             if alidnd3 is not None:
-                pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.2)
-                pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.2)
+                pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.13)
+                pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.13)
                 X += 1
                 Y += 1
 
@@ -364,8 +364,8 @@ def aliyun3(driver):
                 if pyautogui.locateOnScreen('./image/alidndfailed3.png') is not None:
                     pyautogui.click(x=795, y=462)
                     time.sleep(1)
-                    pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.2)
-                    pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.2)
+                    pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.13)
+                    pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.13)
                     time.sleep(3)
                     X += 1
                     Y += 1
@@ -379,6 +379,7 @@ def aliyun3(driver):
                 
             # Click Login
             wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
+            time.sleep(1)
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
 
             if login is not None:
@@ -448,12 +449,13 @@ def watermelon_1(driver):
     Y = 0
 
     try:
-        driver.get('https://signin.alibabacloud.com/5256975880117898.onaliyun.com/login.htm?callback=https://usercenter2-intl.aliyun.com/billing/#/account/overview#/main')
+        driver.get('https://signin.alibabacloud.com/5256975880117898.onaliyun.com/login.htm?callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F%23%2Faccount%2Foverview#/main')
         time.sleep(2)
         pyautogui.click(x=1280, y=433)
         
         for i in range(6):
-            
+
+            print(ID[id])
             time.sleep(1)
 
             while True:
@@ -479,8 +481,8 @@ def watermelon_1(driver):
             # Drag and Drop Appear? #### Username Login
             alidnd3 = pyautogui.locateOnScreen('./image/alidnd.png')
             if alidnd3 is not None:
-                pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.2)
-                pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.2)
+                pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.13)
+                pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.13)
                 X += 1
                 Y += 1
 
@@ -496,8 +498,8 @@ def watermelon_1(driver):
                 if pyautogui.locateOnScreen('./image/alidndfailed3.png') is not None:
                     pyautogui.click(x=795, y=462)
                     time.sleep(1)
-                    pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.2)
-                    pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.2)
+                    pyautogui.moveTo(ram_m_X1[X], ram_m_Y2[Y], 0.13)
+                    pyautogui.dragTo(ram_d_X1[X], ram_d_Y2[Y], button='left', duration=0.13)
                     time.sleep(3)
                     X += 1
                     Y += 1
@@ -511,6 +513,7 @@ def watermelon_1(driver):
                 
             # Click Login
             wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
+            time.sleep(1)
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
 
             if login is not None:
@@ -534,14 +537,6 @@ def watermelon_1(driver):
             driver.get("https://usercenter2-intl.aliyun.com/billing/#/account/overview")
             time.sleep(1)
 
-            # 启用 MFA 设备
-            try:
-                if find_element_nontext(driver, "/html/body/div[2]/div[1]/div[2]/div/div/div/h3") == "启用 MFA 设备":
-                        wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/form/div[3]/div/div/div', '您当前的登录存在安全风险，请绑定 MFA 设备。')
-                        pyautogui.click(918,612)
-            except:
-                pass
-
             wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[1]/span', '本月消费概览')
             time.sleep(2)
 
@@ -549,8 +544,7 @@ def watermelon_1(driver):
             try:
                 if pyautogui.locateOnScreen('./image/overdue.png') is not None:
                     overdue = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
-                    print(f"{ID[id]}= ", overdue)
-                    
+                    print(f"{ID[id]}= ", overdue)   
             except:
                 pass
 
