@@ -2,7 +2,7 @@ ID = (
     # 阿里云【中国站】
       "ven338", "ven407", "ven387", "ven387纯真",
     # 阿里云【国际版】
-      "ven126", "ven128", "ven137", "ven150", "ven211", "ven231", "ven244", "ven265", "ven290", "ven293", "ven312", "ven313", "ven323", "ven324", "ven331", "ven346", "ven356", "ven365", "ven395", "ven396", "ven413", "ven416", "ven419", "ven422", "ven423", "ven429", "ven430", "ven438", "ven445 ecs", "ven456", "ven465", 
+      "ven126", "ven128", "ven137", "ven150", "ven211", "ven231", "ven244", "ven265", "ven290", "ven293", "ven312", "ven313", "ven323", "ven324", "ven346", "ven356", "ven365", "ven395", "ven396", "ven413", "ven416", "ven419", "ven422", "ven423", "ven429", "ven430", "ven438", "ven445 ecs", "ven456", "ven465", 
     # 阿里云【国际版】【RAM】
       "ven134", "ven136", "ven141", "ven142", "ven148", "ven154", 
     # 腾讯云【中国站】
@@ -12,13 +12,13 @@ ID = (
     # 腾讯云【国际站】expense
       "ven327", "ven328", 
     # 腾讯云 CAM用户登录
-      "ven366",
+      "ven366","ven469",
     # 腾讯云 子用户登录
       "ven322",
     # 华为云【OPSADMIN】【IAM用户登录】
-      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", "ven405", "ven410", "ven411", "ven421",
+      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", 
     # 华为云 【华为帐号登录】
-      "ven303", "ven307", "ven342", "ven345", "ven420", "ven425",
+      "ven303", "ven307", "ven342", "ven345", "ven420", "ven425","ven472",
     # Ucloud
       "ven281", "ven283", "ven284",
     # Gname
@@ -60,8 +60,7 @@ mongodb_id = (
               "660515a0f932832204669088", # ven313
               "660515a0f932832204669089", # ven323
               "660515a0f93283220466908a", # ven324
-              "660515a0f93283220466908c", # ven331
-              "660515a0f93283220466908d", # ven346
+               "660515a0f93283220466908d", # ven346
               "660515a0f93283220466908e", # ven356
               "660515a0f93283220466908f", # ven365
               "660515a0f932832204669090", # ven395
@@ -99,6 +98,7 @@ mongodb_id = (
               "660515a0f9328322046690b2", # ven327
               "660515a0f9328322046690b3", # ven328
               "660515a0f9328322046690b5", # ven366
+              "67b333b20b47f8cd0b451627", # ven469
               "67a10f19d5f05d3aa4ccc37d", # ven322
               "660515a0f9328322046690b6", # ven236
               "660515a0f9328322046690b7", # ven237
@@ -109,16 +109,13 @@ mongodb_id = (
               "67216acacd6787b10b4e5576", # ven388
               "660515a0f9328322046690bd", # ven399
               "660515a0f9328322046690be", # ven400
-              "660515a0f9328322046690bf", # ven405
-              "660515a0f9328322046690c0", # ven410
-              "661728143db8585a9ee41be9", # ven411
-              "6685df2ffcdbbe477f788a2c", # ven421
               "660515a0f9328322046690c1", # ven303
               "660515a0f9328322046690c2", # ven307
               "660515a0f9328322046690c3", # ven342
               "660515a0f9328322046690c4", # ven345
               "660515a0f9328322046690c5", # ven420
               "660515a0f9328322046690c6", # ven425
+              "67b333c50b47f8cd0b451628", # ven472
               "660515a0f9328322046690c8", # ven281
               "660515a0f9328322046690c9", # ven283
               "660515a0f9328322046690ca", # ven284
@@ -137,26 +134,26 @@ tuple_id = (
             0,    # 0 _ 阿里云【中国站】 #338
             2,    # 1 _ ven387 费用 + IP 纯真社区版IP库离线下载 #387
             4,    # 2 _ 阿里云【国际站】 #126
-           35,    # 3 _ 阿里云【国际站】【RAM】 #134
-           41,    # 4 _ 腾讯云【中国站】#182
-           42,    # 5 _ 腾讯云【国际站】#314
-           56,    # 6 _ 腾讯云 CAM用户登录 #366
+           34,    # 3 _ 阿里云【国际站】【RAM】 #134
+           40,    # 4 _ 腾讯云【中国站】#182
+           41,    # 5 _ 腾讯云【国际站】#314
+           55,    # 6 _ 腾讯云 CAM用户登录 #366
            57,    # 7 _ 腾讯云 子用户登录 #322
            58,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
-           71,    # 9 _ 华为云 【华为帐号登录】#303
-           77,    # 10 _ Ucloud #281
-           80,    # 11 _ Gname #332
-           82,    # 12 _ 聚名網 #336
-           84,    # 13 _ sms326
-           85,    # 14 _ 7211.com ven196  
-           86,    # 15 _ ven295 international tencent #295
-           87,    # 16 _ ven467 bytePlus
-           88,    # 17 _ ven191 #watermelon
-           97,    # 18 _ ven318 #watermelon
+           67,    # 9 _ 华为云 【华为帐号登录】#303
+           74,    # 10 _ Ucloud #281
+           77,    # 11 _ Gname #332
+           79,    # 12 _ 聚名網 #336
+           81,    # 13 _ sms326
+           82,    # 14 _ 7211.com ven196  
+           83,    # 15 _ ven295 international tencent #295
+           84,    # 16 _ ven467 bytePlus
+           85,    # 17 _ ven191 #watermelon
+           94,    # 18 _ ven318 #watermelon
 )   
 
 zen_noc_tuple = (
-   88,
+   85,
  )
 
 # Huawei OPSADMIN
@@ -169,14 +166,11 @@ Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_vz7bw73fbmbylhj#/login",                 # ven388
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_qsk0u_ee0lfjsc_#/login",                 # ven399
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_pb3i1cpxtyp12rg#/login",                 # ven400
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_s9_if_8abedsria#/login",                 # ven405
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_a2v8fdw83st9mpo#/login",                 # ven410 
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_jgs8o7to98pm29m#/login",                 # ven411
-                  "https://auth.huaweicloud.com/authui/login.html?id=hid_ure8don9d5n32au#/login",                 # ven421     
                   )
 
 # Tencent CAM
 Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200022457909?s_url=https://console.tencentcloud.com/expense",                      # ven366
+                   "https://www.tencentcloud.com/zh/account/login/subAccount/200039340025?s_url=https://console.tencentcloud.com/expense",                      # ven469
                   )
 
 if __name__ == "__main__":

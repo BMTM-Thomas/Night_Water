@@ -45,7 +45,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(31):
+        for i in range(30):
 
             driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F#/account/overview')
 

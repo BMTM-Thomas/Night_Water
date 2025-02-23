@@ -12,7 +12,7 @@ def huawei1(driver):
     id = tuple_id[8]
     
     try:
-        for i in range(13):
+        for i in range(9):
             # # Go to Webpage
             driver.get(Huawei_Webpage[i])
             wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span', 'IAM用户登录') 
@@ -121,7 +121,7 @@ def huawei2(driver):
         else:
             pass
         
-        for i in range(6):
+        for i in range(7):
             
             wait(driver, '/html/body/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div/span/span', '华为账号登录') 
             time.sleep(1)

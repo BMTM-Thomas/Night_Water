@@ -20,7 +20,6 @@ n_webpage = (
              "http://10.77.1.196/stocks/e0049f16-9a0b-4060-8ac8-5af3105430a2/",        # ven313
              "http://10.77.1.196/stocks/34500244-4f18-4d9c-8841-3127d086d1b3/",        # ven323
              "http://10.77.1.196/stocks/4f2e9bc2-161f-4728-b9c6-cea9a5e9fd5d/",        # ven324
-             "http://10.77.1.196/stocks/37e3420b-a904-4f42-8d71-6a401836a16c/",        # ven331
              "http://10.77.1.196/stocks/066a52f4-c417-476d-a919-a538ad1d8470/",        # ven346
              "http://10.77.1.196/stocks/37288796-c782-4c30-8db5-ba7fddd19387/",        # ven356
              "http://10.77.1.196/stocks/bf2bb1cc-b262-4a3a-825d-699ab35d3624/",        # ven365
@@ -68,6 +67,7 @@ n_webpage = (
 
             # 腾讯云 CAM用户登录
             "http://10.77.1.196/stocks/59cc541b-9b86-436b-b8b2-a23bf73b2b6b/",         # ven366
+            "http://10.77.1.196/stocks/81432d88-29a0-4acb-8248-4b8bd6be2658/",         # ven469
 
             # 腾讯云 子用户登陆
             "http://10.77.1.196/stocks/45b99ae0-77eb-4ffb-b564-43abdcf407e7/",         # ven322
@@ -82,10 +82,7 @@ n_webpage = (
             "http://10.77.1.196/stocks/20836417-1801-4e87-a08d-0584f3789d12/",         # ven388
             "http://10.77.1.196/stocks/3d54541a-40a1-48c5-97ab-35b431b1c23c/",         # ven399
             "http://10.77.1.196/stocks/3ecf782b-44f7-4e94-bcad-3eb6dbbe504f/",         # ven400
-            "http://10.77.1.196/stocks/2a6741fc-eb73-4dbc-9921-ac3edf2b0d68/",         # ven405
-            "http://10.77.1.196/stocks/4f61f9a6-0617-4d06-8e39-1cb016adf9d3/",         # ven410
-            "http://10.77.1.196/stocks/87a68696-7d1e-4024-a003-01d640e7b574/",         # ven411
-            "http://10.77.1.196/stocks/ac2dee98-67ec-48f3-8ccb-b2df246710a2/",         # ven421
+
 
             # 华为云 【华为帐号登录】
             "http://10.77.1.196/stocks/ce9bbbcd-69c0-4aae-a26e-6bbbbb4acdcf/",         # ven303
@@ -94,6 +91,7 @@ n_webpage = (
             "http://10.77.1.196/stocks/81d3d942-4965-4907-be64-0a3ace8538ac/",         # ven345
             "http://10.77.1.196/stocks/380c9426-d039-4f2c-b17c-af9e7d28f9b2/",         # ven420
             "http://10.77.1.196/stocks/cd076e16-8cc4-453d-b7c6-9445f208ea01/",         # ven425
+            "http://10.77.1.196/stocks/2ddcafc0-a56d-40ac-87d0-44b087206b1d/",         # ven472
 
             # UCLOUD云
             "http://10.77.1.196/stocks/4fb2046c-97f3-4057-a5d7-71a9267c0b81/",         # ven281

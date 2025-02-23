@@ -41,18 +41,18 @@ def gname(driver):
             pyautogui.dragTo(1280, 562, button='left', duration=0.4)
 
             if i == 0:
-                wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', '基本信息') 
-                wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', '资金信息') 
+                wait(driver, ' /html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', '基本信息') 
+                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', '资金信息') 
             elif i == 1:
-                wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', 'Basic Information') 
-                wait(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', 'Financial Information') 
+                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', 'Basic Information') 
+                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', 'Financial Information') 
                 time.sleep(1)
                 pyautogui.click(1003,298)
 
             time.sleep(1)
             
             # Extract Credit
-            credit = find_element_nontext(driver, '/html/body/div[1]/div/div[4]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[3]/strong')
+            credit = find_element_nontext(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[1]/strong')
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
