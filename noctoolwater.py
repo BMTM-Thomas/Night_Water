@@ -50,8 +50,8 @@ def noctool(driver):
             print(f"{ID[i]}= Previous: {pre_credit}, Actual: {credit_value} \n") 
 
             # Write Credit Value
-            # pyautogui.write(credit_value)
-            pyautogui.hotkey("Command", "V")
+            pyautogui.write(credit_value)
+            # pyautogui.hotkey("Command", "V")
 
             # button click (新增记录)
             pyautogui.hotkey("Enter")

@@ -6,10 +6,8 @@ n_webpage = (
              "http://10.77.1.196/stocks/cc7bb087-c7d9-42dd-9a9a-aea4f34a702f/",        # ven387 IP
 
             # 阿里云【国际站】
-             "http://10.77.1.196/stocks/451d169a-4854-40aa-b710-89be75366a5e/",        # ven126
              "http://10.77.1.196/stocks/f0772ec9-9800-4e9b-8c6b-249044ac7135/",        # ven128
              "http://10.77.1.196/stocks/e4f15492-affe-413f-80a4-9368cebdb14d/",        # ven137
-             "http://10.77.1.196/stocks/66866bd6-5939-4671-be34-40eae2fb4f01/",        # ven150
              "http://10.77.1.196/stocks/b815927d-6fe0-4a8f-828d-2ffcf7382804/",        # ven211
              "http://10.77.1.196/stocks/905c4330-0c7d-4f19-91d7-52e50efc0b74/",        # ven231
              "http://10.77.1.196/stocks/024fb394-0615-4bd9-b4cd-e04197430714/",        # ven244
@@ -39,10 +37,7 @@ n_webpage = (
 
              
             # 阿里云【国际站】【RAM】
-             "http://10.77.1.196/stocks/2822431f-7302-45bf-b6db-a80d2b0d083a/",        # ven134
              "http://10.77.1.196/stocks/001c8bf5-3412-4153-b22b-aad68a5059ef/",        # ven136
-             "http://10.77.1.196/stocks/6126a308-d875-47f2-bb4b-6042c4cd8188/",        # ven141
-             "http://10.77.1.196/stocks/9e2e1d85-626a-4345-bbf3-4bafaa0c6681/",        # ven142
              "http://10.77.1.196/stocks/f10c8972-d161-462c-9c9c-3047b8ecc05c/",        # ven148
              "http://10.77.1.196/stocks/b88afaff-11b2-4ea4-8892-068947d1a873/",        # ven154
 

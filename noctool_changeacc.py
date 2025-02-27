@@ -11,7 +11,7 @@ import sys
 def main():
     options=Options()
     options.add_argument("--user-data-dir=\\Users\\Thomas\\Library\\Application Support\\Google\\Chrome\\")
-    options.add_argument("profile-directory=Default")
+    options.add_argument('profile-directory=Profile 3')
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--disable-gpu")
     options.add_argument("--disable-dev-shm-usage")

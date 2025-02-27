@@ -208,7 +208,6 @@ def tencent2(driver):
 def tencent3(driver):
 
     id = tuple_id[6]
-    i=0
 
     for i in range (2):
         try:
@@ -233,9 +232,14 @@ def tencent3(driver):
             # Wait Condition
             wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
             time.sleep(3)
-
+            
             # Extract Credit  
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+            while True:
+                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+                if credit == "--":
+                    continue
+                else:
+                    break
 
             # Replace
             credit = re.sub(r'USD.*', 'USD', credit)
@@ -259,7 +263,6 @@ def tencent3(driver):
                 pyautogui.click(logout)
 
             time.sleep(2)
-            i+=1
             id+=1
 
         except Exception as e:
