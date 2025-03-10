@@ -358,26 +358,12 @@ def ven467(driver):
     try:
         driver.get("https://console.byteplus.com/auth/login/?redirectURI=https%3A%2F%2Fwww.byteplus.com&_gl=1*1ndxskn*_gcl_au*NTI5NTk5LjE3MjM0MzUyNzg.*_ga*NDc5ODkwMTM2LjE3MjM0MzUyNzg.*_ga_3H57BBC3B9*MTcyMzQzNTI3Ny4xLjAuMTcyMzQzNTI3Ny42MC4wLjA")
         time.sleep(2)
-        pyautogui.click(x=1416, y=62)
-
-        # Wait for image Appear
-        image_vault = None
-        while image_vault is None:
-            image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
-
-        time.sleep(1)
-        pyautogui.write(ID[id])
-        time.sleep(1)
-        pyautogui.click(x=1227, y=157)
-        time.sleep(1)
-        pyautogui.click(x=1069, y=528)
-        time.sleep(1)
 
         waitID(driver, "volcfe-i18n-header")
         time.sleep(1) 
         driver.get('https://console.byteplus.com/finance/overview')
         time.sleep(1)
-        wait(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[1]/span', 'account_quota') 
+        wait(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[1]/span', '信控额度') 
         time.sleep(1)
 
         # Extract Credit

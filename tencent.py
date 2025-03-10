@@ -302,7 +302,12 @@ def tencent4(driver):
         time.sleep(3)
 
         # Extract Credit  
-        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+        while True:
+            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+            if credit == "--":
+                continue
+            else:
+                break
 
         # Replace
         credit = credit.replace(',', '')

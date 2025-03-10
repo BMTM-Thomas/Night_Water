@@ -99,7 +99,7 @@ def zentao(driver):
             y+=1
             id+=1
 
-        time.sleep(1)
+        time.sleep(1000)
 
         # Special Case for Button Click
         driver.switch_to.frame("appIframe-project")
