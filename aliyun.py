@@ -11,6 +11,7 @@ from function import chrome, update_one, wait, wait2, find_element_XPATH, find_e
 def aliyun1(driver):  
     
     id = tuple_id[0]
+    id_Range = tuple_id[1] - tuple_id[0]
     
     try:
         driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
@@ -39,7 +40,7 @@ def aliyun1(driver):
             pass
 
 
-        for i in range (2) : 
+        for i in range (id_Range) : 
             wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
             wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
             if pyautogui.locateOnScreen('./image/cross.png') is not None: 
@@ -169,7 +170,7 @@ def ven387(driver):
         time.sleep(1)
         
         if pyautogui.locateOnScreen('./image/ram.png') is not None:
-                pyautogui.click(798, 651)
+                pyautogui.click(798, 639)
                 wait(driver, '/html/body/div[1]/div/div[1]/nav/div/div/div/span', 'International - 简体中文') 
         else:
             pass
@@ -263,25 +264,6 @@ def ven387(driver):
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
         time.sleep(1)
 
-        id += 1
-
-        #IP 纯真社区版IP库离线下载
-        driver.get('https://market.console.aliyun.com/?spm=a2c81.42099b4.products-recent.dmarket.75381127UzpKUg#/?_k=koc938')
-        wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[1]', 'AppKey：') 
-        wait(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[1]/p[1]/a', '复制') 
-        time.sleep(2)
-
-        # Extract credit
-        credit = find_element_nontext(driver, '/html/body/div[2]/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table[2]/tbody/tr/td[2]/span/span')                                  
-        
-        # MongoDB update Data 
-        mangos_id = {'_id': ObjectId(mongodb_id[id])}
-        update_one(mangos_id, str(credit))
-        print(f"{ID[id]}= {credit}")
-
-        pyautogui.moveTo(x= 1536, y=131)
-        time.sleep(1)
-
         while True:
             try:
                 if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[1]/header[1]/div[2]/div[1]/a[1]', '基本资料'):
@@ -292,11 +274,8 @@ def ven387(driver):
                     pyautogui.moveTo(x= 1536, y=131)
                     time.sleep(2)
 
-
         time.sleep(1)
 
-        # Screenshot
-        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
         logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[2]/div[1]/div[1]/a[1]")
         logout_button.click()
         
@@ -310,17 +289,16 @@ def ven387(driver):
 # 阿里云【国际站】【RAM】
 def aliyun3(driver):
 
-    
     id = tuple_id[3]
+    id_Range = tuple_id[4] - tuple_id[3]
     X = 0
     Y = 0
     
     try:
         driver.get('https://signin.alibabacloud.com/5256975880117898.onaliyun.com/login.htm?callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F%23%2Faccount%2Foverview#/main')
         time.sleep(2)
-        pyautogui.click(x=1280, y=433)
         
-        for i in range(3):
+        for i in range(id_Range):
     
             time.sleep(1)
 
@@ -445,6 +423,7 @@ def aliyun3(driver):
 def watermelon_1(driver):
 
     id = tuple_id[17]
+    id_Range = tuple_id[18] - tuple_id[17]
     X = 0
     Y = 0
 
@@ -453,7 +432,7 @@ def watermelon_1(driver):
         time.sleep(2)
         pyautogui.click(x=1280, y=433)
         
-        for i in range(9):
+        for i in range(id_Range):
 
             print(ID[id])
             time.sleep(1)

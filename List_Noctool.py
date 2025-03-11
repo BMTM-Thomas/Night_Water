@@ -3,7 +3,6 @@ n_webpage = (
              "http://10.77.1.196/stocks/cb224b5f-6437-4955-848d-b473c5c0fad7/",        # ven338
              "http://10.77.1.196/stocks/0483b2e3-3b03-4478-bee7-c4fa5e31850d/",        # ven407
              "http://10.77.1.196/stocks/089efd5a-cdd0-49a3-bc57-54e7496a3455/",        # ven387
-             "http://10.77.1.196/stocks/cc7bb087-c7d9-42dd-9a9a-aea4f34a702f/",        # ven387 IP
 
             # 阿里云【国际站】
              "http://10.77.1.196/stocks/f0772ec9-9800-4e9b-8c6b-249044ac7135/",        # ven128
@@ -33,6 +32,7 @@ n_webpage = (
              "http://10.77.1.196/stocks/3b6dd8d5-25d5-4231-8d15-439ed068e40d/",        # ven438
              "http://10.77.1.196/stocks/65ee63e9-ab6f-46e1-bb55-3fb813e4b786/",        # ven445
              "http://10.77.1.196/stocks/226098bb-c62a-4525-b387-864e31e8fd2c/",        # ven456
+             "http://10.77.1.196/stocks/93615609-f890-4cc4-9705-432a2a9cd39e/",        # ven457
              "http://10.77.1.196/stocks/55c76812-5470-4c74-846b-cba36642dd8c/",        # ven465
 
              

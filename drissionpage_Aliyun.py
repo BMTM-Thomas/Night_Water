@@ -28,6 +28,7 @@ driver = ChromiumPage(co)
 def aliyun2(driver):
     
     id = tuple_id[2]
+    id_Range = tuple_id[3] - tuple_id[2]
     X = 0
     Y = 0
 
@@ -45,7 +46,7 @@ def aliyun2(driver):
         else:
             pass
 
-        for i in range(28):
+        for i in range(id_Range):
 
             driver.get('https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F#/account/overview')
 

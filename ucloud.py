@@ -10,6 +10,7 @@ from function import chrome, update_one, wait, find_element_XPATH, find_element_
 def ucloud(driver):
 
     id = tuple_id[10]
+    id_Range = tuple_id[11] - tuple_id[10]
     
     try:
         # Go to Webpage
@@ -17,7 +18,7 @@ def ucloud(driver):
 
         time.sleep(1)
 
-        for i in range(3):
+        for i in range(id_Range):
             wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div[1]', '账号登录') 
             time.sleep(1)
             pyautogui.click(x=1416, y=62)

@@ -15,6 +15,7 @@ from function import chrome, update_one, wait, find_element_nontext, wait_button
 def gname(driver):
     
     id = tuple_id[11]
+    id_Range = tuple_id[12] - tuple_id[11]
     
     try:
         # Go to Webpage
@@ -28,7 +29,7 @@ def gname(driver):
             pyautogui.click(x=379, y=146)
             time.sleep(1)
 
-        for i in range(2):
+        for i in range(id_Range):
             wait(driver, '/html/body/div[2]/div/div[2]/p[2]', '欢迎来到GNAME，请登录！') 
             pyautogui.click(x=1416, y=62)
             time.sleep(1)  
@@ -77,14 +78,16 @@ def gname(driver):
 
 # 聚名網
 def jumingwang(driver):
+
     id = tuple_id[12]
+    id_Range = tuple_id[13] - tuple_id[12]
 
     time.sleep(1)
     driver.get('https://www.juming.com/')
     time.sleep(1)
 
     try:
-        for i in range (2):
+        for i in range (id_Range):
             
             # Check if still login, if still login then logout, else button click login 
             try:
@@ -151,6 +154,7 @@ def jumingwang(driver):
 
 # sms326
 def sms326(driver):
+
     id = tuple_id[13]
 
     driver.get('https://www.google.com')
@@ -234,6 +238,7 @@ def sms326(driver):
 
 # 7211.com ven196
 def ven196_7211(driver):
+    
     id = tuple_id[14]
 
     driver.get('https://www.7211.com/login.php')

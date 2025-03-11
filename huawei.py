@@ -10,9 +10,10 @@ from function import chrome, update_one, wait, find_element_XPATH, find_element_
 def huawei1(driver):
 
     id = tuple_id[8]
+    id_Range = tuple_id[9] - tuple_id[8]
     
     try:
-        for i in range(9):
+        for i in range(id_Range):
             # # Go to Webpage
             driver.get(Huawei_Webpage[i])
             wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span', 'IAM用户登录') 
@@ -100,6 +101,7 @@ def huawei1(driver):
 def huawei2(driver):
     
     id = tuple_id[9]
+    id_Range = tuple_id[10] - tuple_id[9]
     
     try:
         # Go to Webpage
@@ -121,7 +123,7 @@ def huawei2(driver):
         else:
             pass
         
-        for i in range(7):
+        for i in range(id_Range):
             
             wait(driver, '/html/body/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div/span/span', '华为账号登录') 
             time.sleep(1)

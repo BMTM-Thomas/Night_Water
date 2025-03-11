@@ -86,10 +86,11 @@ def tencent1(driver):
 def tencent2(driver):
     
     id = tuple_id[5]
+    id_Range = tuple_id[6] - tuple_id[5]
 
     try:
 
-        for i in range(14): #14
+        for i in range(id_Range): #14
 
             if i <= 11:
                 driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
@@ -208,8 +209,9 @@ def tencent2(driver):
 def tencent3(driver):
 
     id = tuple_id[6]
+    id_Range = tuple_id[7] - tuple_id[6]
 
-    for i in range (2):
+    for i in range (id_Range):
         try:
             driver.get(Tencent_Webpage[i])
 
@@ -304,6 +306,7 @@ def tencent4(driver):
         # Extract Credit  
         while True:
             credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+            time.sleep(1)
             if credit == "--":
                 continue
             else:
@@ -332,9 +335,9 @@ def tencent4(driver):
         time.sleep(111111)
 
 driver = chrome()
-tencent1(driver)
-tencent2(driver) 
-tencent3(driver)
+# tencent1(driver)
+# tencent2(driver) 
+# tencent3(driver)
 tencent4(driver) 
 driver.close()
 
