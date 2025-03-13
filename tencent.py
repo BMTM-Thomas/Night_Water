@@ -306,7 +306,7 @@ def tencent4(driver):
         # Extract Credit  
         while True:
             credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
-            time.sleep(1)
+            time.sleep(2)
             if credit == "--":
                 continue
             else:

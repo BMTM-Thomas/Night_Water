@@ -44,8 +44,14 @@ def ucloud(driver):
                     time.sleep(2)
                 
             pyautogui.click(x=1558, y=107)
-            time.sleep(3)
+            time.sleep(1)
             
+            while True:
+                if pyautogui.locateOnScreen('./image/ucloudlogout_detect.png') is not None:
+                    break
+                else:
+                    time.sleep(2)
+
 
             # Extract Credit
             try:

@@ -39,7 +39,6 @@ n_webpage = (
             # 阿里云【国际站】【RAM】
              "http://10.77.1.196/stocks/001c8bf5-3412-4153-b22b-aad68a5059ef/",        # ven136
              "http://10.77.1.196/stocks/f10c8972-d161-462c-9c9c-3047b8ecc05c/",        # ven148
-             "http://10.77.1.196/stocks/b88afaff-11b2-4ea4-8892-068947d1a873/",        # ven154
 
             # 腾讯云【中国站】
              "http://10.77.1.196/stocks/c5c43e2c-9042-4a65-a965-56b8325ffe3b/",        # ven182
@@ -84,9 +83,11 @@ n_webpage = (
             "http://10.77.1.196/stocks/0da4e57e-52eb-4411-82a6-f8ea54cc03cd/",         # ven307
             "http://10.77.1.196/stocks/7b6abab1-81fa-4613-920e-7e441c02a757/",         # ven342
             "http://10.77.1.196/stocks/81d3d942-4965-4907-be64-0a3ace8538ac/",         # ven345
+            "http://10.77.1.196/stocks/cedeec71-a6d0-44f7-a711-1ce109765a79/",         # ven471
+            "http://10.77.1.196/stocks/2ddcafc0-a56d-40ac-87d0-44b087206b1d/",         # ven472
             "http://10.77.1.196/stocks/380c9426-d039-4f2c-b17c-af9e7d28f9b2/",         # ven420
             "http://10.77.1.196/stocks/cd076e16-8cc4-453d-b7c6-9445f208ea01/",         # ven425
-            "http://10.77.1.196/stocks/2ddcafc0-a56d-40ac-87d0-44b087206b1d/",         # ven472
+
 
             # UCLOUD云
             "http://10.77.1.196/stocks/4fb2046c-97f3-4057-a5d7-71a9267c0b81/",         # ven281

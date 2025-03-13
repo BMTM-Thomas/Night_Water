@@ -141,7 +141,7 @@ def huawei2(driver):
             time.sleep(1)
             pyautogui.click(x= 1191, y=504)
             time.sleep(1)
-            if i <= 3:
+            if i <= 5:
                 wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[2]/span[1]', '合作伙伴为您设置的月度预算是:') 
             else:
                 wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[2]/span[1]', '合作伙伴为您设置的一次性预算是:') 

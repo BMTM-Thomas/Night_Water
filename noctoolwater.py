@@ -15,7 +15,7 @@ def noctool(driver):
     time.sleep(1)
 
     try:
-        for i in range(zen_noc_tuple[0]):
+        for i in range(zen_noc_tuple):
  
             driver.get(n_webpage[i])
             wait(driver, '/html/body/div[1]/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖')       
@@ -54,7 +54,7 @@ def noctool(driver):
             # pyautogui.hotkey("Command", "V")
 
             # button click (新增记录)
-            pyautogui.hotkey("Enter")
+            # pyautogui.hotkey("Enter")
             time.sleep(1)
 
     except:
