@@ -59,7 +59,7 @@ def zentao(driver):
         pyautogui.click(x=288, y=637)
 
         id = 0
-        for y in range(zen_noc_tuple): 
+        for y in range(zen_noc_tuple - 1): 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
             documents = find_one(mangos_id)
             ven_machine_value = documents.get('Ven_Machine','N/A')
@@ -98,8 +98,6 @@ def zentao(driver):
 
             y+=1
             id+=1
-
-        time.sleep(1000)
 
         # Special Case for Button Click
         driver.switch_to.frame("appIframe-project")

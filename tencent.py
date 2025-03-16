@@ -335,9 +335,9 @@ def tencent4(driver):
         time.sleep(111111)
 
 driver = chrome()
-# tencent1(driver)
-# tencent2(driver) 
-# tencent3(driver)
+tencent1(driver)
+tencent2(driver) 
+tencent3(driver)
 tencent4(driver) 
 driver.close()
 
