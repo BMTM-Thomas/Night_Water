@@ -7,7 +7,6 @@ n_webpage = (
             # 阿里云【国际站】
              "http://10.77.1.196/stocks/f0772ec9-9800-4e9b-8c6b-249044ac7135/",        # ven128
              "http://10.77.1.196/stocks/e4f15492-affe-413f-80a4-9368cebdb14d/",        # ven137
-             "http://10.77.1.196/stocks/b815927d-6fe0-4a8f-828d-2ffcf7382804/",        # ven211
              "http://10.77.1.196/stocks/905c4330-0c7d-4f19-91d7-52e50efc0b74/",        # ven231
              "http://10.77.1.196/stocks/024fb394-0615-4bd9-b4cd-e04197430714/",        # ven244
              "http://10.77.1.196/stocks/8391ca52-1beb-4f16-b312-c69e342f6da2/",        # ven265
@@ -76,6 +75,8 @@ n_webpage = (
             "http://10.77.1.196/stocks/20836417-1801-4e87-a08d-0584f3789d12/",         # ven388
             "http://10.77.1.196/stocks/3d54541a-40a1-48c5-97ab-35b431b1c23c/",         # ven399
             "http://10.77.1.196/stocks/3ecf782b-44f7-4e94-bcad-3eb6dbbe504f/",         # ven400
+            "http://10.77.1.196/stocks/4db17abb-d296-497a-a2ce-cc4048289347/",         # ven474
+
 
 
             # 华为云 【华为帐号登录】

@@ -2,13 +2,13 @@ ID = (
     # 阿里云【中国站】
       "ven338", "ven407", "ven387",
     # 阿里云【国际版】
-      "ven128", "ven137", "ven211", "ven231", "ven244", "ven265", "ven290", "ven293", "ven312", "ven313", "ven323", "ven324", "ven346", "ven356", "ven365", "ven395", "ven396", "ven413", "ven416", "ven419", "ven422", "ven423", "ven429", "ven430", "ven438", "ven445 ecs", "ven456", "ven457", "ven465", 
+      "ven128", "ven137", "ven231", "ven244", "ven265", "ven290", "ven293", "ven312", "ven313", "ven323", "ven324", "ven346", "ven356", "ven365", "ven395", "ven396", "ven413", "ven416", "ven419", "ven422", "ven423", "ven429", "ven430", "ven438", "ven445 ecs", "ven456", "ven457", "ven465", 
     # 阿里云【国际版】【RAM】
       "ven136", "ven148",
     # 腾讯云【中国站】
       "ven182",
     # 腾讯云【国际站】accountinfo
-      "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439","ven441", "ven460", "ven464",
+      "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439", "ven441", "ven460", "ven464",
     # 腾讯云【国际站】expense
       "ven327", "ven328", 
     # 腾讯云 CAM用户登录
@@ -16,7 +16,7 @@ ID = (
     # 腾讯云 子用户登录
       "ven322",
     # 华为云【OPSADMIN】【IAM用户登录】
-      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", 
+      "ven236", "ven237", "ven267", "ven268", "ven273", "ven385", "ven388", "ven399", "ven400", "ven474", 
     # 华为云 【华为帐号登录】
       "ven303", "ven307", "ven342", "ven345", "ven471", "ven472", "ven420", "ven425",
     # Ucloud
@@ -47,7 +47,6 @@ mongodb_id = (
               "660515a0f932832204669076", # ven387
               "660515a0f93283220466907c", # ven128
               "660515a0f93283220466907d", # ven137
-              "660515a0f93283220466907f", # ven211
               "660515a0f932832204669081", # ven231
               "660515a0f932832204669082", # ven244
               "660515a0f932832204669083", # ven265
@@ -103,6 +102,7 @@ mongodb_id = (
               "67216acacd6787b10b4e5576", # ven388
               "660515a0f9328322046690bd", # ven399
               "660515a0f9328322046690be", # ven400
+              "67d7ecb700d60d16f4461118", # ven474
               "660515a0f9328322046690c1", # ven303
               "660515a0f9328322046690c2", # ven307
               "660515a0f9328322046690c3", # ven342
@@ -129,12 +129,12 @@ tuple_id = (
             0,    # 0 _ 阿里云【中国站】 #338
             2,    # 1 _ ven387 费用 + IP 纯真社区版IP库离线下载 #387
             3,    # 2 _ 阿里云【国际站】 #128
-           32,    # 3 _ 阿里云【国际站】【RAM】 #136
-           34,    # 4 _ 腾讯云【中国站】#182
-           35,    # 5 _ 腾讯云【国际站】#314
-           49,    # 6 _ 腾讯云 CAM用户登录 #366
-           51,    # 7 _ 腾讯云 子用户登录 #322
-           52,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
+           31,    # 3 _ 阿里云【国际站】【RAM】 #136
+           33,    # 4 _ 腾讯云【中国站】#182
+           34,    # 5 _ 腾讯云【国际站】#314
+           48,    # 6 _ 腾讯云 CAM用户登录 #366
+           50,    # 7 _ 腾讯云 子用户登录 #322
+           51,    # 8 _ 华为云【OPSADMIN】【IAM用户登录】#236
            61,    # 9 _ 华为云 【华为帐号登录】#303
            69,    # 10 _ Ucloud #281
            72,    # 11 _ Gname #332
@@ -149,7 +149,7 @@ tuple_id = (
 
 zen_noc_tuple = tuple_id[17] + 1
 
-# Huawei OPSADMIN
+# 华为云【OPSADMIN】【IAM用户登录】
 Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421&locale=zh-cn#/login",            # ven236
                   "https://auth.huaweicloud.com/authui/login.html?id=hwc07421725#/login",                         # ven237
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_-jcs3_zco-1c9bn#/login",                 # ven267 
@@ -159,6 +159,7 @@ Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_vz7bw73fbmbylhj#/login",                 # ven388
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_qsk0u_ee0lfjsc_#/login",                 # ven399
                   "https://auth.huaweicloud.com/authui/login.html?id=hid_pb3i1cpxtyp12rg#/login",                 # ven400
+                  "https://auth.huaweicloud.com/authui/login.html?id=hid_3q913_g1qmt6gmk#/login",                 # ven474
                   )
 
 # Tencent CAM
