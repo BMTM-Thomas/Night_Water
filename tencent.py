@@ -92,11 +92,8 @@ def tencent2(driver):
 
         for i in range(id_Range): #14
 
-            if i <= 11:
-                driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
-            else:
-                driver.get('https://www.tencentcloud.com/account/login?s_url=https%3A%2F%2Fconsole.tencentcloud.com%2Fexpense')
-            
+            driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
+   
             try:
                 if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
                     pyautogui.click(x=318, y=623)
@@ -119,64 +116,32 @@ def tencent2(driver):
             time.sleep(1)
             pyautogui.click(x=313, y=474)
             time.sleep(2)
-
-            # Wait Image Appear 
-            if pyautogui.locateOnScreen('./image/chinese.png') is not None:
-                time.sleep(1)
-            else:
-                pass
             
             # Accountinfo
-            if i <= 11:
-            
-                # Wait Condition   
-                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
+            # Wait Condition   
+            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
 
-                time.sleep(1)
+            time.sleep(1)
 
-                while True:
-                    try:
-                        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
-                        
-
-                    except:
-                        pass           
+            while True:
+                try:
+                    credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+                except:
+                    pass           
+                
+                if credit == "0.00USD（冻结额度 0.00 USD）":
+                    time.sleep(2)
+                else:
+                    break
                     
-                    if credit == "0.00USD（冻结额度 0.00 USD）":
-                        time.sleep(2)
-                    else:
-                        break
-                    
-
-            # Expenses
-            else:
-                time.sleep(1)
-
-                # Wait Condition   
-                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[1]/div[1]/div/div[1]/h3', '已出账的未还账单总金额') 
-                
-                time.sleep(1)
-                
-                # Open 可用额度
-                if pyautogui.locateOnScreen('./image/buttonoff.png') is not None:
-                    pyautogui.click(x=1562, y=160)
-                    time.sleep(1)
-                
-                wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div[1]/div/div/h3', '可用额度')
-
-                #/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div[1]/div/div/h3
-                time.sleep(2)
-
-                # Extract Credit 
-                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div[2]/div[1]/div/em')
-
-
+            # Extract Credit 
+            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
 
             # Replace
             credit = credit.replace(',', '')
             credit = re.sub(r'USD.*', 'USD', credit)
             credit = credit.replace('USD', '')
-            
+
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
             update_one(mangos_id, credit)

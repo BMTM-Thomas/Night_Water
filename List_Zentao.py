@@ -8,9 +8,7 @@ ID = (
     # 腾讯云【中国站】
       "ven182",
     # 腾讯云【国际站】accountinfo
-      "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439", "ven441", "ven460", "ven464",
-    # 腾讯云【国际站】expense
-      "ven327", "ven328", 
+      "ven314", "ven315", "ven367", "ven408", "ven414", "ven415", "ven418", "ven428", "ven439", "ven441", "ven460", "ven464", "ven327", "ven328", 
     # 腾讯云 CAM用户登录
       "ven366", "ven469",
     # 腾讯云 子用户登录
