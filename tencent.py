@@ -7,6 +7,10 @@ from PIL import ImageGrab
 from bson import ObjectId 
 from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_XPATH
 
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.support.wait import WebDriverWait                                              
+from selenium.webdriver.support import expected_conditions as EC    
+
 # 腾讯云【中国站】
 def tencent1(driver):
     
@@ -15,17 +19,17 @@ def tencent1(driver):
     try:
         # Go to Webpage
         driver.get('https://cloud.tencent.com/login?s_url=https://console.cloud.tencent.com/expense/overview')
-        time.sleep(2)
+        time.sleep(1)
 
         # detect 切换其他账号button
         try:
-            if find_element_nontext(driver, "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3") == "子用户登录":
+            if find_element_nontext(driver, "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3"):
                 time.sleep(2)
                 pyautogui.click(x=450, y=202)
         except:
             pass
         
-        wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div', '微信登录')
+        wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/ul/li[1]/div/div/div')
         pyautogui.click(x=608, y=209)
         time.sleep(1)     
         pyautogui.click(x=1416, y=62)
@@ -50,12 +54,13 @@ def tencent1(driver):
             else:
                 time.sleep(1)
 
-        time.sleep(1)
+        time.sleep(5)
 
         while True:
             credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+            time.sleep(1)
             if credit == "--":
-                continue
+                pass
             else:
                 break
 
@@ -93,14 +98,15 @@ def tencent2(driver):
         for i in range(id_Range): #14
 
             driver.get('https://www.tencentcloud.com/zh/account/login?s_url=https://console.tencentcloud.com/expense/rmc/accountinfo')
-   
+            time.sleep(1)
+
             try:
                 if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
                     pyautogui.click(x=318, y=623)
             except:
                 pass
-
-            wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]', '邮箱登录')    
+            
+            wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]')    
             time.sleep(1)    
             pyautogui.click(x=1416, y=62)
             time.sleep(1)
@@ -119,7 +125,7 @@ def tencent2(driver):
             
             # Accountinfo
             # Wait Condition   
-            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度')
+            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3')
 
             time.sleep(1)
 
@@ -197,7 +203,7 @@ def tencent3(driver):
             time.sleep(1)
 
             # Wait Condition
-            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
+            wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3') 
             time.sleep(3)
             
             # Extract Credit  
@@ -247,7 +253,7 @@ def tencent4(driver):
         driver.get('https://cloud.tencent.com/login/subAccount?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fexpense%2Foverview')
         time.sleep(2)
         
-        wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3', '子用户登录') 
+        wait(driver, '/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3') 
 
         pyautogui.click(x=1416, y=62)
     
@@ -265,15 +271,15 @@ def tencent4(driver):
         time.sleep(1)
 
         # Wait Condition
-        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[1]/div/div[1]/h3', '可用余额') 
-        time.sleep(3)
+        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[1]/div/div[1]/h3') 
+        time.sleep(15)
 
         # Extract Credit  
         while True:
             credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
-            time.sleep(2)
+            time.sleep(1)
             if credit == "--":
-                continue
+                pass
             else:
                 break
 

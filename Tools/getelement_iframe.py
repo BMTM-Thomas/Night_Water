@@ -33,6 +33,7 @@ def main():
     options.add_experimental_option('excludeSwitches', ['enable-automation','enable-logging'])
     options.add_experimental_option('useAutomationExtension', False)
     driver =webdriver.Chrome(options=options)
+
     # webdriver防屏蔽
     driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
     "source": """
@@ -79,9 +80,5 @@ def baidu(driver):
         pass
 
         
-    
-
-
-
 if __name__ == "__main__":
     main()

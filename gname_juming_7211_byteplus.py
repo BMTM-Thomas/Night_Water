@@ -30,7 +30,7 @@ def gname(driver):
             time.sleep(1)
 
         for i in range(id_Range):
-            wait(driver, '/html/body/div[2]/div/div[2]/p[2]', '欢迎来到GNAME，请登录！') 
+            wait(driver, '/html/body/div[2]/div/div[2]/p[2]') 
             pyautogui.click(x=1416, y=62)
             time.sleep(1)  
             pyautogui.write(ID[id])
@@ -42,13 +42,13 @@ def gname(driver):
             pyautogui.dragTo(1280, 562, button='left', duration=0.4)
 
             if i == 0:
-                wait(driver, ' /html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', '基本信息') 
-                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', '资金信息') 
+                wait(driver, ' /html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span') 
+                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span') 
             elif i == 1:
-                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span', 'Basic Information') 
-                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span', 'Financial Information') 
+                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/span') 
+                wait(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/span') 
                 time.sleep(1)
-                pyautogui.click(1003,298)
+                pyautogui.click(1015,323)
 
             time.sleep(1)
             
@@ -94,7 +94,7 @@ def jumingwang(driver):
                 if find_element_nontext(driver, "/html/body/div[1]/div[1]/div/div/div/span[13]/a") == "退出":
                     save_button = wait_buttonclick_LINK(driver, "退出")
                     save_button.click()
-                    wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[1]', '账户登录') 
+                    wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[1]') 
                     time.sleep(1)
                     pyautogui.click(215,102)
 
@@ -118,7 +118,7 @@ def jumingwang(driver):
             pyautogui.moveTo(803, 470, 0.2)
             pyautogui.dragTo(1116, 470, button='left', duration=0.2)
 
-            wait(driver, '/html/body/div[1]/div[1]/div/div/div/span[13]/a', '退出') 
+            wait(driver, '/html/body/div[1]/div[1]/div/div/div/span[13]/a') 
 
             # Extract Credit
             credit = find_element_nontext(driver, '/html/body/div[1]/div[1]/div/div/div/span[7]/a')
@@ -143,7 +143,7 @@ def jumingwang(driver):
             save_button.click()
             time.sleep(3)
 
-            wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[2]', '新用户注册') 
+            wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[2]') 
             time.sleep(1)
 
             id+=1
@@ -242,11 +242,11 @@ def ven196_7211(driver):
     id = tuple_id[14]
 
     driver.get('https://www.7211.com/login.php')
-    wait(driver, '/html/body/div[2]/div/div/div[1]/div[1]/div/h2', '请先登录再下单！') 
+    wait(driver, '/html/body/div[2]/div/div/div[1]/div[1]/div/h2') 
     time.sleep(1)
     pyautogui.click(381,604)
     time.sleep(1)
-    wait(driver, '/html/body/div[2]/div/div[1]/div/div[1]/div[1]/h2', '购买一个') 
+    wait(driver, '/html/body/div[2]/div/div[1]/div/div[1]/div[1]/h2') 
     time.sleep(1)
 
     try:
@@ -254,7 +254,7 @@ def ven196_7211(driver):
         time.sleep(1)
         pyautogui.click(820,133)
         time.sleep(1)
-        wait(driver, '/html/body/div[3]/table/tbody/tr/td[1]/div/div/div[1]/div[1]/strong', '快速链接') 
+        wait(driver, '/html/body/div[3]/table/tbody/tr/td[1]/div/div/div[1]/div[1]/strong') 
         time.sleep(1)
         pyautogui.click(62,350)
         time.sleep(1)
@@ -299,7 +299,7 @@ def ven295(driver):
         driver.get('https://intl.cloud.tencent.com/zh/account/login?s_url=https%3A%2F%2Fconsole.intl.cloud.tencent.com%2Fexpense%2Frmc%2Faccountinfo')
         time.sleep(1)
 
-        wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]', '邮箱登录') 
+        wait(driver, '/html/body/div/main/div/div/div/div/div/div/div[1]/div/div[2]/div/div[1]') 
         time.sleep(1)        
         pyautogui.click(x=1416, y=62) 
 
@@ -316,7 +316,7 @@ def ven295(driver):
         pyautogui.click(x=308, y=465)
         time.sleep(2)
 
-        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3', '可用额度') 
+        wait(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[1]/h3') 
         time.sleep(2)
         
         # Extract Credit                                            
@@ -368,7 +368,7 @@ def ven467(driver):
         time.sleep(1) 
         driver.get('https://console.byteplus.com/finance/overview')
         time.sleep(1)
-        wait(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[1]/span', '信控额度') 
+        wait(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[1]/span') 
         time.sleep(1)
 
         # Extract Credit
@@ -393,7 +393,7 @@ def ven467(driver):
         time.sleep(11111)
 
 driver = chrome()
-gname(driver)
+# gname(driver)
 jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)

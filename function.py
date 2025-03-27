@@ -52,35 +52,25 @@ def find_one(find):
     return document
 
 # Extract data / driver get_element by xpath
-# With Text
-def find_element_XPATH(driver, path, text):
-    mongodb_atlas()
-    element = driver.find_element(By.XPATH, path)
-    element_text = element.get_attribute('textContent')
-    return element_text == text
-
-# Extract data / driver get_element by xpath
 # Without-Text
 def find_element_nontext(driver, path):
-    element = driver.find_element(By.XPATH, path)
-    return element.get_attribute('textContent')
+    return driver.find_element(By.XPATH, path).text
 
 # driver find element by ID
 def find_element_ID(driver, path):
-    element = driver.find_element(By.ID, path)
-    return element
+    return driver.find_element(By.ID, path).text
 
-# wait
-def wait(driver, path, text):
+# wait (wait for element appear)
+def wait(driver, path):
     try:
-        WebDriverWait(driver, 1000).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
+        WebDriverWait(driver, 1000).until(EC.presence_of_element_located((By.XPATH, path)))
     except:
         pass
 
-# wait2 (for special purpose)
+# wait2 (wait for text appear)
 def wait2(driver, path, text):
     try:
-        WebDriverWait(driver, 2).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
+        WebDriverWait(driver, 1000).until(EC.text_to_be_present_in_element((By.XPATH, path), text))
     except:
         pass
 

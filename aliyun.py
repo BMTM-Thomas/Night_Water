@@ -5,7 +5,7 @@ from List_Zentao import ID, mongodb_id,tuple_id
 from List_Aliyun_DDCaptcha import m_X1,m_Y2,d_X1,d_Y2,ram_d_X1,ram_d_Y2,ram_m_X1,ram_m_Y2              
 from PIL import ImageGrab  
 from bson.objectid import ObjectId                                                                  
-from function import chrome, update_one, wait, wait2, find_element_XPATH, find_element_nontext, wait_buttonclick_XPATH
+from function import *
 
 # 阿里云【中国站】
 def aliyun1(driver):  
@@ -18,9 +18,9 @@ def aliyun1(driver):
         time.sleep(2)
 
         try:
-            if find_element_nontext(driver, "/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/h3") == "RAM 用户登录": 
+            if find_element_nontext(driver, "//h3[contains(text(),'RAM 用户登录')]"):
                     pyautogui.click(798, 632)
-                    wait(driver, '/html/body/div[1]/div/div[1]/nav/div/div/div/span', 'International - 简体中文') 
+                    wait(driver, "//span[contains(text(),'International - 简体中文')]")
                     time.sleep(1)  
             else:
                 pass
@@ -41,8 +41,8 @@ def aliyun1(driver):
 
 
         for i in range (id_Range) : 
-            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
-            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
+            wait(driver, "/html/body/div[1]/div/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div")
+            wait(driver, "/html/body/div[1]/div/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[2]/div")
             if pyautogui.locateOnScreen('./image/cross.png') is not None: 
                 pyautogui.click(85, 62)
             time.sleep(1)
@@ -59,7 +59,6 @@ def aliyun1(driver):
             pyautogui.click(x=1216, y=175)
             time.sleep(1)
       
-
             # Click Login
             alilogin = pyautogui.locateOnScreen('./image/alilogin.png')
             if alilogin:
@@ -99,13 +98,13 @@ def aliyun1(driver):
             # This is due to VEN407 change UI
             if i == 1:
                 # Waiting for a Text to be appear
-                wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
+                wait(driver, "//div[@class='label'][contains(text(),'账户可用额度')]") 
 
-                time.sleep(1)
+                time.sleep(2)
 
                 while True:
                     try:
-                        credit = find_element_nontext(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span')
+                        credit = find_element_nontext(driver, "/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[2]/span")
                     except:
                         driver.refresh()
                         time.sleep(5)
@@ -115,17 +114,17 @@ def aliyun1(driver):
             # VEN338 Aliyun China remain same no change
             else:
                 # Waiting for a Text to be appear
-                wait(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/button[1]/span', '充值') 
+                wait(driver, "//span[contains(text(),'充值汇款')]") 
                 
                 while True:
                     try:
-                        credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div[2]/div/div[1]/span[1]/span')
+                        credit = find_element_nontext(driver, "//span[@class='amount']//span[1]")
                     except:
                         driver.refresh()
                         time.sleep(5)
                         continue
                     break
-            
+
             # Replace
             credit = credit.replace('¥ ', '')
             credit = credit.replace(',', '')
@@ -135,22 +134,26 @@ def aliyun1(driver):
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
+            time.sleep(1)
             pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
+                    if find_element_nontext(driver, "//span[contains(text(),'安全管控')]"):
                         break
                 except:
+                    time.sleep(1)
                     pyautogui.click(x= 1183, y=192)
                     time.sleep(2)
                     pyautogui.click(x= 1505, y=104)
-                    time.sleep(2)
+                    time.sleep(1)
 
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[2]/div[1]/div[1]/a[1]")
+            
+            # Logout Button
+            logout_button = wait_buttonclick_XPATH(driver, "//a[contains(text(),'退出登录')]")
             logout_button.click()
             
             id += 1
@@ -169,10 +172,14 @@ def ven387(driver):
         driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         time.sleep(1)
         
-        if pyautogui.locateOnScreen('./image/ram.png') is not None:
-                pyautogui.click(798, 639)
-                wait(driver, '/html/body/div[1]/div/div[1]/nav/div/div/div/span', 'International - 简体中文') 
-        else:
+        try:
+            if find_element_nontext(driver, "//h3[contains(text(),'RAM 用户登录')]"):
+                    pyautogui.click(798, 632)
+                    wait(driver, "//span[contains(text(),'International - 简体中文')]")
+                    time.sleep(1)  
+            else:
+                pass
+        except Exception as e:
             pass
 
         if pyautogui.locateOnScreen('./image/alilogin_text1.png') is not None:
@@ -186,8 +193,9 @@ def ven387(driver):
         else:
             pass
         
-        wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[1]/div', '账号密码登录')
-        wait(driver, '/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div[1]/div[2]/div', '手机号登录')
+        wait(driver, '/html/body/div[1]/div/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div')
+        wait(driver, '/html/body/div[1]/div/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[2]/div')
+
         pyautogui.click(x=1416, y=62)
 
         # Wait for image Appear
@@ -229,7 +237,7 @@ def ven387(driver):
             pass
         
         # Waiting for a Text to be appear
-        wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span', '充值') 
+        wait(driver, '/html/body/div[2]/div[1]/div[3]/div/ali-alfa-cloudservice-xusercenter-widget-home/div/div[1]/div[3]/div/div[1]/div/div[2]/div/div[1]/div/div[1]/div[3]/button[1]/span') 
         
         time.sleep(1)
 
@@ -245,20 +253,26 @@ def ven387(driver):
         # Replace
         credit = credit.replace('¥ ', '')
         credit = credit.replace(',', '')
-       
+
+        # MongoDB update Data 
         mangos_id = {'_id': ObjectId(mongodb_id[id])}
         update_one(mangos_id, credit)
         print(f"{ID[id]}= {credit}")
 
+        time.sleep(1)
+        pyautogui.click(x= 1505, y=104)
+        time.sleep(1)
+
         while True:
             try:
-                if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/div[1]/div[1]/a[1]/span[1]/span[2]', "安全管控"):
+                if find_element_nontext(driver, "//span[contains(text(),'安全管控')]"):
                     break
             except:
+                time.sleep(1)
                 pyautogui.click(x= 1183, y=192)
                 time.sleep(2)
                 pyautogui.click(x= 1505, y=104)
-                time.sleep(2)
+                time.sleep(1)
         
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
@@ -266,17 +280,19 @@ def ven387(driver):
 
         while True:
             try:
-                if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[1]/header[1]/div[2]/div[1]/a[1]', '基本资料'):
+                if find_element_nontext(driver, "/html[1]/body[1]/div[12]/div[1]/div[1]/a[1]/span[1]/span[2]"):
                     break
             except:
-                    pyautogui.moveTo(x= 1183, y=162)
-                    time.sleep(2)
-                    pyautogui.moveTo(x= 1536, y=131)
-                    time.sleep(2)
+                pyautogui.click(x= 1183, y=192)
+                time.sleep(2)
+                pyautogui.click(x= 1505, y=104)
+                time.sleep(2)
 
-        time.sleep(1)
-
-        logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[11]/div[1]/header[2]/div[1]/div[1]/a[1]")
+        # Screenshot
+        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
+        
+        # Logout Button
+        logout_button = wait_buttonclick_XPATH(driver, "//a[contains(text(),'退出登录')]")
         logout_button.click()
         
         id += 1
@@ -319,7 +335,10 @@ def aliyun3(driver):
             time.sleep(1)
             pyautogui.click(x=1257, y=171)
             time.sleep(1)
-            pyautogui.click(x=792, y=507)
+
+            # Login Button(id)
+            logout_button = wait_buttonclick_XPATH(driver, "//span[contains(text(),'下一步')]")
+            logout_button.click()
             time.sleep(3)
 
             # Drag and Drop Appear? #### Username Login
@@ -356,7 +375,7 @@ def aliyun3(driver):
                     break
                 
             # Click Login
-            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
+            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span')
             time.sleep(1)
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
 
@@ -377,12 +396,21 @@ def aliyun3(driver):
             else:
                 pass
             
-            time.sleep(2)
-            driver.get("https://usercenter2-intl.aliyun.com/billing/#/account/overview")
             time.sleep(1)
 
-            wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[1]/span', '信用额度')
-            wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div/span', '正常')
+            # MFA Appear
+            try:
+                if find_element_nontext(driver, '/html/body/div/div/div/div[1]/div[1]/div[2]/button/span'):
+                    pyautogui.click(1206,242)
+                else:
+                    wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[1]/span')
+            except:
+                pass
+
+            wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[1]/span')
+            wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div/span')
+            
+            time.sleep(1)
 
             # Extract Credit
             credit = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/span')
@@ -392,16 +420,18 @@ def aliyun3(driver):
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
 
+            time.sleep(1)
             pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全信息") :
+                    if find_element_nontext(driver, "//span[contains(text(),'安全信息')]") :
                         break
                 except:
-                    pyautogui.click(x= 1183, y=104)
                     time.sleep(1)
+                    pyautogui.click(x= 1183, y=104)
+                    time.sleep(2)
                     pyautogui.click(x= 1505, y=104)
                     time.sleep(1)
             
@@ -409,7 +439,7 @@ def aliyun3(driver):
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             
             #Click Logout
-            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[2]/a[1]")
+            logout_button = wait_buttonclick_XPATH(driver, "//a[contains(text(),'退出登录')]")
             logout_button.click()
             time.sleep(2)
             
@@ -430,7 +460,6 @@ def watermelon_1(driver):
     try:
         driver.get('https://signin.alibabacloud.com/5256975880117898.onaliyun.com/login.htm?callback=https%3A%2F%2Fusercenter2-intl.aliyun.com%2Fbilling%2F%23%2Faccount%2Foverview#/main')
         time.sleep(2)
-        pyautogui.click(x=1280, y=433)
         
         for i in range(id_Range):
 
@@ -454,7 +483,10 @@ def watermelon_1(driver):
             time.sleep(1)
             pyautogui.click(x=1257, y=171)
             time.sleep(1)
-            pyautogui.click(x=792, y=507)
+
+            # Login Button(id)
+            logout_button = wait_buttonclick_XPATH(driver, "//span[contains(text(),'下一步')]")
+            logout_button.click()
             time.sleep(3)
 
             # Drag and Drop Appear? #### Username Login
@@ -491,7 +523,7 @@ def watermelon_1(driver):
                     break
                 
             # Click Login
-            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span', '登录')
+            wait(driver, '/html/body/div[2]/div[1]/div[2]/div/div/div/div[1]/div/div/div/form/div[5]/button/span')
             time.sleep(1)
             login = pyautogui.locateOnScreen('./image/aliram_login.png')
 
@@ -512,11 +544,22 @@ def watermelon_1(driver):
             else:
                 pass
             
-            time.sleep(2)
-            driver.get("https://usercenter2-intl.aliyun.com/billing/#/account/overview")
             time.sleep(1)
+    
+            # MFA Appear
+            try:
+                if find_element_nontext(driver, '/html/body/div/div/div/div[1]/div[1]/div[2]/button/span'):
+                    pyautogui.click(1206,242)
+            except:
+                pass
+            
+            # wait for 本月消费概览 appear
+            while True:
+                if pyautogui.locateOnScreen('./image/aliyun_account_overview.png') is None:
+                    continue
+                else:
+                    break
 
-            wait(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[1]/span', '本月消费概览')
             time.sleep(2)
 
             # Check if overdue payment
@@ -530,21 +573,23 @@ def watermelon_1(driver):
             # Screenshot
             ImageGrab.grab().save('./watermelon/' + ID[id] + '.png')
 
+            time.sleep(1)
             pyautogui.click(x= 1505, y=104)
             time.sleep(1)
 
             while True:
                 try:
-                    if find_element_XPATH(driver, '/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/div[1]/div[2]/a[1]/span[1]/span[2]', "安全信息") :
+                    if find_element_nontext(driver, "//span[contains(text(),'安全信息')]") :
                         break
                 except:
-                    pyautogui.click(x= 1183, y=104)
                     time.sleep(1)
+                    pyautogui.click(x= 1183, y=104)
+                    time.sleep(2)
                     pyautogui.click(x= 1505, y=104)
                     time.sleep(1)
             
-            # Click Logout
-            logout_button = wait_buttonclick_XPATH(driver, "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/div[10]/div[1]/header[2]/div[1]/div[2]/a[1]")
+            #Click Logout
+            logout_button = wait_buttonclick_XPATH(driver, "//a[contains(text(),'退出登录')]")
             logout_button.click()
             time.sleep(2)
             

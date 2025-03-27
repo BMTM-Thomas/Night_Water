@@ -10,7 +10,7 @@ from function import chrome, wait, find_one, find_element_nontext, mongodb_atlas
 #noctool
 def noctool(driver):
     driver.get('http://10.77.1.196/stocks/')
-    wait(driver, '/html/body/div[1]/div/main/div/h3', '記錄列表') 
+    wait(driver, '/html/body/div[1]/div/main/div/h3') 
     driver.get('http://10.77.1.196/stocks/')
     time.sleep(1)
 
@@ -18,7 +18,7 @@ def noctool(driver):
         for i in range(zen_noc_tuple):
  
             driver.get(n_webpage[i])
-            wait(driver, '/html/body/div[1]/div/main/div/div[3]/div[2]/div/div[1]/h5', '記錄量趨勢圖')       
+            wait(driver, '/html/body/div[1]/div/main/div/div[3]/div[2]/div/div[1]/h5')       
             time.sleep(1)
             if i == 0:       
                 pyautogui.click(x=879, y=346)

@@ -4,7 +4,7 @@ import sys
 from List_Zentao import ID, mongodb_id, tuple_id 
 from PIL import ImageGrab
 from bson.objectid import ObjectId  
-from function import chrome, update_one, wait, find_element_XPATH, find_element_nontext
+from function import chrome, update_one, wait, find_element_nontext
 
 # Ucloud
 def ucloud(driver):
@@ -19,7 +19,7 @@ def ucloud(driver):
         time.sleep(1)
 
         for i in range(id_Range):
-            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div[1]', '账号登录') 
+            wait(driver, '/html/body/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div[1]') 
             time.sleep(1)
             pyautogui.click(x=1416, y=62)
 
