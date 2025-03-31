@@ -7,10 +7,6 @@ from PIL import ImageGrab
 from bson import ObjectId 
 from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_XPATH
 
-from selenium.webdriver.common.by import By 
-from selenium.webdriver.support.wait import WebDriverWait                                              
-from selenium.webdriver.support import expected_conditions as EC    
-
 # 腾讯云【中国站】
 def tencent1(driver):
     

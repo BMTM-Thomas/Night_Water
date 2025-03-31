@@ -393,7 +393,7 @@ def ven467(driver):
         time.sleep(11111)
 
 driver = chrome()
-# gname(driver)
+gname(driver)
 jumingwang(driver)
 sms326(driver)
 ven196_7211(driver)

@@ -52,9 +52,13 @@ def find_one(find):
     return document
 
 # Extract data / driver get_element by xpath
-# Without-Text
+# Text
 def find_element_nontext(driver, path):
     return driver.find_element(By.XPATH, path).text
+
+# Without Text
+def find_element_nontext2(driver, path):
+    return driver.find_element(By.XPATH, path)
 
 # driver find element by ID
 def find_element_ID(driver, path):

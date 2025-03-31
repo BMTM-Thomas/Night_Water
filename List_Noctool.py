@@ -33,14 +33,17 @@ n_webpage = (
              "http://10.77.1.196/stocks/226098bb-c62a-4525-b387-864e31e8fd2c/",        # ven456
              "http://10.77.1.196/stocks/93615609-f890-4cc4-9705-432a2a9cd39e/",        # ven457
              "http://10.77.1.196/stocks/55c76812-5470-4c74-846b-cba36642dd8c/",        # ven465
+             "http://10.77.1.196/stocks/d6cf48ae-8094-474e-9329-70e170bbfa90/",        # ven477
 
-             
+        
             # 阿里云【国际站】【RAM】
              "http://10.77.1.196/stocks/001c8bf5-3412-4153-b22b-aad68a5059ef/",        # ven136
              "http://10.77.1.196/stocks/f10c8972-d161-462c-9c9c-3047b8ecc05c/",        # ven148
 
+
             # 腾讯云【中国站】
              "http://10.77.1.196/stocks/c5c43e2c-9042-4a65-a965-56b8325ffe3b/",        # ven182
+
 
             # 腾讯云【国际站】https://www.tencentcloud.com/zh/account/login                           
             "http://10.77.1.196/stocks/5cae984c-9343-4310-b97c-f9029a5c133e/",         # ven314
@@ -58,12 +61,15 @@ n_webpage = (
             "http://10.77.1.196/stocks/925fba92-eb94-4c6f-8b4c-0d7ffbbf5ef6/",         # ven327
             "http://10.77.1.196/stocks/e30de46c-6689-4034-8819-39a4f00d8eb2/",         # ven328
 
+
             # 腾讯云 CAM用户登录
             "http://10.77.1.196/stocks/59cc541b-9b86-436b-b8b2-a23bf73b2b6b/",         # ven366
             "http://10.77.1.196/stocks/81432d88-29a0-4acb-8248-4b8bd6be2658/",         # ven469
 
+
             # 腾讯云 子用户登陆
             "http://10.77.1.196/stocks/45b99ae0-77eb-4ffb-b564-43abdcf407e7/",         # ven322
+
 
             # 华为云 【IAM用户】
             "http://10.77.1.196/stocks/26bd3732-37f5-472a-b288-479e60387c20/",         # ven236
