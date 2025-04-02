@@ -4,7 +4,7 @@ import sys
 from List_Zentao import ID, Huawei_Webpage, mongodb_id, tuple_id
 from PIL import ImageGrab
 from bson.objectid import ObjectId   
-from function import chrome, update_one, wait, find_element_nontext
+from function import *
 
 # 华为云【OPSADMIN】【IAM用户登录】
 def huawei1(driver):
@@ -56,7 +56,7 @@ def huawei1(driver):
                 wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[2]/span[1]')
 
             # Extract Credit   
-            credit = find_element_nontext(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span') 
+            credit = find_element_text(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span') 
                                                 
             # Replace
             credit = credit.replace(',', '')
@@ -73,7 +73,7 @@ def huawei1(driver):
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
             try:
-                if find_element_nontext(driver, '/html/body/div[1]/div/div[1]/div/span[2]'):
+                if find_element_text(driver, '/html/body/div[1]/div/div[1]/div/span[2]'):
                     pyautogui.click(1574, 108)
                     time.sleep(1)
                 else:
@@ -149,7 +149,7 @@ def huawei2(driver):
             time.sleep(1)
 
             # Extract Credit
-            credit = find_element_nontext(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span')
+            credit = find_element_text(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span')
 
             # Replace
             credit = credit.replace(',', '')

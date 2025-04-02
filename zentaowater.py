@@ -6,7 +6,7 @@ from AppKit import NSPasteboard, NSPasteboardTypePNG
 from PIL import ImageGrab
 from List_Zentao import ID, mongodb_id, zen_noc_tuple
 from bson.objectid import ObjectId   
-from function import chrome, find_element_ID, wait_buttonclick_XPATH, find_one
+from function import *
 
 # zentao
 def zentao(driver):

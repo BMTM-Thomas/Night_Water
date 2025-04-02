@@ -9,7 +9,7 @@ import pytesseract
 from List_Zentao import ID, mongodb_id, tuple_id  
 from PIL import ImageGrab, Image
 from bson.objectid import ObjectId
-from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_LINK, wait_for_page_load, waitID
+from function import *
 
 # Gname
 def gname(driver):
@@ -53,7 +53,7 @@ def gname(driver):
             time.sleep(1)
             
             # Extract Credit
-            credit = find_element_nontext(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[1]/strong')
+            credit = find_element_text(driver, '/html/body/div[1]/div/div[5]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[1]/strong')
             
             # MongoDB update Data 
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
@@ -91,7 +91,7 @@ def jumingwang(driver):
             
             # Check if still login, if still login then logout, else button click login 
             try:
-                if find_element_nontext(driver, "/html/body/div[1]/div[1]/div/div/div/span[13]/a") == "退出":
+                if find_element_text(driver, "/html/body/div[1]/div[1]/div/div/div/span[13]/a") == "退出":
                     save_button = wait_buttonclick_LINK(driver, "退出")
                     save_button.click()
                     wait(driver, '/html/body/div[1]/div[1]/div/div/span/a[1]') 
@@ -121,7 +121,7 @@ def jumingwang(driver):
             wait(driver, '/html/body/div[1]/div[1]/div/div/div/span[13]/a') 
 
             # Extract Credit
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[1]/div/div/div/span[7]/a')
+            credit = find_element_text(driver, '/html/body/div[1]/div[1]/div/div/div/span[7]/a')
             time.sleep(1)
 
             # Replace
@@ -260,7 +260,7 @@ def ven196_7211(driver):
         time.sleep(1)
 
         # Extract Credit
-        credit = find_element_nontext(driver, '/html/body/div[3]/table/tbody/tr[2]/td/font/b[2]/font')
+        credit = find_element_text(driver, '/html/body/div[3]/table/tbody/tr[2]/td/font/b[2]/font')
         time.sleep(1)
 
         # Replace
@@ -320,7 +320,7 @@ def ven295(driver):
         time.sleep(2)
         
         # Extract Credit                                            
-        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+        credit = find_element_text(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
 
         # Replace
         credit = credit.replace(',', '')
@@ -372,7 +372,7 @@ def ven467(driver):
         time.sleep(1)
 
         # Extract Credit
-        credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[2]/span[1]')
+        credit = find_element_text(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[2]/span[1]')
         credit = credit.replace('$', '')
         credit = credit.replace(',', '')
 

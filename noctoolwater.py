@@ -5,7 +5,7 @@ from pynput.keyboard import Controller
 from List_Zentao import ID, mongodb_id, zen_noc_tuple
 from List_Noctool import n_webpage
 from bson.objectid import ObjectId  
-from function import chrome, wait, find_one, find_element_nontext, mongodb_atlas
+from function import *
 
 #noctool
 def noctool(driver):
@@ -38,7 +38,7 @@ def noctool(driver):
             pyautogui.click(x=168, y=671)
 
             # Previous Credit / Data
-            pre_credit = find_element_nontext(driver, "/html/body/div/div/main/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[1]/td[2]")
+            pre_credit = find_element_text(driver, "/html/body/div/div/main/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[1]/td[2]")
 
             # Search for Database
             mangos_id = {'_id': ObjectId(mongodb_id[i])}

@@ -18,7 +18,7 @@ def aliyun1(driver):
         time.sleep(2)
 
         try:
-            if find_element_nontext(driver, "//h3[contains(text(),'RAM 用户登录')]"):
+            if find_element_text(driver, "//h3[contains(text(),'RAM 用户登录')]"):
                     pyautogui.click(798, 632)
                     wait(driver, "//span[contains(text(),'International - 简体中文')]")
                     time.sleep(1)  
@@ -103,7 +103,7 @@ def aliyun1(driver):
 
                 while True:
                     try:
-                        credit = find_element_nontext(driver, "//*[@id='home-overview-availableAmount']/div[2]/span")
+                        credit = find_element_text(driver, "//*[@id='home-overview-availableAmount']/div[2]/span")
                     except:
                         driver.refresh()
                         time.sleep(5)
@@ -117,7 +117,7 @@ def aliyun1(driver):
                 
                 while True:
                     try:
-                        credit = find_element_nontext(driver, "//span[@class='amount']//span[1]")
+                        credit = find_element_text(driver, "//span[@class='amount']//span[1]")
                     except:
                         driver.refresh()
                         time.sleep(5)
@@ -139,7 +139,7 @@ def aliyun1(driver):
 
             while True:
                 try:
-                    if find_element_nontext(driver, "//span[contains(text(),'安全管控')]"):
+                    if find_element_text(driver, "//span[contains(text(),'安全管控')]"):
                         break
                 except:
                     time.sleep(1)
@@ -172,7 +172,7 @@ def ven387(driver):
         time.sleep(1)
         
         try:
-            if find_element_nontext(driver, "//h3[contains(text(),'RAM 用户登录')]"):
+            if find_element_text(driver, "//h3[contains(text(),'RAM 用户登录')]"):
                     pyautogui.click(798, 632)
                     wait(driver, "//span[contains(text(),'International - 简体中文')]")
                     time.sleep(1)  
@@ -242,7 +242,7 @@ def ven387(driver):
 
         while True:
             try:
-                credit = find_element_nontext(driver, "//*[@id='home-overview-availableAmount']/div[2]/span")
+                credit = find_element_text(driver, "//*[@id='home-overview-availableAmount']/div[2]/span")
             except:
                 driver.refresh()
                 time.sleep(5)
@@ -264,7 +264,7 @@ def ven387(driver):
 
         while True:
             try:
-                if find_element_nontext(driver, "//span[contains(text(),'安全管控')]"):
+                if find_element_text(driver, "//span[contains(text(),'安全管控')]"):
                     break
             except:
                 time.sleep(1)
@@ -279,7 +279,7 @@ def ven387(driver):
 
         while True:
             try:
-                if find_element_nontext(driver, "//span[contains(text(),'安全管控')]"):
+                if find_element_text(driver, "//span[contains(text(),'安全管控')]"):
                     break
             except:
                 pyautogui.click(x= 1183, y=192)
@@ -401,7 +401,7 @@ def aliyun3(driver):
             time.sleep(1)
 
             # Extract Credit
-            credit = find_element_nontext(driver, "//*[@id='__single_spa_angular_1']/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[1]/div/div")
+            credit = find_element_text(driver, "//*[@id='__single_spa_angular_1']/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[1]/div/div")
             credit = credit.replace('USD', '')
 
             # MongoDB update Data 
@@ -415,7 +415,7 @@ def aliyun3(driver):
 
             while True:
                 try:
-                    if find_element_nontext(driver, "//span[contains(text(),'安全信息')]") :
+                    if find_element_text(driver, "//span[contains(text(),'安全信息')]") :
                         break
                 except:
                     time.sleep(1)
@@ -537,7 +537,7 @@ def watermelon_1(driver):
     
             # MFA Appear
             try:
-                if find_element_nontext(driver, '/html/body/div/div/div/div[1]/div[1]/div[2]/button/span'):
+                if find_element_text(driver, '/html/body/div/div/div/div[1]/div[1]/div[2]/button/span'):
                     pyautogui.click(1206,242)
             except:
                 pass
@@ -554,7 +554,7 @@ def watermelon_1(driver):
             # Check if overdue payment
             try:
                 if pyautogui.locateOnScreen('./image/overdue.png') is not None:
-                    overdue = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
+                    overdue = find_element_text(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
                     print(f"{ID[id]}= ", overdue)   
             except:
                 pass
@@ -568,7 +568,7 @@ def watermelon_1(driver):
 
             while True:
                 try:
-                    if find_element_nontext(driver, "//span[contains(text(),'安全信息')]") :
+                    if find_element_text(driver, "//span[contains(text(),'安全信息')]") :
                         break
                 except:
                     time.sleep(1)
@@ -601,7 +601,7 @@ def aliyun2(driver):
         time.sleep(1)
 
         try:
-            if find_element_nontext(driver,"//h3[contains(text(),'RAM 用户登录')]"):
+            if find_element_text(driver,"//h3[contains(text(),'RAM 用户登录')]"):
                 pyautogui.click(x=798, y=638)
                 time.sleep(1)
                 pyautogui.click(x=861, y=333)
@@ -692,7 +692,7 @@ def aliyun2(driver):
 
             # Extract Credit
             while True:
-                credit = find_element_nontext(driver, "//span[@class='price-wrap ng-binding']")
+                credit = find_element_text(driver, "//span[@class='price-wrap ng-binding']")
                 if credit == "":
                     continue
                 else:
@@ -711,7 +711,7 @@ def aliyun2(driver):
 
             while True:
                 try:
-                    if find_element_nontext(driver,"//span[contains(text(),'基本资料')]"):
+                    if find_element_text(driver,"//span[contains(text(),'基本资料')]"):
                         break
                 except:
                     time.sleep(1)
@@ -749,7 +749,7 @@ def watermelon_2(driver):
         
         # if in RAM Page, then button click back to 国际站
         try:
-            if find_element_nontext(driver,"//h3[contains(text(),'RAM 用户登录')]"):
+            if find_element_text(driver,"//h3[contains(text(),'RAM 用户登录')]"):
                 pyautogui.click(x=798, y=638)
                 time.sleep(1)
                 pyautogui.click(x=861, y=333)
@@ -848,7 +848,7 @@ def watermelon_2(driver):
             # Check if overdue payment
             try:
                 if pyautogui.locateOnScreen('./image/overdue.png') is not None:
-                    overdue = find_element_nontext(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
+                    overdue = find_element_text(driver, '/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/div[2]/p/span')
                     print(f"{ID[id]}= ", overdue)
             except:
                 pass
@@ -859,7 +859,7 @@ def watermelon_2(driver):
 
             while True:
                 try:
-                    if find_element_nontext(driver,"//span[contains(text(),'基本资料')]"):
+                    if find_element_text(driver,"//span[contains(text(),'基本资料')]"):
                         break
                 except:
                     time.sleep(1)

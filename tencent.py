@@ -5,7 +5,7 @@ import re
 from List_Zentao import ID, mongodb_id, tuple_id, Tencent_Webpage
 from PIL import ImageGrab
 from bson import ObjectId 
-from function import chrome, update_one, wait, find_element_nontext, wait_buttonclick_XPATH
+from function import *
 
 # 腾讯云【中国站】
 def tencent1(driver):
@@ -19,7 +19,7 @@ def tencent1(driver):
 
         # detect 切换其他账号button
         try:
-            if find_element_nontext(driver, "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3"):
+            if find_element_text(driver, "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div[1]/div[2]/h3"):
                 time.sleep(2)
                 pyautogui.click(x=450, y=202)
         except:
@@ -53,7 +53,7 @@ def tencent1(driver):
         time.sleep(5)
 
         while True:
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+            credit = find_element_text(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
             time.sleep(1)
             if credit == "--":
                 pass
@@ -97,7 +97,7 @@ def tencent2(driver):
             time.sleep(1)
 
             try:
-                if find_element_nontext(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
+                if find_element_text(driver, "/html/body/div[1]/main/div/div/div/div/div/div/div[1]/div/div/div/div[1]") == "CAM用户登录":
                     pyautogui.click(x=318, y=623)
             except:
                 pass
@@ -127,7 +127,7 @@ def tencent2(driver):
 
             while True:
                 try:
-                    credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+                    credit = find_element_text(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
                 except:
                     pass           
                 
@@ -137,7 +137,7 @@ def tencent2(driver):
                     break
                     
             # Extract Credit 
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+            credit = find_element_text(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
 
             # Replace
             credit = credit.replace(',', '')
@@ -204,7 +204,7 @@ def tencent3(driver):
             
             # Extract Credit  
             while True:
-                credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
+                credit = find_element_text(driver, '/html/body/div[1]/div[2]/div[2]/div/section[1]/main/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div')
                 if credit == "--":
                     continue
                 else:
@@ -272,7 +272,7 @@ def tencent4(driver):
 
         # Extract Credit  
         while True:
-            credit = find_element_nontext(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
+            credit = find_element_text(driver, '/html/body/div[1]/div[2]/div[2]/div/section/main/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[1]')
             time.sleep(1)
             if credit == "--":
                 pass

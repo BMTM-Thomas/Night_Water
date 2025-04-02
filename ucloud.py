@@ -4,7 +4,7 @@ import sys
 from List_Zentao import ID, mongodb_id, tuple_id 
 from PIL import ImageGrab
 from bson.objectid import ObjectId  
-from function import chrome, update_one, wait, find_element_nontext
+from function import *
 
 # Ucloud
 def ucloud(driver):
@@ -55,9 +55,9 @@ def ucloud(driver):
 
             # Extract Credit
             try:
-                credit = find_element_nontext(driver, '/html/body/div[13]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
+                credit = find_element_text(driver, '/html/body/div[13]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             except:
-                credit = find_element_nontext(driver, '/html/body/div[11]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
+                credit = find_element_text(driver, '/html/body/div[11]/div/div/div/div/div[2]/div[2]/div[1]/div[2]/span[1]')
             credit = credit.replace(',', '')
             
             # MongoDB update Data 

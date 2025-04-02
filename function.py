@@ -53,7 +53,7 @@ def find_one(find):
 
 # Extract data / driver get_element by xpath
 # Text
-def find_element_nontext(driver, path):
+def find_element_text(driver, path):
     return driver.find_element(By.XPATH, path).text
 
 # Without Text

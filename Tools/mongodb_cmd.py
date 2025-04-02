@@ -24,13 +24,19 @@ db.Night_Database.findOne(
    { "Ven_Machine": { "$regex": /ven29/i } })
 
 
+# Delete one 
+db.Night_Database.deleteOne({Ven_Machine: {"$regex": /ven239/i}})
+
 #Find and Modify
 db.Night_Database.findAndModify({
-query: {"Ven_Machine": { "$regex": /ven290\*/i}},
+query: {"Ven_Machine": { "$regex": /ven290/i}},
 update: {"$set": {"Credit": "940102"}},
 new: true  
 });
 
 
+# findOne
+db.Night_Database.findOne({Ven_Machine: {"$regex": /ven239/i}})
 
-
+# updateOne
+db.Night_Database.updateOne({"Ven_Machine":{"$regex": /ven356/i}}, { $set: { "Credit": "28174.92" } })
