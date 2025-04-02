@@ -1,4 +1,4 @@
-from function import wait, find_element_nontext, find_element_ID, find_element_nontext, chrome
+from function import *
 import time
 import pyautogui
 import pyperclip
@@ -82,5 +82,6 @@ def kaidan(driver):
         time.sleep(111111)
 
 driver = chrome()
+driver = next(driver)
 kaidan(driver)
 driver.close()

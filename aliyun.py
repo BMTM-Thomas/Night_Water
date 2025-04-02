@@ -886,10 +886,10 @@ def watermelon_2(driver):
         time.sleep(11111)
 
 driver = chrome()
+driver = next(driver)
 aliyun1(driver)
 ven387(driver)
 aliyun3(driver)
 watermelon_1(driver)
 aliyun2(driver)
 watermelon_2(driver)    
-driver.close()

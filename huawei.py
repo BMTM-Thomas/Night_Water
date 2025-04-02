@@ -188,6 +188,6 @@ def huawei2(driver):
         time.sleep(11111)
 
 driver = chrome()
+driver = next(driver)
 huawei1(driver)
 huawei2(driver)
-driver.close()

@@ -36,7 +36,12 @@ def chrome():
     options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(options=options)
 
-    return driver
+    # return vs yield, why use yield?
+    # return ❌ Stops execution completely! `driver.quit()` will never run.
+    # yield ✅ Execution pauses here; `driver` is provided to the test.
+    yield driver  
+
+    driver.quit()
 
 # MongoDB Update one Document / Credit
 def update_one(filter, update):

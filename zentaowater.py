@@ -110,5 +110,5 @@ def zentao(driver):
         sys.exit(1)
 
 driver = chrome()
+driver = next(driver)
 zentao(driver)
-driver.close()

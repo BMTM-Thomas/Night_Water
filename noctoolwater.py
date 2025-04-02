@@ -72,6 +72,6 @@ def low_water ():
     print("\n\n")
 
 driver = chrome()
+driver = next(driver)
 noctool(driver)
-driver.close()
 low_water()

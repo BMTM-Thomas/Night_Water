@@ -82,5 +82,5 @@ def ucloud(driver):
         sys.exit(1)
 
 driver = chrome()
+driver = next(driver)
 ucloud(driver)
-driver.close()
