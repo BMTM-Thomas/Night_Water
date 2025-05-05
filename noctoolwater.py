@@ -44,7 +44,7 @@ def noctool(driver):
             mangos_id = {'_id': ObjectId(mongodb_id[i])}
             documents = find_one(mangos_id)
             credit_value = documents.get('Credit', 'N/A') 
-            pyperclip.copy(credit_value)
+            # pyperclip.copy(credit_value)
 
             # Print out Previous and Actual Data
             print(f"{ID[i]}= Previous: {pre_credit}, Actual: {credit_value} \n") 
@@ -73,5 +73,5 @@ def low_water ():
 
 driver = chrome()
 driver = next(driver)
-noctool(driver)
+# noctool(driver)
 low_water()

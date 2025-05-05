@@ -303,6 +303,7 @@ def tencent4(driver):
 
 driver = chrome()
 driver = next(driver)
+
 tencent1(driver)
 tencent2(driver) 
 tencent3(driver)

@@ -1,4 +1,5 @@
-import certifi                                                                                                                                                                         
+import certifi               
+import pytest                                                                                                                                                          
 from selenium import webdriver     
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager                                                                   
@@ -39,6 +40,7 @@ def chrome():
     # return vs yield, why use yield?
     # return ❌ Stops execution completely! `driver.quit()` will never run.
     # yield ✅ Execution pauses here; `driver` is provided to the test.
+    # yield, use send() and next() to continue the execution
     yield driver  
 
     driver.quit()
@@ -91,7 +93,7 @@ def wait_buttonclick_LINK(driver, text):
 # wait by ID
 def waitID(driver, waitid):
     try:
-        WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, waitid)))
+        WebDriverWait(driver, 1000).until(EC.presence_of_element_located((By.ID, waitid)))
     except:
         pass
 

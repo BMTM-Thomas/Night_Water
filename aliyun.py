@@ -139,14 +139,14 @@ def aliyun1(driver):
 
             while True:
                 try:
-                    if find_element_text(driver, "//span[contains(text(),'安全管控')]"):
+                    if find_element_text(driver, "//span[contains(text(),'权限与安全')]"):
                         break
                 except:
                     time.sleep(1)
                     pyautogui.click(x= 1183, y=192)
                     time.sleep(2)
                     pyautogui.click(x= 1505, y=104)
-                    time.sleep(1)
+                    time.sleep(2)
 
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
@@ -264,32 +264,19 @@ def ven387(driver):
 
         while True:
             try:
-                if find_element_text(driver, "//span[contains(text(),'安全管控')]"):
+                if find_element_text(driver, "//span[contains(text(),'权限与安全')]"):
                     break
             except:
                 time.sleep(1)
                 pyautogui.click(x= 1183, y=192)
                 time.sleep(2)
                 pyautogui.click(x= 1505, y=104)
-                time.sleep(1)
-        
+                time.sleep(2)
+
         # Screenshot
         ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
         time.sleep(1)
 
-        while True:
-            try:
-                if find_element_text(driver, "//span[contains(text(),'安全管控')]"):
-                    break
-            except:
-                pyautogui.click(x= 1183, y=192)
-                time.sleep(2)
-                pyautogui.click(x= 1505, y=104)
-                time.sleep(2)
-
-        # Screenshot
-        ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
-        
         # Logout Button
         logout_button = wait_buttonclick_XPATH(driver, "//a[contains(text(),'退出登录')]")
         logout_button.click()
@@ -401,7 +388,7 @@ def aliyun3(driver):
             time.sleep(1)
 
             # Extract Credit
-            credit = find_element_text(driver, "//*[@id='__single_spa_angular_1']/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[1]/div/div")
+            credit = find_element_text(driver, "/html/body/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div")
             credit = credit.replace('USD', '')
 
             # MongoDB update Data 
@@ -887,8 +874,8 @@ def watermelon_2(driver):
 
 driver = chrome()
 driver = next(driver)
-aliyun1(driver)
-ven387(driver)
+# aliyun1(driver)
+# ven387(driver)
 aliyun3(driver)
 watermelon_1(driver)
 aliyun2(driver)
