@@ -56,10 +56,8 @@ def noctool(driver):
             # button click (新增记录)
             pyautogui.hotkey("Enter")
             time.sleep(1)
-
     except:
-        while True:
-            time.sleep(1)
+        pass
 
 def low_water ():
     print("\n【低于安全水位】\n")
@@ -73,5 +71,5 @@ def low_water ():
 
 driver = chrome()
 driver = next(driver)
-# noctool(driver)
+noctool(driver)
 low_water()

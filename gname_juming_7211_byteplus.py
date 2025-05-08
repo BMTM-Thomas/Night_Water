@@ -372,7 +372,7 @@ def ven467(driver):
         time.sleep(1)
 
         # Extract Credit
-        credit = find_element_text(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div/div[4]/div/p[2]/span[1]')
+        credit = find_element_text(driver, '/html/body/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div[5]/div/p[2]/span[1]')
         credit = credit.replace('$', '')
         credit = credit.replace(',', '')
 
@@ -394,8 +394,8 @@ def ven467(driver):
 
 driver = chrome()
 driver = next(driver)
-gname(driver)
-jumingwang(driver)
+# gname(driver) 不要用先
+# jumingwang(driver) 不要用先
 sms326(driver)
 ven196_7211(driver)
 ven295(driver)

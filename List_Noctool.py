@@ -30,6 +30,7 @@ n_webpage = (
              "http://10.77.1.196/stocks/32ed73b5-8510-43db-9641-9a3f781c1798/",        # ven430
              "http://10.77.1.196/stocks/3b6dd8d5-25d5-4231-8d15-439ed068e40d/",        # ven438
              "http://10.77.1.196/stocks/65ee63e9-ab6f-46e1-bb55-3fb813e4b786/",        # ven445
+             "http://10.77.1.196/stocks/8425d76f-be16-4473-bea8-04a01874dcda/",        # ven446
              "http://10.77.1.196/stocks/226098bb-c62a-4525-b387-864e31e8fd2c/",        # ven456
              "http://10.77.1.196/stocks/93615609-f890-4cc4-9705-432a2a9cd39e/",        # ven457
              "http://10.77.1.196/stocks/55c76812-5470-4c74-846b-cba36642dd8c/",        # ven465
@@ -48,6 +49,8 @@ n_webpage = (
             # 腾讯云【国际站】https://www.tencentcloud.com/zh/account/login                           
             "http://10.77.1.196/stocks/5cae984c-9343-4310-b97c-f9029a5c133e/",         # ven314
             "http://10.77.1.196/stocks/9a9dce93-1dfc-4935-a599-212a88158400/",         # ven315
+            "http://10.77.1.196/stocks/925fba92-eb94-4c6f-8b4c-0d7ffbbf5ef6/",         # ven327
+            "http://10.77.1.196/stocks/e30de46c-6689-4034-8819-39a4f00d8eb2/",         # ven328
             "http://10.77.1.196/stocks/e4eb285a-d3b9-4307-88f4-1f6fb2e46f92/",         # ven367
             "http://10.77.1.196/stocks/a4ce43a7-fc01-4e07-ba59-f2f41c0a2b11/",         # ven408
             "http://10.77.1.196/stocks/90eadcb3-0831-4362-a793-1fb725da0128/",         # ven415
@@ -57,8 +60,8 @@ n_webpage = (
             "http://10.77.1.196/stocks/cbde9b38-e103-4c10-8822-3229ac70719e/",         # ven441
             "http://10.77.1.196/stocks/167d3e40-4f09-47dd-961c-68e5e806ba7f/",         # ven460
             "http://10.77.1.196/stocks/43a3584f-934e-4011-983d-141253ec1524/",         # ven464
-            "http://10.77.1.196/stocks/925fba92-eb94-4c6f-8b4c-0d7ffbbf5ef6/",         # ven327
-            "http://10.77.1.196/stocks/e30de46c-6689-4034-8819-39a4f00d8eb2/",         # ven328
+            "http://10.77.1.196/stocks/fc325438-0cc9-4fe1-8403-370aee87beae/",         # ven473
+
 
 
             # 腾讯云 CAM用户登录
