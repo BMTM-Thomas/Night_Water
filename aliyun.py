@@ -12,7 +12,7 @@ def aliyun1(driver):
     
     id = tuple_id[0]
     id_Range = tuple_id[1] - tuple_id[0]
-    
+
     try:
         driver.get('https://account.aliyun.com/login/login.htm?oauth_callback=https://usercenter2.aliyun.com/home')
         time.sleep(2)
@@ -327,7 +327,7 @@ def aliyun3(driver):
             # Login Button(id)
             logout_button = wait_buttonclick_XPATH(driver, "//span[contains(text(),'下一步')]")
             logout_button.click()
-            time.sleep(3)
+            time.sleep(2)
 
             # Drag and Drop Appear? #### Username Login
             alidnd3 = pyautogui.locateOnScreen('./image/alidnd.png')
@@ -369,7 +369,7 @@ def aliyun3(driver):
             # Login Button(id)
             logout_button = wait_buttonclick_XPATH(driver, "//button[@type='submit']")
             logout_button.click()
-            time.sleep(3)
+            time.sleep(1)
 
             # Drag and Drop Appear? ### Password Login
             alidnd4 = pyautogui.locateOnScreen('./image/alidnd6.png')
@@ -406,9 +406,9 @@ def aliyun3(driver):
                         break
                 except:
                     time.sleep(1)
-                    pyautogui.click(x= 1183, y=104)
+                    pyautogui.moveTo(x= 1183, y=104)
                     time.sleep(2)
-                    pyautogui.click(x= 1505, y=104)
+                    pyautogui.moveTo(x= 1505, y=104)
                     time.sleep(1)
             
             # Screenshot
@@ -463,7 +463,7 @@ def watermelon_1(driver):
             # Login Button(id)
             logout_button = wait_buttonclick_XPATH(driver, "//span[contains(text(),'下一步')]")
             logout_button.click()
-            time.sleep(3)
+            time.sleep(1)
 
             # Drag and Drop Appear? #### Username Login
             alidnd3 = pyautogui.locateOnScreen('./image/alidnd.png')
@@ -559,9 +559,9 @@ def watermelon_1(driver):
                         break
                 except:
                     time.sleep(1)
-                    pyautogui.click(x= 1183, y=104)
+                    pyautogui.moveTo(x= 1183, y=104)
                     time.sleep(2)
-                    pyautogui.click(x= 1505, y=104)
+                    pyautogui.moveTo(x= 1505, y=104)
                     time.sleep(1)
             
             #Click Logout
@@ -632,7 +632,7 @@ def aliyun2(driver):
             pyautogui.click(x=1216, y=175)
             time.sleep(1)
             pyautogui.click(x=913, y=525)
-            time.sleep(3)
+            time.sleep(1)
 
             # Drag and Drop Appear?
             if pyautogui.locateOnScreen('./image/alidnd.png') is not None:
@@ -692,9 +692,9 @@ def aliyun2(driver):
 
             time.sleep(1)
             pyautogui.click(x= 1183, y=162)
-            time.sleep(1)
+            time.sleep(2)
             pyautogui.click(x= 1505, y=104)
-            time.sleep(1)
+            time.sleep(2)
 
             while True:
                 try:
@@ -786,7 +786,7 @@ def watermelon_2(driver):
             pyautogui.click(x=1216, y=175)
             time.sleep(1)
             pyautogui.click(x=913, y=525)
-            time.sleep(3)
+            time.sleep(1)
 
             # Drag and Drop Appear?
             if pyautogui.locateOnScreen('./image/alidnd.png') is not None:

@@ -63,12 +63,12 @@ def huawei1(driver):
             time.sleep(2)
 
             driver.get('https://account-intl.huaweicloud.com/usercenter/?region=ap-southeast-1#/userindex/allview')
-            wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
+            wait(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
 
             time.sleep(2)
             
             # Extract Credit   
-            credit = find_element_text(driver, '//html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span') 
+            credit = find_element_text(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span') 
                                                 
             # Replace
             credit = credit.replace(',', '')
@@ -155,21 +155,19 @@ def huawei2(driver):
             pyautogui.click(x= 1191, y=504)
             time.sleep(2)
 
-            # if 登入验证appear
-            try:    
-                if find_element_text(driver, '/html/body/div[3]/div/div[1]/div[1]/p'): #登录验证
-                    time.sleep(1)
-                    pyautogui.click(x= 540, y=455)
-                    time.sleep(1)
-                    pyautogui.click(x=662, y=559)
-            except:
-                pass
+            # if 登入验证appear ven420, ven425
+            if i >= 6:
+                wait(driver, '/html/body/div[3]/div/div[1]/div[1]/p') #登录验证
+                time.sleep(1)
+                pyautogui.click(x= 540, y=455)
+                time.sleep(1)
+                pyautogui.click(x=662, y=559)
 
-            wait(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
+            wait(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
             time.sleep(2)
 
             # Extract Credit
-            credit = find_element_text(driver, '/html/body/div[3]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span')
+            credit = find_element_text(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span')
 
             # Replace
             credit = credit.replace(',', '')

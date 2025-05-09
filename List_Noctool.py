@@ -28,13 +28,14 @@ n_webpage = (
              "http://10.77.1.196/stocks/f58c53de-bdee-449b-a9d3-5f17c52dec32/",        # ven423
              "http://10.77.1.196/stocks/1ff8c48e-019a-4ecc-b40f-bc9080a58fb4/",        # ven429
              "http://10.77.1.196/stocks/32ed73b5-8510-43db-9641-9a3f781c1798/",        # ven430
-             "http://10.77.1.196/stocks/3b6dd8d5-25d5-4231-8d15-439ed068e40d/",        # ven438
              "http://10.77.1.196/stocks/65ee63e9-ab6f-46e1-bb55-3fb813e4b786/",        # ven445
              "http://10.77.1.196/stocks/8425d76f-be16-4473-bea8-04a01874dcda/",        # ven446
              "http://10.77.1.196/stocks/226098bb-c62a-4525-b387-864e31e8fd2c/",        # ven456
              "http://10.77.1.196/stocks/93615609-f890-4cc4-9705-432a2a9cd39e/",        # ven457
              "http://10.77.1.196/stocks/55c76812-5470-4c74-846b-cba36642dd8c/",        # ven465
              "http://10.77.1.196/stocks/d6cf48ae-8094-474e-9329-70e170bbfa90/",        # ven477
+             "http://10.77.1.196/stocks/225e4f02-7a03-4358-b5d8-c9b96d991ff8/",        # ven485
+             "http://10.77.1.196/stocks/bc15b17f-167e-46e8-b418-b78f45f976f0/",        # ven486
 
         
             # 阿里云【国际站】【RAM】
