@@ -1,6 +1,5 @@
 import time
 import pyautogui
-import sys
 from List_Zentao import ID, Huawei_Webpage, mongodb_id, tuple_id
 from PIL import ImageGrab
 from bson.objectid import ObjectId   
@@ -32,9 +31,9 @@ def huawei1(driver):
             time.sleep(1)
             pyautogui.write(ID[id])
             time.sleep(1)
-            pyautogui.click(x= 1241, y=169)
+            pyautogui.click(x=1260, y=170)
             time.sleep(1)
-            pyautogui.click(x= 1193, y=579)
+            pyautogui.click(x=1193, y=581)
             time.sleep(1)
             
             # ven399 only

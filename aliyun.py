@@ -59,11 +59,12 @@ def aliyun1(driver):
             time.sleep(1)
       
             # Click Login
-            alilogin = pyautogui.locateOnScreen('./image/alilogin.png')
-            if alilogin:
-                pyautogui.click(pyautogui.center(alilogin))
-            else:
-                pass
+            driver.switch_to.frame("alibaba-login-box")
+            login_button = wait_buttonclick_XPATH(driver, "//button[contains(text(),'立即登录')]")
+            login_button.click()
+
+            # switch back to default content, before iframe
+            driver.switch_to.default_content()
             
             time.sleep(2) 
             
@@ -92,7 +93,6 @@ def aliyun1(driver):
             else:
                 pass
 
-
             # Extract credit
             # This is due to VEN407 change UI
             if i == 1:
@@ -109,12 +109,11 @@ def aliyun1(driver):
                         time.sleep(5)
                         continue
                     break
-            
+
             # VEN338 Aliyun China remain same no change
             else:
                 # Waiting for a Text to be appear
                 wait(driver, "//span[contains(text(),'充值汇款')]") 
-                
                 while True:
                     try:
                         credit = find_element_text(driver, "//span[@class='amount']//span[1]")
@@ -123,7 +122,7 @@ def aliyun1(driver):
                         time.sleep(5)
                         continue
                     break
-
+            
             # Replace
             credit = credit.replace('¥ ', '')
             credit = credit.replace(',', '')
@@ -210,11 +209,12 @@ def ven387(driver):
         time.sleep(1)
         
         # Click Login
-        alilogin = pyautogui.locateOnScreen('./image/alilogin.png')
-        if alilogin:
-            pyautogui.click(pyautogui.center(alilogin))
-        else:
-            pass
+        driver.switch_to.frame("alibaba-login-box")
+        login_button = wait_buttonclick_XPATH(driver, "//button[contains(text(),'立即登录')]")
+        login_button.click()
+
+        # switch back to default content, before iframe
+        driver.switch_to.default_content()
         
         time.sleep(3) 
         
@@ -310,7 +310,7 @@ def aliyun3(driver):
                 else:
                     time.sleep(1)
             
-            # click lastpass extension        
+            # click lastpass extension
             pyautogui.click(x=1416, y=62)
 
             # Wait for image Appear
@@ -321,7 +321,7 @@ def aliyun3(driver):
             time.sleep(1)
             pyautogui.write(ID[id])
             time.sleep(1)
-            pyautogui.click(x=1257, y=171)
+            pyautogui.click(x=1216, y=175)
             time.sleep(1)
 
             # Login Button(id)
@@ -428,8 +428,8 @@ def aliyun3(driver):
 # watermelon【国际站】【RAM】
 def watermelon_1(driver):
 
-    id = tuple_id[17]
-    id_Range = tuple_id[18] - tuple_id[17]
+    id = tuple_id[16]
+    id_Range = tuple_id[17] - tuple_id[16]
     X = 0
     Y = 0
 
@@ -447,6 +447,8 @@ def watermelon_1(driver):
                     break
                 else:
                     time.sleep(1)
+
+            # click lastpass extension
             pyautogui.click(x=1416, y=62)
 
             # Wait for image Appear
@@ -726,7 +728,7 @@ def aliyun2(driver):
 # watermelon 【国际站】
 def watermelon_2(driver):
 
-    id = tuple_id[18]
+    id = tuple_id[17]
     X = 0
     Y = 0
 
@@ -874,9 +876,9 @@ def watermelon_2(driver):
 
 driver = chrome()
 driver = next(driver)
-aliyun1(driver)
-ven387(driver)
-aliyun3(driver)
+# aliyun1(driver)
+# ven387(driver)
+# aliyun3(driver)
 watermelon_1(driver)
 aliyun2(driver)
 watermelon_2(driver)    

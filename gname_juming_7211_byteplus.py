@@ -155,7 +155,7 @@ def jumingwang(driver):
 # sms326
 def sms326(driver):
 
-    id = tuple_id[13]
+    id = tuple_id[12]
 
     driver.get('https://www.google.com')
     time.sleep(1)
@@ -239,7 +239,7 @@ def sms326(driver):
 # 7211.com ven196
 def ven196_7211(driver):
     
-    id = tuple_id[14]
+    id = tuple_id[13]
 
     driver.get('https://www.7211.com/login.php')
     wait(driver, '/html/body/div[2]/div/div/div[1]/div[1]/div/h2') 
@@ -293,7 +293,7 @@ def ven196_7211(driver):
 # ven295
 def ven295(driver):
     
-    id = tuple_id[15]
+    id = tuple_id[14]
 
     try:
         driver.get('https://intl.cloud.tencent.com/zh/account/login?s_url=https%3A%2F%2Fconsole.intl.cloud.tencent.com%2Fexpense%2Frmc%2Faccountinfo')
@@ -358,7 +358,7 @@ def ven295(driver):
 # ven467 byteplus
 def ven467(driver):
     
-    id = tuple_id[16]
+    id = tuple_id[15]
     
     try:
         driver.get("https://console.byteplus.com/auth/login/?redirectURI=https%3A%2F%2Fwww.byteplus.com&_gl=1*1ndxskn*_gcl_au*NTI5NTk5LjE3MjM0MzUyNzg.*_ga*NDc5ODkwMTM2LjE3MjM0MzUyNzg.*_ga_3H57BBC3B9*MTcyMzQzNTI3Ny4xLjAuMTcyMzQzNTI3Ny42MC4wLjA")
@@ -395,7 +395,6 @@ def ven467(driver):
 driver = chrome()
 driver = next(driver)
 # gname(driver) 不要用先
-# jumingwang(driver) 不要用先
 sms326(driver)
 ven196_7211(driver)
 ven295(driver)

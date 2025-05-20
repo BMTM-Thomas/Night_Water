@@ -21,8 +21,6 @@ ID = (
       "ven281", "ven283", "ven284",
     # Gname
       "ven332", "ven417",
-    # 聚名網
-      "ven336 聚名網", "ven353 聚名網",
     # sms326
       "ven326",
     # 7211.com
@@ -117,8 +115,6 @@ mongodb_id = (
               "660515a0f9328322046690ca", # ven284
               "660515a0f9328322046690cb", # ven332
               "660515a0f9328322046690cc", # ven417
-              "661f5ea99f4450b851d255d0", # ven336
-              "661f5ea99f4450b851d255d1", # ven353
               "6639017a8a475f0ccf08ad13", # ven326 sms_man
               "663901e48a475f0ccf08ad14", # ven196 7211.com
               "6643a21a3953c8f355c0a007", # ven295 international tencent
@@ -139,16 +135,15 @@ tuple_id = (
            64,    # 9 _ 华为云 【华为帐号登录】#303
            72,    # 10 _ Ucloud #281
            75,    # 11 _ Gname #332
-           77,    # 12 _ 聚名網 #336
-           79,    # 13 _ sms326
-           80,    # 14 _ 7211.com ven196  
-           81,    # 15 _ ven295 international tencent #295
-           82,    # 16 _ ven467 bytePlus
-           83,    # 17 _ ven191 #watermelon
-           92,    # 18 _ ven318 #watermelon
+           77,    # 13 _ sms326
+           78,    # 14 _ 7211.com ven196  
+           79,    # 15 _ ven295 international tencent #295
+           80,    # 16 _ ven467 bytePlus
+           81,    # 17 _ ven191 #watermelon
+           90,    # 18 _ ven318 #watermelon
 )   
 
-zen_noc_tuple = tuple_id[17] + 1
+zen_noc_tuple = tuple_id[16] + 1
 
 # 华为云【OPSADMIN】【IAM用户登录】
 Huawei_Webpage = ("https://auth.huaweicloud.com/authui/login.html?id=hwc72804421&locale=zh-cn#/login",            # ven236
@@ -170,7 +165,7 @@ Tencent_Webpage = ("https://www.tencentcloud.com/zh/account/login/subAccount/200
 
 if __name__ == "__main__":
 
-  tupl3 = ["ven338", "ven387", "ven128", "ven136", "ven182", "ven314", "ven366", "ven322", "ven236", "ven303", "ven281", "ven332", "ven336 聚名網", "ven326", "ven196", "ven295", "ven467", "ven191", "ven318"]
+  tupl3 = ["ven338", "ven387", "ven128", "ven136", "ven182", "ven314", "ven366", "ven322", "ven236", "ven303", "ven281", "ven332", "ven326", "ven196", "ven295", "ven467", "ven191", "ven318"]
   
   index1= ID.index("ven338")
   index2= mongodb_id[index1]

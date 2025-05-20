@@ -108,10 +108,6 @@ n_webpage = (
             "http://10.77.1.196/stocks/a7b6ed2a-2122-4e59-b02d-20f00e4b6606/",         # ven332  
             "http://10.77.1.196/stocks/a505bba6-f20e-4292-8c7a-411a2ebb3039/",         # ven417 
 
-            # jumingwang
-            "http://10.77.1.196/stocks/f578a364-8d7a-42ca-b4e2-29de693072dd/",         # ven336
-            "http://10.77.1.196/stocks/1e74191d-7897-42e4-a952-2a86530490c8/",         # ven353
-
             # sms-man
             "http://10.77.1.196/stocks/4b084877-32c0-45f9-ac88-56c12cba770f/",         # ven326
 
