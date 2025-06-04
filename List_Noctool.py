@@ -2,6 +2,7 @@ n_webpage = (
             # 阿里云【中国站】
              "http://10.77.1.196/stocks/cb224b5f-6437-4955-848d-b473c5c0fad7/",        # ven338
              "http://10.77.1.196/stocks/0483b2e3-3b03-4478-bee7-c4fa5e31850d/",        # ven407
+             "http://10.77.1.196/stocks/6df23d8e-eac8-452b-9438-cebb423f6127/",        # ven360
              "http://10.77.1.196/stocks/089efd5a-cdd0-49a3-bc57-54e7496a3455/",        # ven387
 
             # 阿里云【国际站】

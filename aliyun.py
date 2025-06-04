@@ -95,7 +95,7 @@ def aliyun1(driver):
 
             # Extract credit
             # This is due to VEN407 change UI
-            if i == 1:
+            if i == 1 or i == 2:
                 # Waiting for a Text to be appear
                 wait(driver, "//div[@class='label'][contains(text(),'账户可用额度')]") 
 
@@ -876,9 +876,9 @@ def watermelon_2(driver):
 
 driver = chrome()
 driver = next(driver)
-# aliyun1(driver)
-# ven387(driver)
-# aliyun3(driver)
+aliyun1(driver)
+ven387(driver)
+aliyun3(driver)
 watermelon_1(driver)
 aliyun2(driver)
 watermelon_2(driver)    

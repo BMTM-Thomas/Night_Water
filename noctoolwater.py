@@ -24,15 +24,24 @@ def noctool(driver):
                 pyautogui.click(x=879, y=346)
                 time.sleep(1)
 
-            
             while True:
-                if pyautogui.locateOnScreen('./image/current_water.png') is None:
+                if pyautogui.locateOnScreen('./image/current_water.png', grayscale= True) is None:
                     pyautogui.click(x=1595, y=812)
-                    time.sleep(1)
+                    time.sleep(0.5)
                     pyautogui.scroll(-100)
-                    continue
                 else:
                     break
+
+            # # Wait for image Appear (Backup)
+            # current_water = None
+            # while current_water is None:
+            #     current_water = pyautogui.locateOnScreen('./image/current_water.png', grayscale = True)
+            #     pyautogui.click(x=1595, y=812)
+            #     time.sleep(0.5)
+            #     pyautogui.scroll(-100)
+
+            #     if current_water:
+            #         break
 
             # Click
             pyautogui.click(x=168, y=671)
@@ -54,8 +63,8 @@ def noctool(driver):
             # pyautogui.hotkey("Command", "V")
 
             # button click (新增记录)
-            pyautogui.hotkey("Enter")
-            time.sleep(1)
+            # pyautogui.hotkey("Enter")
+            # time.sleep(1)
     except:
         pass
 

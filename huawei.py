@@ -18,9 +18,7 @@ def huawei1(driver):
             wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span') 
 
             time.sleep(1)
-
-            wait(driver, '/html/body/div[3]/div/div[2]/div[2]/div[1]/span') 
-            time.sleep(1)
+            
             pyautogui.click(x=1416, y=62)
 
             # Wait for image Appear
@@ -61,7 +59,7 @@ def huawei1(driver):
             wait(driver, '/html/body/div[4]/ibiza-root/div/div/ibiza-home/div/ibiza-home-mission-board/div[2]/app-home-tabs/div/div[1]/button[2]/div[2]') # 自定义控制台 
             time.sleep(2)
 
-            driver.get('https://account-intl.huaweicloud.com/usercenter/?region=ap-southeast-1#/userindex/allview')
+            driver.get('https://account-intl.huaweicloud.com/usercenter/?agencyId=0d767538360091fc1f07c00ef12e8af5&region=ap-southeast-1&locale=zh-cn#/userindex/allview')
             wait(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
 
             time.sleep(2)
@@ -154,20 +152,20 @@ def huawei2(driver):
             pyautogui.click(x= 1191, y=504)
             time.sleep(2)
 
-            # if 登入验证appear ven420, ven425
-            if i >= 6:
-                wait(driver, '/html/body/div[3]/div/div[1]/div[1]/p') #登录验证
-                time.sleep(1)
-                pyautogui.click(x= 540, y=455)
-                time.sleep(1)
-                pyautogui.click(x=662, y=559)
+            # # if 登入验证appear ven420, ven425
+            # if i >= 6:
+            #     wait(driver, '/html/body/div[3]/div/div[1]/div[1]/p') #登录验证
+            #     time.sleep(1)
+            #     pyautogui.click(x= 540, y=455)
+            #     time.sleep(1)
+            #     pyautogui.click(x=662, y=559)
 
             wait(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
             time.sleep(2)
 
             # Extract Credit
             credit = find_element_text(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span')
-
+            
             # Replace
             credit = credit.replace(',', '')
             credit = credit.replace('$', '')
