@@ -56,16 +56,16 @@ def huawei1(driver):
                 pass
 
 
-            wait(driver, '/html/body/div[4]/ibiza-root/div/div/ibiza-home/div/ibiza-home-mission-board/div[2]/app-home-tabs/div/div[1]/button[2]/div[2]') # 自定义控制台 
-            time.sleep(2)
+            wait(driver, '//span[contains(text(),"安全监控")]') # 安全监控
+            time.sleep(1)
 
-            driver.get('https://account-intl.huaweicloud.com/usercenter/?agencyId=0d767538360091fc1f07c00ef12e8af5&region=ap-southeast-1&locale=zh-cn#/userindex/allview')
-            wait(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[1]/span') 
+            driver.get('https://account-intl.huaweicloud.com/usercenter/?agencyId=0d7674b62e00f2a71f10c0148595ffbb&region=ap-southeast-1&locale=zh-cn#/userindex/allview')
+            wait(driver, '//cbcsubexpense-partner-budget[@class="balance ng-star-inserted"]//div[@class="card-title"]') 
 
             time.sleep(2)
             
             # Extract Credit   
-            credit = find_element_text(driver, '/html/body/div[4]/cbcusercenterwebsite-master-root/cbcusercenterwebsite-layout-default/div/div[1]/div/cbcsubexpense-root/div/ti-app-layout-main-content/cbcsubexpense-allview-menu/cbcsubexpense-allview-hk/tp-layout-content/div/tp-layout-column[1]/tp-layout-content-body[1]/tp-layout-section/div[1]/cbcsubexpense-partner-budget/div[2]/div[1]/span') 
+            credit = find_element_text(driver, '//span[@id="remainAmount_bindtype3"]') 
                                                 
             # Replace
             credit = credit.replace(',', '')

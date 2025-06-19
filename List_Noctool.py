@@ -86,6 +86,7 @@ n_webpage = (
             "http://10.77.1.196/stocks/3d54541a-40a1-48c5-97ab-35b431b1c23c/",         # ven399
             "http://10.77.1.196/stocks/3ecf782b-44f7-4e94-bcad-3eb6dbbe504f/",         # ven400
             "http://10.77.1.196/stocks/4db17abb-d296-497a-a2ce-cc4048289347/",         # ven474
+            "http://10.77.1.196/stocks/4366551a-7ad4-4406-9e6f-79cd0d8a0dcd/",         # ven479
 
 
 
@@ -101,8 +102,6 @@ n_webpage = (
 
             # UCLOUD云
             "http://10.77.1.196/stocks/4fb2046c-97f3-4057-a5d7-71a9267c0b81/",         # ven281
-            "http://10.77.1.196/stocks/ce8a98f1-43ae-4241-9aa2-3b38ac65a902/",         # ven283
-            "http://10.77.1.196/stocks/f65e1454-16d3-49a6-9b5b-163a50c64e5e/",         # ven284
 
             # Gname
             "http://10.77.1.196/stocks/a7b6ed2a-2122-4e59-b02d-20f00e4b6606/",         # ven332  

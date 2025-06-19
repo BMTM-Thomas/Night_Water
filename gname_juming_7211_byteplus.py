@@ -168,41 +168,27 @@ def sms326(driver):
             while image_vault is None:
                 image_vault = pyautogui.locateOnScreen('./image/vault.png', grayscale = True)
 
-            time.sleep(1)
+            time.sleep(0.5)
             pyautogui.write(ID[id])
-            time.sleep(1)
+            time.sleep(0.5)
             pyautogui.click(x=1227, y=157)
-            time.sleep(1)
-            pyautogui.moveTo(1082,164)
-            time.sleep(1)
-            
-            # Restore Zoom 100%
-            pyautogui.hotkey('command', '0')
+            time.sleep(0.5)
 
             wait_for_page_load(driver)
-            time.sleep(2)
 
-            # if is in login page, then do, else ignore
-            if pyautogui.locateOnScreen('./image/sms_login.png') is not None:
-                time.sleep(10)
-                pyautogui.click(x=790, y=660)
-                time.sleep(5)
-            else:
-                time.sleep(8)
-                pass
-            
-            # Zoom up
-            for i in range(4):
-                pyautogui.hotkey('command', '+')
+            # Wait for 1. Select a service image appear
+            select_Service_img = None
+            while select_Service_img is None:
+                select_Service_img = pyautogui.locateOnScreen('./image/select_service.png', grayscale = True)
 
-            time.sleep(2)
+            time.sleep(0.5)
 
             # Custom_Screenshot using cv2, due to imagegrab have some bug during screenshort
-            # The first x,y use check_corrdinates tool to find the top-left coordinates
-            # Weight & Height need to test and adjust by yourself
-            x, y, width, height = 240,100,150,54
+            # How to get x, y, width, height ?
+            # First screenshot and save, and copy "wait for image Appear code" and then run code and find the coordinates
+            x, y, width, height = 1203,123,80,24
             custom_screenshot = cv2.cvtColor(np.array(pyautogui.screenshot(region=(x, y, width, height))), cv2.COLOR_RGB2BGR)
-            cv2.imwrite(('./晚班水位/' + ID[id] + '_tesseract.png'), custom_screenshot)
+            cv2.imwrite(('./晚班水位/ven326_tesseract.png'), custom_screenshot)
 
             time.sleep(1)
             # Tesseract Image Extract value
@@ -218,19 +204,14 @@ def sms326(driver):
             mangos_id = {'_id': ObjectId(mongodb_id[id])}
             update_one(mangos_id, credit)
             print(f"{ID[id]}= {credit}")
-
-            time.sleep(1)
-            pyautogui.hotkey('command', '0')
-            time.sleep(1)
-            
+          
             # Screenshot
             ImageGrab.grab().save('./晚班水位/' + ID[id] + '.png')
 
             id+=1
-            
-            time.sleep(1)
+            time.sleep(0.5)
             pyautogui.click(547,19)
-            time.sleep(1)
+            time.sleep(0.5)
 
     except Exception as e:
         print(f"An error occurred: {e}")
